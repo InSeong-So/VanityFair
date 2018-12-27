@@ -1,0 +1,42 @@
+/* 상단 */
+#header #menu{
+    width: 80%;
+    left:10%;
+    background-color: red;
+}
+
+#menu{
+    transition: all 0.3s ease;
+}
+
+/* 중앙 */
+#main #mainframe{
+    width: 80%;
+    margin: 0 10%;
+}
+.c_photo img{
+    height: 170px;
+    width: 130px;
+}
+/* 하단 */
+footer #qna{
+    width: 80%;
+    margin: 0 10%;
+}
+
+#fo1 {
+    width: 60%;
+}
+
+#fo2{
+    width: 40%;
+}
+
+#fo1 div{
+    margin-left: 5%;
+    margin-right: 0;
+}
+
+#fo2 img{
+    width: 70%;
+}

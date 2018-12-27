@@ -1,0 +1,91 @@
+/* 상단 */
+#header {
+    transition: all 0.2s ease;
+    background-color: black;
+}
+
+#header #menu{
+    width: 100%;
+    left: 0;
+    background-color: black;
+    transition: all 0.2s ease;
+}
+
+#aa {
+    color: white;
+    font-weight: 1000;
+    background-color: black;
+    margin: 0 calc((100% - 153.09px) / 2);
+    display: inline;
+    text-align:center;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#aa:hover{
+    color: yellow;
+}
+
+#menu{
+    width: 100%;
+    height: 80px;
+}
+
+.menu{
+    background-color: black;
+}
+
+.cf{
+    height: 3vh;
+}
+
+.cf .a, a{
+    width: 25vw;
+}
+
+
+#mp{
+    display: none;
+}
+
+#login{
+    float: right;
+    right: 5%;
+}
+
+/*********************************************************************************/
+
+/*********************************************************************************/
+
+/* 중앙 */
+#main{
+    background-color: #b1acac;
+}
+
+#main #mainframe{
+    width: 94%;
+    margin: 0 3%;
+}
+.c_photo img{
+    height: 130px;
+    width: 100px;
+}
+/* 하단 */
+footer #qna{
+    width: 100%;
+    margin: 0;
+}
+
+#fo1{
+    width: 100%;
+    font-size: 12.5px;
+}
+
+#fo1 div{
+    margin-left: 2%;
+}
+
+#fo2{
+    display: none;
+}

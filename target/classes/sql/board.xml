@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<insert id="boardInsert" parameterType="HashMap">
+		insert into board 
+			(userNo, boardTitle, boardContents, boardClass, regDate)
+		values
+			(#{userNo}, #{boardTitle}, #{boardContents}, #{boardClass}, DATE_FORMAT(NOW(),'%Y%m%d'))
+	</insert>
+	
+	<select id="getBoardNo" resultType="Integer">
+		select 
+				case when max(boardNo) > 0 then max(boardNo)
+				     else 1
+			   end as boardNo
+		  from board
+	</select>
+	
+	<select id="boardOne" parameterType="HashMap" resultType="HashMap">
+		select * from board where boardNo = #{boardNo}
+	</select>
+	
+	<select id="boardList" resultType="HashMap">
+		select * from board where delYn = 'N'
+	</select>
+	
+	<update id="boardUpdate" parameterType="HashMap">
+		update board
+		set boardTitle = #{boardTitle},
+			boardContents = #{boardContents}
+		where boardNo = #{boardNo}
+	</update>
+	
+	<update id="boardDelete" parameterType="HashMap">
+		update board
+		set delYn = 'Y'
+		where boardNo = #{boardNo}
+	</update>
+	
+	<select id="boardUserSelect" parameterType="HashMap" resultType="HashMap">
+		select * from board where userNo = #{userNo} and boardNo = #{boardNo}
+	</select>
+	
+</mapper>

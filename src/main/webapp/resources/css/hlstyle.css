@@ -1,0 +1,53 @@
+html, body,  h1{    
+    margin: 0;
+}
+
+#div3 {   
+    display: block;
+    width: 50%;    
+    height: calc((30vw - 20px) * 6);
+    background: #955723;   
+    float: left;   
+}
+
+#div4 {    
+    margin-left: 50%;
+    height: calc((30vw - 20px) * 6);
+    background-color: #955742 ;   
+}
+
+#div3 ul, #div4 ul {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding-left: 0;
+}
+#div3 li, #div4 li {
+    display: inline-block;
+    float: left;
+    width: 50vw;
+    height: calc(30vw - 0px);
+    padding: 10px;
+}
+#div3 div, #div4 div{
+    width: 70%;
+    height: 50%;            
+    position: relative;
+    overflow: hidden;
+}
+#div3 img, #div4 img {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 40%;
+    transform: translate(-80%, -50%);
+}
+#div3 p, #div4 p {
+    position: absolute;
+    width: 40%;
+    top: 50%;
+    left: 40%;
+    transform: translate(50%, -50%);
+}
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/common.js"></script>
+	<title> 회원가입 </title>
+    <script>
+		$(document).ready(function(){
+			$("form").submit(function( event ) {
+				  event.preventDefault();
+				  
+				  var userEmail = $("#userEmail").val();
+				  var userPassword = $("#userPassword").val();
+				  var userName = $("#userName").val();
+				  var userSex = $("#userSex").val();
+				  var userNumb = $("#userNumb").val();
+				  var userAdr = $("#userAdr").val();
+				  
+				  var d = {
+						"userEmail" : userEmail,
+						"userPassword" : userPassword,
+						"userName" : userName,
+						"userSex" : userSex,
+						"userNumb" : userNumb,
+						"userAdr" : userAdr
+				  };
+				  
+				  $.ajax({
+					  url: "/sis/user/insert",
+					  data: d
+				  }).done(function(data) {
+					  var d = JSON.parse(data);
+					  if(d.result == 1){
+						  alert("성공");
+						  location.href="/sis"
+					  }
+					  else if(d.result == 0){
+						  alert("중복된 아이디입니다.");
+					  }
+					  else{
+						  alert("실패");
+					  }
+				  });
+			});
+		});
+    </script>
+</head>
+
+<body>
+	<form>
+		<table width="700">
+		    <tr>
+		        <th>회원가입</th>
+		    </tr>
+		    
+		    <tr>
+		        <td>
+		            <table width="100%" bgcolor="black" cellpadding="5" cellspacing="1" border="0">
+		                <tr>
+		                    <td width="20%" bgcolor="#cacaca">&nbsp;이름</td>
+		                    <td bgcolor="white">
+		                        <input type="text" name="userName" id="userName" placeholder="이름" size="10" tabindex="2" maxlength="50" required="required">
+		                        <input type="text" name="userSex" id="userSex" placeholder="성별" size="1" tabindex="2" maxlength="2">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td width="20%" bgcolor="#cacaca">&nbsp;이메일</td>
+		                    <td bgcolor="white">
+		                        <input type="email" name="userEmail" id="userEmail" size="30" placeholder="아이디" tabindex="14" maxlength="100" required="required">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td width="20%" bgcolor="#cacaca">&nbsp;비밀번호</td>
+		                    <td bgcolor="white">
+		                        <input type="password" name="userPassword" id="userPassword" size="20" placeholder="비밀번호" tabindex="7" maxlength="15" required="required"> * 영문과 숫자 조합으로 15자리 이하
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td width="20%" bgcolor="#cacaca">&nbsp;전화번호</td>
+		                    <td bgcolor="white">
+		                    <input type="text" name="userNumb" id="userNumb" size="20" maxlength="12" required="required">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td width="20%" bgcolor="#cacaca">&nbsp;주소</td>
+		                    <td bgcolor="white">
+		                    <input type="text" name="userAdr" id="userAdr" size="20" maxlength="100" required="required">
+		                    </td>
+		                </tr>
+		            </table>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td align="center" style="padding: 10px;">
+		        <input type="submit" value="회원가입">
+		        <a href="/sis">돌아가기</button>
+		        </td>
+		    </tr>
+		</table>
+	</form>
+</body>
+</html>

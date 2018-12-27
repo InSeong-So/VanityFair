@@ -1,0 +1,183 @@
+/* QnA.html 용*/
+#qa {
+    background-color: #b1acac;
+}
+#qa_title {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+#qa_title p {
+    color: white;
+    font-size: 13px;
+}
+#qa_main {
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    height: 750px;
+}
+.qa_taplist {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: calc((100% / 4) - 4vw);
+    padding-top: calc(25px + 2vw);
+    height: calc(74px - 2vw);
+}
+#qa_taplist2 {
+    padding-top: calc(15px + 2vw);
+    height: calc(84px - 2vw);
+}
+#qa_btitle { 
+    margin: 10px;
+    margin-bottom: 0;
+    width: calc(100% - 20px);
+}
+#qa_btitle h3 {
+    text-align: center;
+}
+#qa_bsinput {
+    width: 120px;
+}
+#qa_bsearch {
+    margin: 0 10px;
+    width: calc(100% - 20px);
+}
+#qa_board table {
+    margin: 0;
+    width: calc(100% + 1px);
+    border-left-style: none;
+}
+#qa_board th {
+    font-size: 12px;
+}
+#qa_board td {
+    font-size: 12px;
+}
+.qa_btext {
+    padding-left: 15px;
+}
+#qa_bno {
+    margin: 10px;
+    margin-top: 5px;
+    width: calc(100% - 20px);
+    font-size: 12px;
+}
+.qa_bno_none {
+    display: none;
+}
+#qa_ta2tap {
+    width: calc(100% + 1px);
+    height: 60px;
+    margin: 0;
+    border-left: 0;
+}
+#qa_ta2tap li {
+    width: calc(20% - 1px - 2vw);
+    height: calc(60px - 3vw);
+    padding-top: 3vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-right: 1px lightgray solid;
+}
+#qa_write {
+    position: relative;
+    left: calc(50% - 28px);
+    bottom: -10px;
+}
+
+/*Reservation.html 용*/
+#rsv {
+    background-color: #b1acac;
+    height: 1350px;
+}
+#rsv h2 {
+    display: none;
+}
+#rsv_area {
+    display: none;
+}
+#rsv_search {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 270px;
+    border: 0;
+    background-color: red;
+}
+#rsv_search h3 {
+    height: 26px;
+    margin: 0;
+    padding: 5px;
+    background-color: #b10000;
+    color: white;
+    text-align: center;
+}
+.rsv_menu {
+    width: calc(100% - 20px);
+    background-color: #fffcfc;
+    padding: 10px;
+}
+.rsv_menu p {
+    margin: 0;
+    display: inline-block;
+}
+#rsv_menu1 {
+    height: 20px;
+}
+#rsv_menu1 p {
+    margin-right: 15px;
+}
+#rsv_menu2 {
+    height: 90px;
+}
+#rsv_menu2 p {
+    display: block;
+    padding-right: 140px;
+}
+#rsv_menu3 {
+    height: 25px;
+}
+#rsv_menu3 p {
+    margin-right: 65px;
+}
+#rsv_startbutton {
+    height: 36px;
+    background-color: #061e6f;
+}
+#rsv_startbutton:active {
+    background-color: #a9bdff;
+}
+#rsv_map {
+    margin: 5px;
+    width: calc(100% - 10px);
+    height: 400px;
+}
+#rsv_list {
+    margin-top: 20px;
+    height: 620px;
+}
+#rsv_list table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 600px;
+}
+#rsv_list table th {
+    font-size: 13px;
+}
+#rsv_list table td {
+    font-size: 13px;
+}
+.rsv_list_img {
+    border: transparent outset 2px;
+    border-radius: 5px;
+    border-image: linear-gradient(to right bottom, gold, white 15%, gold 50%, white 85%, gold);
+    border-image-slice: 1;
+    width: 110px;
+    height: 70px;
+}
+#rsv_list table button {
+    width: 50px;
+}
+.rsv_list_zone {
+    width: 70px;
+}

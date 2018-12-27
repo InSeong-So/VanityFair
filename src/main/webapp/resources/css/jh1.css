@@ -1,0 +1,475 @@
+html, body {
+    margin: 0;
+}
+
+ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+/* QnA.html 용*/
+#qa {
+    background-color: white;
+    width: 100%;
+    height: 900px;
+    float: left;
+}
+#qa_title {
+    margin: 0 25px;
+    margin-top: 50px;
+    width: calc(100% - 50px)
+}
+#qa_title p {
+    color: gray;
+}
+#qa_main {
+    margin: 0 25px;
+    width: calc(100% - 50px);
+    height: 700px;
+    border-style: solid;
+    border-width: 1px;
+    border-top-width: 3px;
+    border-color: lightgray;
+    border-top-color: gray;
+    background-color: #f4f4f4;
+}
+#qa_tap {
+    float: left;
+    width: 99px;
+    height: 700px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-color: lightgray;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+.qa_taplist {
+    list-style-type: none;
+    float: left;
+    width: 99px;
+    height: 62px;
+    border-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-top: 37px;
+}
+.qa_taplist:hover {
+    background-color: deepskyblue;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+#qa_taplist2 {
+    height: 72px;
+    padding-top: 27px;
+}
+#qa_board {
+    float: left;
+    width: calc(100% - 100px);
+    height: 700px;  
+}
+#qa_btitle { 
+    margin: 40px;
+    margin-right: 0;
+    margin-bottom: 0;
+    width: calc(50% - 40px);
+    height: 60px;
+    display: inline-block;
+    float: left;
+}
+#qa_btitle h3 {
+    margin: 0;
+}
+#qa_bsearch {
+    margin: 40px;
+    margin-left: 0;
+    margin-bottom: 0;
+    width: calc(50% - 40px);
+    height: 60px;
+    display: inline-block;
+    float: left;
+    text-align: right;
+}
+#qa_bsinput {
+    width: 150px;
+    height: 20px;
+    border-radius: 5px;
+    border-style: ridge;
+}
+#qa_bsbutton {
+    background-color: white;
+    height: 26px;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+#qa_bsbutton:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+}
+#qa_board table {
+    margin: 0 40px;
+    width: calc(100% - 80px);
+    height: 497px;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: lightgray;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: gray;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: white;
+}
+#qa_table2 {
+    display: none;
+}
+#qa_table3 {
+    display: none;
+}
+.qa_btext:hover {
+	cursor: pointer;
+}
+#qa_board th {
+    padding: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: lightgray;
+    width: auto;
+    font-size: 15px;
+}
+#qa_board td {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: lightgray;
+    width: auto; 
+    font-size: 15px;
+}
+.qa_btext {
+    text-align: left;
+    padding-left: 15px;
+    text-decoration: none;
+}
+.qa_btext a {
+    text-decoration: none;
+    color: black;
+}
+#qa_ta2tap {
+    display: none;
+    float: left;
+    width: calc(100% - 81px);
+    height: 64px;
+    padding: 0;
+    margin: 0 40px;
+    border-left: 1px lightgray solid;
+    border-top: 1px lightgray solid;
+    background-color: white;
+    list-style: none;
+    text-align: center;
+}
+#qa_ta2tap li {
+    display: inline-block;
+    float: left;
+    width: calc(20% - 1px);
+    height: 44px;
+    padding-top: 20px;
+    border-right: 1px lightgray solid;
+}
+#qa_ta2tap li:hover {
+    background-color: lightgray;
+    border-color: lightgray;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+#qa_bno {
+    margin: 10px 40px;
+    padding: 0;
+    width: calc(100% - 80px);
+    height: 50px;
+    list-style-type: none;
+    text-align: center;
+    font-size: 15px;
+    display: inline-block;
+    float: left;
+}
+#qa_bno li {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.qa_bno_init {
+    display: inline-block;
+}
+.qa_bno_none {
+    display: inline-block;
+}
+#qa_bno li:hover {
+    color: darkred;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+#qa_write {
+    padding: 3px;
+    margin-left: 10px;
+    width: 50px;
+    height: 17px;
+    font-size: 12px;
+    text-align: center;
+    background-color: white;
+    border: outset 2px;
+    border-radius: 6px;
+    float: right;
+}
+
+#qa_write:hover{
+    cursor:pointer;
+    background-color: azure;
+}
+
+ /*Reservation.html 용*/
+#rsv {
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 1500px;
+    float: left;
+}
+#rsv h2 {
+    display: inline-block;
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 0;
+    margin-left: 20px;
+    width: calc(20% - 20px);
+    height: 50px; 
+}
+#rsv_area {
+    display: inline-block;
+    float: left;
+    margin-top: 50px;
+    width: 80%;
+    height: 50px;
+    text-align: right;
+}
+#rsv_area ul {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    padding-right: 10px;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 12px;
+}
+#rsv_area span {
+    float: left;
+    padding-right: 6px;
+}
+#rsv_area li {
+    text-align: center;
+    padding: 0 5px;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: lightgray;
+    float: left;
+}
+#rsv_area li:hover {
+    cursor: pointer;
+    background-color: burlywood;
+    color:white;
+    padding: 5px 5px;
+}
+#rsv_search {
+    background-color: white;
+    display: inline-block;
+    float: left;
+    margin: 45px 10px;
+    width: 220px;
+    height: 400px;
+    border: 5px solid #2c2c2c;
+    border-radius: 5px;
+    text-align: center;
+}
+#rsv_search h3 {
+    margin: 0;
+    padding: 5px;
+    background-color: #2c2c2c;
+    color: white;
+}
+.rsv_menu {
+    background-color: #9fff9b;
+    padding: 5px;
+    border-bottom: 1px solid grey;
+}
+.rsv_menu p {
+    margin: 5px 0;
+    color: #1b331b;
+}
+#rsv_menu1 {
+    height: 60px;
+}
+#rsv_menu2 {
+    height: 130px;
+}
+#rsv_menu3 {
+    height: 70px;
+}
+.rsv_menu select {
+    height: 24px;
+}
+#rsv_startbutton {
+    padding: 8px 15px;
+    margin: 12px;
+    border-radius: 8px;
+    border-color: #6f6fff;
+    border-bottom-width: 4px;
+    background-color: #6060ff;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+#rsv_startbutton:hover {
+    cursor: pointer;
+    animation-name: startsearch;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes startsearch {
+    0% {
+        background: linear-gradient(to right bottom, #6f6fff, #6060ff); 
+    }
+    25% {
+        background: linear-gradient(to right bottom, #6060ff, #6f6fff 25%, #6060ff); 
+    }
+    50% {
+        background: linear-gradient(to right bottom, #6060ff, #6f6fff 50%, #6060ff); 
+    }
+    75% {
+        background: linear-gradient(to right bottom, #6060ff, #6f6fff 75%, #6060ff); 
+    }
+    100% {
+        background: linear-gradient(to right bottom, #6060ff, #6f6fff);
+    }
+}
+#rsv_startbutton:active {
+    cursor: pointer;
+    margin-top: 14px;
+    border-bottom-width: 2px;
+}
+#rsv_map {
+    display: inline-block;
+    float: left;
+    margin: 20px 30px 20px 10px;
+    width: calc(100% - 290px);
+    height: 460px;
+}
+#rsv_list {
+    width: 100%;
+    height: 900px;
+    display: inline-block;
+    float: left;
+}
+#rsv_list table {
+    margin: 0 20px 20px 20px;
+    width: calc(100% - 40px);
+    height: 880px;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: white;
+}
+#rsv_list_table2 {
+    display: none;
+}
+#rsv_list table th {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 35px;
+    background-color: dimgrey;
+    color: white;
+}
+#rsv_list table td {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    border-bottom: 1px lightgray solid;
+}
+.rsv_list_img {
+    border: transparent outset 3px;
+    border-radius: 12px;
+    border-image: linear-gradient(to right bottom, gold, white 15%, gold 50%, white 85%, gold);
+    border-image-slice: 1;
+    width: 160px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+}
+#rsv_list_img1 {
+    background-image: url(/sis/resources/img/bag01.jpg);
+}
+#rsv_list_img2 {
+    background-image: url(/sis/resources/img/bag02.jpg);
+}
+#rsv_list_img3 {
+    background-image: url(/sis/resources/img/bag03.jpg);
+}
+#rsv_list_img4 {
+    background-image: url(/sis/resources/img/bag04.jpg);
+}
+#rsv_list_img5 {
+    background-image: url(/sis/resources/img/bag05.jpg);
+}
+#rsv_list_img6 {
+    background-image: url(/sis/resources/img/clock01.jpg);
+}
+#rsv_list_img7 {
+    background-image: url(/sis/resources/img/clock02.jpg);
+}
+#rsv_list_img8 {
+    background-image: url(/sis/resources/img/clock03.JPG);
+}
+#rsv_list_img9 {
+    background-image: url(/sis/resources/img/clock04.jpg);
+}
+#rsv_list_img10 {
+    background-image: url(/sis/resources/img/clock05.jpg);
+}
+.rsv_list_img:hover {
+    cursor: pointer;
+}
+.rsv_list_zone {
+    width: 100px;
+}
+#rsv_list table button {
+    width: 60px;
+    height: 28px;
+    background: linear-gradient(to right bottom, white, gold); 
+    border: gold outset 2px;
+    border-radius: 25px;
+}
+#rsv_list table button:hover {
+    cursor: pointer;
+    animation-name: button;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes button {
+    0% {
+        background: linear-gradient(to right bottom, white, gold); 
+    }
+    25% {
+        background: linear-gradient(to right bottom, gold, white 25%, gold); 
+    }
+    50% {
+        background: linear-gradient(to right bottom, gold, white 50%, gold); 
+    }
+    75% {
+        background: linear-gradient(to right bottom, gold, white 75%, gold); 
+    }
+    100% {
+        background: linear-gradient(to right bottom, gold, white);
+    }
+}

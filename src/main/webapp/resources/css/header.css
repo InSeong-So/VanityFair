@@ -1,0 +1,80 @@
+/* 메뉴바 */
+#aa{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display:none;
+}
+
+.menu{
+  width: 100%;
+  background: #2f3b3f;
+  transition: all 0.3s ease;
+}
+
+#menu ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+}
+
+#menu ul, li {
+    list-style: none;
+    margin: 0;
+    padding-top: 0.2em;
+}
+
+.cf {
+    width: 100%;
+    padding:0;
+    margin:0;
+    display:inline;
+}
+
+.cf a{
+    text-decoration: none;
+    text-align: center;
+    font-family: Arial, Helvetica;
+    color: #fff;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 15px;
+    width: 7%;
+}
+
+.cf li {
+    background: inline-block;
+    float: left;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-family: Arial, Helvetica;
+    width: 12.5%;
+    cursor: pointer;
+    font-size:14px;
+}
+
+.a:hover, #search:hover {
+    color: #fff042;
+    cursor: pointer;
+}
+
+/* 로그인 */
+#login {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    padding-top: 0.1em;
+    padding-right: 0.5em;
+}

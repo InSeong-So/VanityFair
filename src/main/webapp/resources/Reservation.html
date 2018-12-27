@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/jh1.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-width: 1200px)" href="css/jh2.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-width: 700px)" href="css/jh3.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="lib/QandR.js"></script>
+	<title> Search and Reservation </title>
+	<script>
+		$(document).ready(function(){
+			reaservation();
+		});
+	</script>
+</head>
+
+<body>
+    <div id="rsv">
+        <h2>물품예약</h2>
+        <div id="rsv_area">
+            <ul>
+                <span><b>지역 바로가기</b></span>
+                <li>전국</li>
+                <li>서울</li>
+                <li>인천</li>
+                <li>경기</li>
+                <li>강원</li>
+                <li>대전·충청</li>
+                <li>대구·경북</li>
+                <li>광주·전라</li>
+                <li>부산·경남</li>
+                <li>제주</li>
+            </ul>
+        </div>
+        <div id="rsv_search">
+            <h3>실시간 예약</h3>
+            <div id="rsv_menu1" class="rsv_menu">
+                <p><b>대여품목</b></p>
+                <input type="radio" name="goods" value="bag" checked>가방
+                <input type="radio" name="goods" value="watch">시계
+            </div>
+            <div id="rsv_menu2" class="rsv_menu">
+                <div>
+                    <p><b>대여일</b></p>
+                    <input type="date" name="rentalday" value="2018-05-28" min="2018-05-28" max="2019-01-31">
+                    <select>
+								<option value="00:00">00:00</option>
+                                <option value="00:30">00:30</option>
+                                <option value="01:00">01:00</option>
+                                <option value="01:30">01:30</option>
+                                <option value="02:00">02:00</option>
+                                <option value="02:30">02:30</option>
+                                <option value="03:00">03:00</option>
+                                <option value="03:30">03:30</option>
+                                <option value="04:00">04:00</option>
+                                <option value="04:30">04:30</option>
+                                <option value="05:00">05:00</option>
+                                <option value="05:30">05:30</option>
+                                <option value="06:00">06:00</option>
+                                <option value="06:30">06:30</option>
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                                <option value="18:30">18:30</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                                <option value="21:00">21:00</option>
+                                <option value="21:30">21:30</option>
+                                <option value="22:00">22:00</option>
+                                <option value="22:30">22:30</option>
+                                <option value="23:00">23:00</option>
+                                <option value="23:30">23:30</option>
+                        </select>
+                </div>
+                <div>
+                    <p><b>반납일</b></p>
+                    <input type="date" name="returnday" value="2018-06-25" min="2018-05-28" max="2019-01-31">
+                    <select>
+								<option value="00:00">00:00</option>
+                                <option value="00:30">00:30</option>
+                                <option value="01:00">01:00</option>
+                                <option value="01:30">01:30</option>
+                                <option value="02:00">02:00</option>
+                                <option value="02:30">02:30</option>
+                                <option value="03:00">03:00</option>
+                                <option value="03:30">03:30</option>
+                                <option value="04:00">04:00</option>
+                                <option value="04:30">04:30</option>
+                                <option value="05:00">05:00</option>
+                                <option value="05:30">05:30</option>
+                                <option value="06:00">06:00</option>
+                                <option value="06:30">06:30</option>
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                                <option value="18:30">18:30</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                                <option value="21:00">21:00</option>
+                                <option value="21:30">21:30</option>
+                                <option value="22:00">22:00</option>
+                                <option value="22:30">22:30</option>
+                                <option value="23:00">23:00</option>
+                                <option value="23:30">23:30</option>
+                        </select>
+                </div>
+            </div>
+            <div id="rsv_menu3" class="rsv_menu">
+                <div>
+                    <p><b>지역</b></p>
+                    <select>
+                        <option value="-1">지역 검색</option>
+                        <option value="1">전국</option>
+                        <option value="2">서울</option>
+                        <option value="3">인천</option>
+                        <option value="4">경기</option>
+                        <option value="5">강원</option>
+                        <option value="6">대전·충청</option>
+                        <option value="7">대구·경북</option>
+                        <option value="8">광주·전라</option>
+                        <option value="9">부산·경남</option>
+                        <option value="10">제주</option>
+                    </select>
+                </div>    
+            </div>
+            <button id="rsv_startbutton">검색시작!</button>
+        </div>
+        <div id="rsv_map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313740.168915977!2d125.62462485849026!3d35.7981071861466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356455ebcb11ba9b%3A0x91249b00ba88db4b!2z64yA7ZWc66-86rWt!5e0!3m2!1sko!2skr!4v1527065548992" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div id="rsv_list">
+            <table id="rsv_list_table1">
+                <tr>
+                    <th>대여존</th>
+                    <th>대여물품</th>
+                    <th>대여요금</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">가산디지털단지 3번출구</td>
+                    <td><div id="rsv_list_img1" class="rsv_list_img"></div><br>초고급샤넬백</td>
+                    <td>(할인가) 14,290원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">서울역</td>
+                    <td><div id="rsv_list_img2" class="rsv_list_img"></div><br>서울역좋지</td>
+                    <td>9,590원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">인천</td>
+                    <td><div id="rsv_list_img3" class="rsv_list_img"></div><br>멋진프라다</td>
+                    <td>(할인가) 11,990원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">광명사거리</td>
+                    <td><div id="rsv_list_img4" class="rsv_list_img"></div><br>한서부럽다임마</td>
+                    <td>(할인가) 5,200원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">울산</td>
+                    <td><div id="rsv_list_img5" class="rsv_list_img"></div><br>짝퉁아님</td>
+                    <td>2,400원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+            </table>
+            <table id="rsv_list_table2">
+                <tr>
+                    <th>대여존</th>
+                    <th>대여물품</th>
+                    <th>대여요금</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">여의도</td>
+                    <td><div id="rsv_list_img6" class="rsv_list_img"></div><br>국정원 시계</td>
+                    <td>(할인가) 7,700원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">가산디지털단지 2번출구</td>
+                    <td><div id="rsv_list_img7" class="rsv_list_img"></div><br>티타늄피아제시계</td>
+                    <td>14,990원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">강남</td>
+                    <td><div id="rsv_list_img8" class="rsv_list_img"></div><br>보석박힌거야 이거</td>
+                    <td>(할인가) 44,900원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">부산</td>
+                    <td><div id="rsv_list_img9" class="rsv_list_img"></div><br>부산은좀멀다</td>
+                    <td>(할인가) 7,400원</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+                <tr>
+                    <td class="rsv_list_zone">일본</td>
+                    <td><div id="rsv_list_img10" class="rsv_list_img"></div><br>한국이 아닌디?</td>
+                    <td>2,799엔</td>
+                    <td><button type="submit">예약</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

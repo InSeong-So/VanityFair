@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="lib/jquery.min.js"></script>
+<script src="lib/common.js"></script>
+<script src="lib/site.js"></script>
+<script src="lib/QandR.js"></script>
+<script>
+        $(document).ready(function(){
+            var menuList = ["welcome.html",
+                            "service.html",
+                            "cost.html",
+                            "QnA.html",
+                            "welcome.html",
+                            "Reservation.html",
+                            "welcome.html",
+							"login.html"];
+            if(localStorage.getItem("url") == null){
+                $("article").load("welcome.html");
+            }else{
+                $("article").load(localStorage.getItem("url"));
+            }
+            
+            $("#header li").click(function(){
+                var index = $("#header li").index(this);
+                $("article").load(menuList[index]);
+                localStorage.setItem("url", menuList[index]);
+                location.href="/sis/resources/main.html";
+                
+// 				setTimeout(function(){
+//                     if(index == 3){
+//                         qna();
+//                     }
+//                     if(index == 5){
+//                         reaservation();
+//                     }
+//                 }, 300);
+            });
+		
+            $("#aa").click(function(){
+                $("article").load("welcome.html");
+            });
+            
+  		  $.ajax({url:"/sis/session"}).done(function(data){
+				var d = JSON.parse(data);
+				console.log(d);
+				var html = "";
+				if(d != null){
+					html += "<li class='a' id='slogout'>Logout</li>";
+					$(".cf").append(html);
+				}
+				else{
+					html += "<li class='a' id='slogin'>Login</li>";
+					$(".cf").append(html);
+				}
+				
+				$("#slogin").on("click",function(){
+					location.href="login.html";
+// 					$("article").load("login.html");
+				});
+				
+				$("#slogout").on("click", function(){
+					$.ajax({url:"/sis/sessionDel"}).done(function(data){
+						alert("로그아웃 되었습니다.");
+						location.href="/sis";
+					});
+				});
+		  });	            
+        });
+    </script>
+<link rel='shortcut icon' href='http://gudi.kr/GDJ10/img/icon_goodee.png'>
+<link rel="stylesheet" type="text/css" href="css/PC.css">
+<link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="stylesheet" type="text/css" media="only screen and (max-width: 1000px)" href="css/TABLET.css">
+<link rel="stylesheet" type="text/css" media="only screen and (max-width: 710px)" href="css/MOBILE.css">
+	<title>Vánity Fáir</title>
+</head>
+
+<body>
+    <!-- 상단 -->
+    <section id="header">
+        <a id="aa">Vánity Fáir</a>
+        <nav id="menu" class="menu">
+            <ul class="cf">
+                <li id="mp"><a href="main.html" class="a">Vánity<br>Fáir</a></li>
+                <li class="a" id="mp">서비스<br>안내</li>
+                <li class="a" id="mp">요금<br>안내</li>
+                <li class="a">고객<br>센터</li>
+                <li class="a" onclick="javascript:loginOpen();">마이<br>페이지</li>
+                <li class="a">매물찾기<br>/예약</li>
+                <li class="a" id="mp" onclick="javascript:siteOpen();">제휴<br>사이트</li>
+            </ul>
+        </nav>
+    </section>
+    <!-- 중앙 -->
+    <section id="main">
+        <div id="mainframe">
+            <article>
+
+            </article>
+        </div>
+    </section>
+    <!-- 하단 -->
+    <footer>
+        <div id="qna">
+            <div id="fo1">
+                <div>
+                    <ul>
+                        <li class="ep">Vánity Fáir</li>
+                           <ul>
+                               <li class="ep2">About</li>
+                               <li class="ep2">Blog</li>
+                               <li class="ep2">Product</li>
+                               <li class="ep2">Support</li>
+                           </ul>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li class="ep">Community</li>
+                           <ul>
+                               <li class="ep2">Jobs</li>
+                               <li class="ep2">Meetups</li>
+                               <li class="ep2">Teams</li>
+                           </ul>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li class="ep">Social</li>
+                           <ul>
+                               <li class="ep2">Twitter</li>
+                               <li class="ep2">Facebook</li>
+                               <li class="ep2">KAKAO</li>
+                               <li class="ep2">Instagram</li>
+                           </ul>
+                    </ul>
+                </div>
+           </div>
+           <div id="fo2">
+               <ul>
+                   <li><a href="main.html"><img src="img/Vanity-fair-movie-logo.png"></a></li>
+               </ul>
+           </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/welcome.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/common.js"></script>
+<script>
+    $(document).ready(function(){ 
+        $(window).resize(function(){
+            var m = matchMedia("only screen and (max-width:710px)");
+            if(m.matches == true){
+                    $("#table2").css("display", "none");
+                    $("#table3").css("display", "none");
+                var i = 0;
+                $("#bi6head2").click(function(){
+                    i = i + 1;
+                    if(i == 1){
+                        $("#table1").css("display", "none");
+                        $("#table2").css("display", "block");
+                    }else if(i == 2){
+                        $("#table2").css("display", "none");
+                        $("#table3").css("display", "block");
+                    }else if(i == 3){
+                        $("#table3").css("display", "none");
+                        $("#table1").css("display", "block");
+                        i = 0;
+                    }
+                });
+            }else{
+                    $("#table1").css("display", "block");
+                    $("#table2").css("display", "block");
+                    $("#table3").css("display", "block");
+            }
+        });
+    });
+</script>
+</head>
+<body>
+            <section id="bi1" class="bimg">
+                <article id="contentshead">
+                    <h1>Vánity Fáir</h1>
+                        <p><strong>Superior</strong> reliability, optimal <strong>satisfaction</strong>, and <strong>best</strong> quality</p>
+                </article>
+            </section>
+        
+            <section id="bi2" class="bimg">
+                <article>
+                   <div id="div1">
+                    <h1>Vánity Fáir Present</h1>
+                    <p>Vánity Fáir was founded 2018. Our company is the shareing company which provides our customers with the best product used th best reliability and the best quality. We directly verification, negotiation, and sell in order to remove the bubbles. Vánity Fáir corporation's heart is always for customers in all ages. We have been preparing "Elegant" for a road shop like fairytale and we also provide good quality and unique product item's so that we can take one step closer to you. please give us your interest and support. Vánity Fáir all workers. </p>
+                    </div>
+                    <div class="div2">
+                        <input type="radio" name="pos" id="pos1" checked>
+                        <input type="radio" name="pos" id="pos2">
+                        <label for="pos1">Watch</label>
+                        <label for="pos2">Bag</label>
+                        
+                        <ul>
+                            <li>
+                                <p>BLANCPAIN</p>
+                                <img src="img/BLANCPAIN%20-%20FIFTY%20FATHOMS%20FLYBACK%20CHRONOGRAPH.jpg">
+                            </li>
+                            <li>
+                                <p>HARRYWINSTON</p>
+                                <img src="img/HARRY%20WINSTON%20-%20200-MMTZ39PL-KC.jpg">
+                            </li>
+                            <li>
+                                <p>PATEKPHILIPPE</p>
+                                <img src="img/PATEK%20PHILIPPE%20-%20MOON%20PHASE%20AUTOMATIC%20DUAL%20TIME.jpg">
+                            </li>
+                            <li>
+                                <p>ROLEX</p>
+                                <img src="img/Rolex%20Oyster%20Perpetual%20-%20Yacht%20Master%20RG%20soldier%201000.jpg">
+                            </li>
+                            <li>
+                                <p>BREGUET</p>
+                                <img src="img/Breguet.jpg">
+                            </li>
+                            <li>
+                                <p>CHANEL</p>
+                                <img src="img/chanelbag.jpg">
+                            </li>
+                            <li>
+                                <p>GUCCI</p>
+                                <img src="img/guccibag.JPG">
+                            </li>
+                            <li>
+                                <p>HERMES</p>
+                                <img src="img/hermesbag.jpg">
+                            </li>
+                            
+                            <li>
+                                <p>LOUIS</p>
+                                <img src="img/Louis.jpg">
+                            </li>
+                            <li>
+                                <p>PRADA</p>
+                                <img src="img/pradabag.jpg">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h1>New Products</h1>
+                        <hr>
+                        <div id="content-slider">
+                            <div id="slider">
+                                <div id="mask">
+                                    <ul>
+                                        <li id="first" class="one" style="background-image: url(img/BLANCPAIN%20-%20FIFTY%20FATHOMS%20FLYBACK%20CHRONOGRAPH.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="second" class="two" style="background-image: url(img/HARRY%20WINSTON%20-%20200-MMTZ39PL-KC.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="third" class="three" style="background-image: url(img/PATEK%20PHILIPPE%20-%20MOON%20PHASE%20AUTOMATIC%20DUAL%20TIME.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="fourth" class="four" style="background-image: url(img/Rolex%20Oyster%20Perpetual%20-%20Yacht%20Master%20RG%20soldier%201000.jpg); background-size: cover; background-position: center;">
+                                        </li>                
+                                        <li id="fifth" class="five" style="background-image: url(img/Breguet.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="fifth" class="six" style="background-image: url(img/chanelbag.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="fifth" class="seven" style="background-image: url(img/hermesbag.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="fifth" class="eight" style="background-image: url(img/guccibag.JPG); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="fifth" class="nine" style="background-image: url(img/Louis.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                        <li id="fifth" class="ten" style="background-image: url(img/pradabag.jpg); background-size: cover; background-position: center;">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section id="bi5">
+                <article>
+                    <h1 id="mh">Making Film</h1>
+                    <h2 id="mh2">Making Film</h2>
+                    <hr>
+                    <div class="you"><iframe height="100%" src="https://www.youtube.com/embed/j5eif94JRbc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                    <div class="you"><iframe height="100%" src="https://www.youtube.com/embed/jIpBsbzuiHA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                    <div class="me">
+                        <h1>Patek Philippe</h1>
+                        <p>Patek Philippe has been pursuing traditional Genevan watchmaking artistry without interruption since 1839.</p>
+                    </div>
+                    <div class="me">
+                        <h1>Gucci</h1>
+                        <p>Gucci is an Italian luxury brand of fashion and leather goods, which is owned by the French holding company Kering.</p>
+                    </div>
+                </article>
+            </section>
+           
+            <section id="bi3" class="bimg">
+                <article>
+                    <div id="div3">
+                       <h1>About</h1>
+                       <hr>
+                       <p>No one can blame your desire for vanity. We offer the best service with all the trust and passion for your happiness. If you find yourself looking small, feeling insufficient, or not being beautiful, boldly choose it. Your opportunity opens here. Get your confidence back and get the courage!</p>
+                        <ul>
+                            <li>
+                                <img src="icon/LCH.png"
+                                 onmouseover="this.src='icon/CEO.jpg'" onmouseout="this.src='icon/LCH.png'">
+                                <h1>LeeChongHwa</h1>
+                                <h2>CEO & Founder</h2>
+                                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                                <div>Contact</div>
+                            </li>
+                            <li>
+                                <img src="icon/PKJ.png"
+                                 onmouseover="this.src='icon/Designer.jpg'" onmouseout="this.src='icon/PKJ.png'">
+                                <h1>ParkKyoungJin</h1>
+                                <h2>Designer</h2>
+                                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                                <div>Contact</div>
+                            </li>
+                            <li>
+                                <img src="icon/SIS.png"
+                                 onmouseover="this.src='icon/Architect.jpg'" onmouseout="this.src='icon/SIS.png'">
+                                <h1>SoInSeong</h1>
+                                <h2>Architect</h2>
+                                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                                <div>Contact</div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section id="bi4" class="bimg">
+                <article>
+                    <div id="div4">
+                        <h1>Our Items.</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    </div>
+                    <div id="div5">
+                        <h1><img src="icon/watch.svg" style="background-color: white;">&nbsp;&nbsp;Watch</h1>
+                            <div class="bp">
+                                <div id="watch_p">80%</div>
+                            </div>
+                        <h1><img src="icon/bag.svg" style="background-color: white;">&nbsp;&nbsp;Bag</h1>
+                            <div class="bp">
+                                <div id="bag_p">&nbsp;74%</div>
+                            </div>
+                        <h1><img src="icon/store.svg" style="background-color: white;">&nbsp;&nbsp;Store</h1>
+                            <div class="bp">
+                                <div id="store_p">&nbsp;92%</div>
+                            </div>
+                    </div>
+                </article>
+            </section>
+            
+            <section id="bi6" class="bimg">
+                <article>
+                    <div id="bi6head">
+                    <h1>Membership System</h1>
+                    <h2> - You need this favor - </h2>
+                    </div>
+                    <div id="bi6head2">
+                    <h1>Membership<br>(click me)</h1>
+                    </div>
+                    <div class="pricing-area">
+                        <div class="pricing-table" id="table1">
+                            <div class="pricing-title">Basic</div>
+                            <div class="price">$9.90</div>
+                            <div class="pricing-type">Small shareing membership</div>
+                            <div class="pricing-details">
+                                <ul>
+                                    <li><strong>3Days</strong> Free</li>
+                                    <li><strong>1Month</strong> Insurance</li>
+                                    <li>None Notification</li>
+                                    <li><strong>All Day</strong> SNS Servise</li>
+                                    <li><strong>Endless</strong> Support</li>
+                                    <li><strong>Unlimited</strong> calls</li>
+                                </ul>
+                            </div>
+                            <div class="btn-plan">Sign Up</div>
+                        </div>
+                        <div class="pricing-table" id="table2">
+                            <div class="pricing-title">Pro</div>
+                            <div class="price">$29.90</div>
+                            <div class="pricing-type">Medium shareing membership</div>
+                            <div class="pricing-details">
+                                <ul>
+                                    <li><strong>5Days</strong> Free</li>
+                                    <li><strong>2Month</strong> Insurance</li>
+                                    <li><strong>New Product</strong> Notification</li>
+                                    <li><strong>All Day</strong> SNS Servise</li>
+                                    <li><strong>Endless</strong> Support</li>
+                                    <li><strong>Unlimited</strong> calls</li>
+                                </ul>
+                            </div>
+                            <div class="btn-plan">Sign Up</div>
+                        </div>
+                        <div class="pricing-table" id="table3">
+                            <div class="pricing-title">Premium</div>
+                            <div class="price">$59.90</div>
+                            <div class="pricing-type">Gigantic shareing membership</div>
+                            <div class="pricing-details">
+                                <ul>
+                                    <li><strong>7Days</strong> Free</li>
+                                    <li><strong>3Month</strong> Insurance</li>
+                                    <li><strong>New Product</strong> Notification</li>
+                                    <li><strong>All Day</strong> SNS Servise</li>
+                                    <li><strong>Endless</strong> Support</li>
+                                    <li><strong>Unlimited</strong> calls</li>
+                                </ul>
+                            </div>
+                            <div class="btn-plan">Sign Up</div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+</body>
+</html>
