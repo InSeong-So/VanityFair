@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kr.co</groupId>
 	<artifactId>sis</artifactId>
-	<name>Project</name>
+	<name>VanityFair</name>
 	<packaging>war</packaging>
 <!-- 	첫번째 -->
 	<version>1</version>
