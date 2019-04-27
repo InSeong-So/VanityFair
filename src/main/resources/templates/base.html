@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+{{#block "header"}}
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vánity Fáir</title>
+    <link rel="stylesheet" href="/css/layouts/pure.css">
+    <link rel="stylesheet" href="/css/layouts/marketing.css">
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+{{/block}}
+
+<body>
+{{#block "navigation"}}
+<div>
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/">Home</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="/navigation/introduce" class="pure-menu-link">서비스 안내</a></li>
+            <li class="pure-menu-item"><a href="/navigation/cost" class="pure-menu-link">요금 안내</a></li>
+            <li class="pure-menu-item"><a href="/navigation/reservation" class="pure-menu-link">상품 찾기/예약</a></li>
+            <li class="pure-menu-item"><a href="/navigation/qna" class="pure-menu-link">고객센터</a></li>
+
+            {{^ loginedAccount }}
+            <li class="pure-menu-item"><a href="/navigation/login" class="pure-menu-link">로그인</a></li>
+            <li class="pure-menu-item"><a href="/account/resistration" class="pure-menu-link">회원가입</a></li>
+            {{/ loginedAccount }}
+
+            {{# loginedAccount }}
+            <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">로그아웃</a></li>
+            <li class="pure-menu-item"><a href="/account/profile" class="pure-menu-link">개인정보수정</a></li>
+            {{/ loginedAccount }}
+        </ul>
+    </div>
+</div>
+{{/block}}
+
+{{#block "contents"}}
+{{/block}}
+
+{{#block "script"}}
+<!--부트스트랩 js, jquery-->
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+<!--custom js-->
+{{/block}}
+</body>
+</html>
