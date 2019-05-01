@@ -22,7 +22,7 @@ public class Board {
 
 	// @ManyToOne
 	// @JoinColumn(foreignKey = @ForeignKey(name = "fk_board_writer"))
-	// private Users writer;
+	// private User writer;
 
 	@Column
 	private String title;
