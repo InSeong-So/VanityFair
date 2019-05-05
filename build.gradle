@@ -16,9 +16,12 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework.boot:spring-boot-starter-jdbc'
+	compile 'org.springframework.boot:spring-boot-devtools'
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'mysql:mysql-connector-java'
+	//runtimeOnly 'com.h2database:h2'
+	//runtimeOnly 'mysql:mysql-connector-java'
 	compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  compile fileTree(dir: '/libs', include: ['*.jar'])
 }
