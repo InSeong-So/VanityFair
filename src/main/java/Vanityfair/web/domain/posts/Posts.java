@@ -1,37 +1,50 @@
 package Vanityfair.web.domain.posts;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
+import Vanityfair.web.domain.BaseTimeEntity;
+import lombok.AccessLevel;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Builder
 @Table(name = "VP0000")
-public class Posts
+public class Posts extends BaseTimeEntity
 {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private static final long serialVersionUID = 1L;
     
-    @Column
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_VP0000")
+    @SequenceGenerator(sequenceName = "SEQ_VP0000", allocationSize = 1, name = "SEQ_VP0000")
+    private Long id;
+    
+    @Column(length = 500, nullable = false)
     private String title;
     
-    @Column
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
     
     @Column
     private String author;
+
+    @Builder
+    public Posts(String title, String content, String author)
+    {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
     
 }
