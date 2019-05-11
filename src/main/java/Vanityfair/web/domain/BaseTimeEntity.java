@@ -19,14 +19,14 @@ import lombok.Setter;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseTimeEntity
 {
-
+    
     @CreatedDate
     @Column(name = "INS_YMDHMS", updatable = false)
-//    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
+    //    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
     private LocalDateTime insYmdhms;
-
+    
     @LastModifiedDate
     @Column(name = "MOD_YMDHMS", updatable = true)
-//    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
+    //    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
     private LocalDateTime modYmdhms;
 }

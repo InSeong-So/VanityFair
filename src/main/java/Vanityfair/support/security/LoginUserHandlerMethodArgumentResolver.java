@@ -9,24 +9,28 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import Vanityfair.support.exception.UnAuthorizedException;
 import Vanityfair.web.domain.user.User;
 
-public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
-	@Override
-	public boolean supportsParameter(MethodParameter parameter) {
-		return parameter.hasParameterAnnotation(LoginUser.class);
-	}
-
-	@Override
-	public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-		User user = HttpSessionUtils.getUserFromSession(webRequest);
-		if (!user.isGuestUser()) {
-			return user;
-		}
-
-		LoginUser loginUser = parameter.getParameterAnnotation(LoginUser.class);
-		if (loginUser.required()) {
-			throw new UnAuthorizedException("You're required Login!");
-		}
-		return user;
-	}
+public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver
+{
+    @Override
+    public boolean supportsParameter(MethodParameter parameter)
+    {
+        return parameter.hasParameterAnnotation(LoginUser.class);
+    }
+    
+    @Override
+    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception
+    {
+        User user = HttpSessionUtils.getUserFromSession(webRequest);
+        if (!user.isGuestUser())
+        {
+            return user;
+        }
+        
+        LoginUser loginUser = parameter.getParameterAnnotation(LoginUser.class);
+        if (loginUser.required())
+        {
+            throw new UnAuthorizedException("You're required Login!");
+        }
+        return user;
+    }
 }

@@ -7,9 +7,7 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
-@EntityScan(
-        basePackageClasses = {Jsr310JpaConverters.class},
-        basePackages = {"Vanityfair.web.domain"})
+@EntityScan(basePackageClasses = { Jsr310JpaConverters.class }, basePackages = { "Vanityfair.web.domain" })
 @SpringBootApplication
 public class Application
 {

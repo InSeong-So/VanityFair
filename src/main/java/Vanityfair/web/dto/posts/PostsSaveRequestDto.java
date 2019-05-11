@@ -12,7 +12,9 @@ import lombok.Setter;
 public class PostsSaveRequestDto
 {
     private String title;
+    
     private String content;
+    
     private String author;
     
     @Builder

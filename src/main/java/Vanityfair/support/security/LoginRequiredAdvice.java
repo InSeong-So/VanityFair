@@ -10,11 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @ControllerAdvice
 @Slf4j
-public class LoginRequiredAdvice {
-
-	@ExceptionHandler(UnAuthorizedException.class)
-	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-	public void unAuthorized() {
-		log.debug("UnAuthorizedException is happened!");
-	}
+public class LoginRequiredAdvice
+{
+    
+    @ExceptionHandler(UnAuthorizedException.class)
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    public void unAuthorized()
+    {
+        log.debug("UnAuthorizedException is happened!");
+    }
 }

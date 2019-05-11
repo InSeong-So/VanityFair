@@ -38,7 +38,7 @@ public class Posts extends BaseTimeEntity
     
     @Column
     private String author;
-
+    
     @Builder
     public Posts(String title, String content, String author)
     {

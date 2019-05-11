@@ -24,9 +24,8 @@ public class PostsService
     }
     
     @Transactional(readOnly = true)
-    public List<PostsMainResponseDto> findAllDesc() {
-        return postsRepository.findAllDesc()
-                .map(PostsMainResponseDto::new)
-                .collect(Collectors.toList());
+    public List<PostsMainResponseDto> findAllDesc()
+    {
+        return postsRepository.findAllDesc().map(PostsMainResponseDto::new).collect(Collectors.toList());
     }
 }
