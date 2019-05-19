@@ -11,8 +11,7 @@ import Vanityfair.web.domain.master.AbstractEntity;
 import lombok.ToString;
 
 @Entity
-@ToString
-public class User extends AbstractEntity
+public class User
 {
     public static final GuestUser GUEST_USER = new GuestUser();
     
@@ -26,7 +25,7 @@ public class User extends AbstractEntity
     @Column(nullable = false, length = 16)
     private String password;
     
-    @Column
+    @Column(nullable = false, length = 20)
     private String name;
     
     @Column
@@ -146,7 +145,7 @@ public class User extends AbstractEntity
     
     public User(long id, String userId, String password, String name, String email)
     {
-        super(id);
+        this.id = id;
         this.userId = userId;
         this.password = password;
         this.name = name;
@@ -192,5 +191,32 @@ public class User extends AbstractEntity
         {
             return true;
         }
+    }
+    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        if (id != other.id)
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", userId=" + userId + ", name=" + name + ", email=" + email + "]";
     }
 }

@@ -12,7 +12,7 @@ import Vanityfair.web.dto.posts.PostsSaveRequestDto;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-@Service
+@Service("postService")
 public class PostsService
 {
     private PostsRepository postsRepository;
