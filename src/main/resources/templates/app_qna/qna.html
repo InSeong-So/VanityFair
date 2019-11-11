@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/layout}">
+<head th:replace="common/base :: common_header(~{::title},~{::link})">
+<meta charset="UTF-8"></meta>
+<title>QnA</title>
+</head>
+<body>
+  <form name="f1" id="f1"></form>
+  <div layout:fragment="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div th:replace="layout/left :: leftQna"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_qna/qna_content :: qna_content_01} : _"></div>
+        <div th:replace="${leftMenu} == '02' ? ~{app_qna/qna_content :: qna_content_02} : _"></div>
+        <div th:replace="${leftMenu} == 'write' ? ~{write :: write} : _"></div>
+        <div th:replace="${leftMenu} == 'need_login' ? ~{app_qna/qna_content :: qna_need_login} : _"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

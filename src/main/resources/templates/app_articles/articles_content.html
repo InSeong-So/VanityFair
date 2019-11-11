@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/base :: common_header(~{::title},~{::link})">
+    <meta charset="UTF-8"></meta>
+    <title>Articles</title>
+</head>
+<body>
+<form id="f1" name="f1"></form>
+<div th:fragment="article_need_login">
+  <div class="container-fluid">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 sis-center-col">
+      <div class="login-form">
+        <div th:if="${login_result} == 'N'" class="alert alert-danger" role="alert">아이디 또는 비밀번호가 틀립니다. 다시 로그인 해주세요.</div>
+        <div th:if="${leftMenu} == 'need_login'" class="alert alert-danger" role="alert">로그인이 필요한 페이지입니다.</div>
+        <form action="#" th:action="@{/login}" method="post">
+          <h2 class="text-center">Login</h2>
+          <div class="form-group">
+            <div class="input-group"><span class="input-group-addon"><i class="fa fa-user"></i></span> <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디" required="required"></div>
+          </div>
+          <div class="form-group">
+            <div class="input-group"><span class="input-group-addon"><i class="fa fa-lock"></i></span> <input type="password" class="form-control" id="pwd" name="pwd" placeholder="비밀번호" required="required"></div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary login-btn btn-block">Login</button>
+          </div>
+          <div class="clearfix"><label class="pull-left checkbox-inline"><input type="checkbox">자동 로그인</label> <a href="#"  th:href="@{/registration}" class="pull-right" style="font-weight:bold;">비밀번호를 잊어버리셨나요?</a></div>
+          <div class="text-center social-btn"><a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a> <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a> <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a></div>
+        </form>
+        <p class="text-center text-muted small" th:href="@{/registration}">계정이 없으신가요? <a href="#" style="font-weight: bold;">간편하게 가입하세요!</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="articles_content_01">
+    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+      <h3>자유게시판</h3>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+              <th class="col-md-1">번호</th>
+              <th class="col-md-4">제목</th>
+              <th class="col-md-1">작성자</th>
+<!--                 <th>내용</th> -->
+              <th class="col-md-1">작성일</th>
+              <th class="col-md-1">조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="article: ${articleList}">
+              <td th:text="${article.seqNo}"></td>
+              <td><a href="#" th:text="${article.title}" th:href="@{/articles/01/{seqNo}(seqNo=${article.seqNo})}"></a></td>
+              <td th:text="${article.userId}"></td>
+<!--                 <td th:text="${article.content}"></td> -->
+              <td th:text="${article.regDateStr}"></td>
+<!--               <th:block th:with="var1=${article.regDate}"> -->
+<!--               <td th:text="${#temporals.createDate(var1, 'yyyyMMdd')}"></td> -->
+<!--               </th:block> -->
+              <td th:text="${article.viewCnt}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+<!--         <a href="#" class="btn btn-default" th:onclick="|javascript:movePage('/articles/01/write');|">글쓰기</a> -->
+        <a href="#" class="btn btn-default" th:href="@{/articles/01/write(sendMenu='01')}">글쓰기</a>
+        <div class="text-center">
+            <ul class="pagination" th:with="start=${T(Math).floor(articleList.number/5)*5 + 1}, last=(${start + 4 < articleList.totalPages ? start + 4 : articleList.totalPages})">
+              <li><a th:href="@{/articles/01(page=1)}" aria-label="First"><span aria-hidden="true">First</span></a></li>
+              <li th:class="${articleList.first} ? 'disabled'"><a th:href="${articleList.first} ? '#' :@{/articles/01(page=${articleList.number})}" aria-label="Previous"><span aria-hidden="true">&lt;</span></a></li>
+              <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == articleList.number + 1} ? 'active'"><a th:text="${page}" th:href="@{/articles/01(page=${page})}"></a></li>
+              <li th:class="${articleList.last} ? 'disabled'"><a th:href="${articleList.last} ? '#' : @{/articles/01(page=${articleList.number + 2})}" aria-label="Next"><span aria-hidden="true">&gt;</span></a></li>
+              <li><a th:href="@{/articles/01(page=${articleList.totalPages})}" aria-label="Last"><span aria-hidden="true">Last</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="articles_content_02">
+    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+        <h3>인증게시판</h3>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>0</td>
+                <td>타이틀</td>
+                <td>콘텐츠</td>
+                <td>작성자</td>
+                <td>지금</td>
+                <td>0</td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <a href="#" class="btn btn-default" th:href="@{/articles/02/write(sendMenu='02')}">인증하기</a>
+        <div class="text-center">
+            <ul class="pagination">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="articles_detail_01">
+  <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6 sis-center-col">
+    <h3>자유게시판</h3>
+    <form role="form" action="#" th:action="@{/articles/01/comment}" method="POST">
+      <input type="hidden" id="seqNo" name="seqNo" th:value="${article.seqNo}" />
+      <div class="form-group row">
+        <div class="col-xs-6">
+          <label for="title">제목</label>
+<!--           <div class="form-control" id="title" th:text="${article.title}"></div> -->
+          <input type="text" class="form-control" id="title" th:value="${article.title}" />
+        </div>
+        <div class="col-xs-3">
+          <label for="title">작성자</label>
+<!--           <div class="form-control" id="userId" th:text="${article.userId}"></div> -->
+          <input type="text" class="form-control" id="userId" th:value="${article.userId}" />
+        </div>
+        <div class="col-xs-3">
+          <label for="title">작성일</label>
+<!--           <div class="form-control" id="regDate" th:text="${article.regDate}"></div> -->
+            <input type="text" class="form-control" id="regDate" th:value="${article.regDateStr}" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="content">내용</label>
+<!--         <div class="form-control pre-scrollable" id="content" style="height:300px;"> -->
+        <div class="form-control" id="content" style="height:auto;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input_file_nm">첨부파일</label>
+        <input type="text" class="form-control" id="input_file_nm" name="input_file_nm" disabled />
+      </div>
+      <hr>
+      <br>
+      <div class="form-group">
+        <div class="comments-list">
+          <div class="media" th:each="comment: ${commentList}">
+            <script th:inline="javascript">
+              /*<![CDATA[*/
+              $(function()
+              {
+                var classVar = [[${comment.seqNo}]];
+                
+                $('.' + classVar).each(function (index)
+                {
+                  var date = returnElapsedTime([[${comment.regDate}]]);
+                  $(this).text(date);
+                });
+              });
+              /*]]>*/
+            </script>
+            <p class="pull-right"><small th:classappend="${comment.seqNo}"></small></p>
+            <a class="media-left media-top" href="#">
+              <img src="../../img/icon/img_avatar1.jpg" class="media-object" width="40px" height="40px">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading user_name" th:text="${comment.userId}"></h4>
+              <th:block th:text="${comment.comment}"></th:block>
+              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-10">
+<!--           <textarea class="form-control" rows="2" id="comment" style="resize:none;"></textarea> -->
+          <input type="text" class="form-control" id="inputComment" name="inputComment" placeholder="댓글 달기...">
+        </div>
+        <div class="col-xs-2">
+          <button type="submit" class="btn btn-default btn-lg btn-block">등록</button>
+<!--           <input type="submit" class="form-control btn btn-info" value="등록"/> -->
+        </div>
+      </div>
+      <hr>
+      <div class="form-group row" style="text-align:center;">
+        <div class="col-xs-4">
+          <div class="sis-center-col" style="display:block;">
+            <button type="button" class="btn btn-warning">이전글</button>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="sis-center-col" style="display:block;">
+            <input type="button" class="btn btn-warning" value="목록으로" th:onclick="|javascript:movePage('/articles/01')|"/>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="sis-center-col" style="display:block;">
+            <input type="button" class="btn btn-warning" value="다음글" />
+          </div>
+        </div>
+      </div>
+      <script th:inline="javascript">
+        /*<![CDATA[*/
+        $(function(){
+          var Value = [[${article.content}]];
+          $('#content').append(Value);
+        });
+        /*]]>*/
+      </script>
+    </form>
+    <br>
+  </div>
+</div>
+
+</body>
+</html>

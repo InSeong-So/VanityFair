@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/layout}">
+<head th:replace="common/base :: common_header(~{::title},~{::link})">
+<meta charset="UTF-8"></meta>
+<title>Profile</title>
+</head>
+<body>
+  <form name="f1" id="f1"></form>
+  <div layout:fragment="content" style="overflow:auto;">
+    <div class="container-fluid">
+      <div class="row">
+        <div th:replace="layout/left :: leftProfile"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_user/myprofile_content :: myprofile_content_01} : _"></div>
+        <div th:replace="${leftMenu} == '02' ? ~{app_user/myprofile_content :: myprofile_content_02} : _"></div>
+        <div th:replace="${leftMenu} == '03' ? ~{app_user/myprofile_content :: myprofile_content_03} : _"></div>
+        <div th:replace="${leftMenu} == '04' ? ~{app_user/myprofile_content :: myprofile_content_04} : _"></div>
+        <div th:replace="${leftMenu} == '05' ? ~{app_user/myprofile_content :: myprofile_content_05} : _"></div>
+        <div th:replace="${leftMenu} == '06' ? ~{app_user/myprofile_content :: myprofile_content_06} : _"></div>
+        <div th:replace="${leftMenu} == '07' ? ~{app_user/myprofile_content :: myprofile_content_07} : _"></div>
+        <div th:replace="${leftMenu} == '08' ? ~{app_user/myprofile_content :: myprofile_content_08} : _"></div>
+    </div>
+  </div> <script th:inline="javascript">
+      /*<![CDATA[*/
+      function LoadPage()
+      {
+        var Value = [[${leftMenu}]];
+//         alert(Value);
+      }
+      /*]]>*/
+    </script>
+  </div>
+</body>
+</html>

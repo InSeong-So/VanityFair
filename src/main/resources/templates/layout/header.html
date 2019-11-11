@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>Vánity Fáir</title>
+    </head>
+
+    <body>
+        <header th:fragment="header">
+            <div class="jumbotron text-center">
+              <h1 style="margin:0;">Vánity Fáir</h1>
+<!--                     <p>Superior, optimal, quality</p> -->
+            </div>
+
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Logo</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="headerMenu" name="home">
+                                <a href="#" th:href="@{/}">Home</a>
+                            </li>
+                            <li class="headerMenu" name="products">
+                                <a href="#" th:href="@{/products}" >Products</a>
+                            </li>
+                            <li class="headerMenu" name="deals">
+                                <a href="#" th:href="@{/deals}" >Deals</a>
+                            </li>
+                            <li class="headerMenu" name="stores">
+                                <a href="#" th:href="@{/stores}" >Stores</a>
+                            </li>
+                            <li class="headerMenu" name="articles">
+                                <a href="#" th:href="@{/articles/01}" >Articles</a>
+                            </li>
+                            <li class="headerMenu" name="contact">
+                                <a href="#" th:href="@{/contact}" >Contact</a>
+                            </li>
+                            <li class="headerMenu" name="qna">
+                                <a href="#" th:href="@{/qna/01}" >QnA</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="headerMenu" th:if="${session['loginedUser'] == null}" name="login">
+                                <a href="#" th:href="@{/login}" >
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    Login
+                                </a>
+                            </li>
+                            <li class="headerMenu" th:if="${session['loginedUser'] == null}" name="registration">
+                                <a href="#" th:href="@{/registration}" >
+                                    <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
+                                    Sign up
+                                </a>
+                            </li>
+                            <li class="headerMenu" th:if="${session['loginedUser'] != null}" name="logout">
+                                <a href="#" th:href="@{/logout}" >
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    Logout
+                                </a>
+                            </li>
+                            <li class="headerMenu" th:if="${session['loginedUser'] != null}" name="myprofile">
+                                <a href="#" th:href="@{/myprofile/01}" >
+                                    <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
+                                    My profile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <script type="text/javascript">
+
+            </script>
+        </header>
+    </body>
+</html>

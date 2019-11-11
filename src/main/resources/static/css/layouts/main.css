@@ -1,0 +1,108 @@
+/*<!-- 헤더 -->*/
+.navbar {
+  margin-bottom: 20px;
+  border-radius: 0;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background-image: url(/img/home_01.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #F4D03F;
+  height:155px;
+}
+/*<!-- /헤더 -->*/
+/*<!-- 로그인 -->*/
+.login-form {
+  width: 385px;
+  margin: 30px auto;
+}
+
+.login-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+
+.login-form h2 {
+  margin: 0 0 15px;
+}
+
+.form-control, .login-btn {
+  min-height: 38px;
+  border-radius: 2px;
+}
+
+.input-group-addon .fa {
+  font-size: 18px;
+}
+
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.social-btn .btn {
+  border: none;
+  margin: 10px 3px 0;
+  opacity: 1;
+}
+
+.social-btn .btn:hover {
+  opacity: 0.9;
+}
+
+.social-btn .btn-primary {
+  background: #507cc0;
+}
+
+.social-btn .btn-info {
+  background: #64ccf1;
+}
+
+.social-btn .btn-danger {
+  background: #df4930;
+}
+
+.or-seperator {
+  margin-top: 20px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.or-seperator i {
+  padding: 0 10px;
+  background: #f7f7f7;
+  position: relative;
+  top: -11px;
+  z-index: 1;
+}
+
+/*<!-- /로그인 -->*/
+
+/*<!-- 댓글 -->*/
+.user_name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.comments-list .media {
+  border-bottom: 1px dotted #ccc;
+}
+/*<!-- /댓글 -->*/
+
+/*<!-- 공통 -->*/
+.sis-center-col {
+  float: none;
+  margin: 0 auto;
+}
+
+.sis-temp-height {
+  height: 600px;
+}
+/*<!-- /공통 -->*/

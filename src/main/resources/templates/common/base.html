@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(title,links)">
+<title th:fragment="title">Vánity Fáir</title>
+<!-- 메타데이터 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicon -->
+<link rel="shortcut icon" th:href="@{/img/icon/favicon.ico}">
+<!-- css 적용 -->
+<link rel="stylesheet" th:href="@{/css/lib/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/layouts/main.css}">
+<!-- js 적용 -->
+<script type="text/javascript" th:src="@{/js/lib/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/lib/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/app/common.js}"></script>
+<script type="text/javascript" th:src="@{/editor/js/HuskyEZCreator.js}"></script>
+
+<th:block th:fragment="links" />
+</head>
+<body>
+
+</body>
+</html>

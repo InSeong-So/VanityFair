@@ -1,7 +1,9 @@
+### Maven
 HELP.md
-.gradle
-/build/
-!gradle/wrapper/gradle-wrapper.jar
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
 
 ### STS ###
 .apt_generated
@@ -11,7 +13,6 @@ HELP.md
 .settings
 .springBeans
 .sts4-cache
-.class
 
 ### IntelliJ IDEA ###
 .idea
@@ -26,3 +27,10 @@ HELP.md
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Add
+*.class
+*.yml
+*.properties
+*.xml
+*.jar
