@@ -18,12 +18,7 @@ public class MainController extends VanityFairExtends
     @GetMapping("/")
     public String home(HttpServletRequest request, HttpSession session)
     {
-        //        if (!session.isNew())
-        //        {
-        //            session.invalidate();
-        //        }
-        //        log.info(codeCreator(request));
-        log.info(">>>>>>>>>>>>>>>>>>>>>>>> : "+vfConf.getUploadImages());
+//        log.info(">>>>>>>>>>>>>>>>>>>>>>>> : "+vfConf.getUploadImages());
         session.setAttribute(VanityFairSessionUtil.REQUEST_SESSION_KEY, request);
         return "home";
     }

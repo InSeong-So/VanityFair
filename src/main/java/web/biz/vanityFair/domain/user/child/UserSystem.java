@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -35,6 +37,10 @@ import web.biz.vanityFair.domain.user.User;
 public class UserSystem
 {
     @Id
+    @Column(name = "seq_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long seqNo;
+    
     @Column(name = "admin_yn", columnDefinition = "varchar(2)")
     @ColumnDefault("'n'")
     private String adminYn;

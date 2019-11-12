@@ -1,8 +1,10 @@
-handlebars:
-  suffix: .html
-  cache: false
-  
-spring:  datasource:    driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@localhost:1521:orcl
-    username: VANITYFAIRSTANDARD
-    password: VANITYFAIR!STANDARD  jpa:    hibernate:      ddl-auto: none    show-sql: true  devtools:    livereload:      enabled: true
+# Default Settingspring:#  profiles:#    active: local# Datasource  datasource:    driver-class-name: org.mariadb.jdbc.Driver    url: jdbc:mariadb://101.235.203.94:3105/vanityfair?useSSL=false#    url: jdbc:mariadb://10.67.15.155:3105/vanityfair?useSSL=false    username: sismaster    password: sisparang1!# JPA  jpa:    database-platform: org.hibernate.dialect.MariaDB103Dialect    show-sql: true    hibernate:      ddl-auto: update# Thymeleaf
+  thymeleaf:    cache: false# Mail  mail:    host: smtp.gmail.com    port: 587    username: goflvhxj2547@gmail.com    password: qqdjntlmoinosyeq    properties:      mail:        smtp:          auth: true          starttls:            enable: true            required: true# Messages  messages:    basename: messages/message# TomcatServer
+server:  servlet:    session:      timeout: 600  tomcat:    uri-encoding: UTF-8  port: 8224#debug: true## OPR#---
+#spring.profiles: set1
+#spring.profiles.include: real-db
+#server:#  servlet:#    session:#      timeout: 60#  tomcat:#    uri-encoding: UTF-8#  port: 8225#---
+#spring.profiles: set2
+#spring.profiles.include: real-db
+#server:#  servlet:#    session:#      timeout: 60#  tomcat:#    uri-encoding: UTF-8
+#  port: 8226
