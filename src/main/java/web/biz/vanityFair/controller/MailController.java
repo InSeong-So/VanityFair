@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import core.util.VanityFairSessionUtil;
 import web.biz.vanityFair.ajax.bean.AjaxResponseBody;
 import web.biz.vanityFair.domain.user.User;
 import web.biz.vanityFair.domain.vo.MailVO;
 import web.biz.vanityFair.service.mail.MailService;
+import web.common.core.util.SisSessionUtil;
 
 @RestController
 @RequestMapping("/mail")
@@ -40,7 +40,7 @@ public class MailController
     @PostMapping("/mailCert")
     public ResponseEntity<?> mailCert(@RequestBody Map<String, Object> params, Errors errors, HttpSession session)
     {
-        User user = (User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY);
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("user", user);
@@ -69,7 +69,7 @@ public class MailController
     @PostMapping("/mailDelete")
     public ResponseEntity<?> maildelete(@RequestBody Map<String, Object> params, Errors errors, HttpSession session)
     {
-        User user = (User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY);
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
         mailService.mailDelete(user);
         

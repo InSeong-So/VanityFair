@@ -6,20 +6,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import core.util.VanityFairSessionUtil;
-import lombok.extern.slf4j.Slf4j;
-import web.common.core.component.VanityFairExtends;
+import web.common.core.component.SisExtends;
+import web.common.core.util.SisSessionUtil;
 
-@Slf4j
 @Controller
-public class MainController extends VanityFairExtends
+public class MainController extends SisExtends
 {
     
     @GetMapping("/")
     public String home(HttpServletRequest request, HttpSession session)
     {
 //        log.info(">>>>>>>>>>>>>>>>>>>>>>>> : "+vfConf.getUploadImages());
-        session.setAttribute(VanityFairSessionUtil.REQUEST_SESSION_KEY, request);
+        session.setAttribute(SisSessionUtil.REQUEST_SESSION_KEY, request);
         return "home";
     }
     

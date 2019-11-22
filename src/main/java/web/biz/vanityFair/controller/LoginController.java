@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import core.util.VanityFairSessionUtil;
 import web.biz.vanityFair.domain.user.User;
 import web.biz.vanityFair.service.user.UserService;
-import web.common.core.component.VanityFairExtends;
+import web.common.core.component.SisExtends;
+import web.common.core.util.SisSessionUtil;
 
 @Controller
 //@SessionAttributes("vanityFairSession")
-public class LoginController extends VanityFairExtends
+public class LoginController extends SisExtends
 {
     @Autowired
     private UserService userService;
@@ -36,7 +36,7 @@ public class LoginController extends VanityFairExtends
         try
         {
             User user = userService.userLogin(userId, pwd);
-            session.setAttribute(VanityFairSessionUtil.USER_SESSION_KEY, user);
+            session.setAttribute(SisSessionUtil.USER_SESSION_KEY, user);
             
             view.setViewName(vfConf.getHome());
             view.addObject("login_result", "Y");
@@ -56,7 +56,7 @@ public class LoginController extends VanityFairExtends
     @GetMapping("/logout")
     public String logout(HttpSession session)
     {
-        session.removeAttribute(VanityFairSessionUtil.USER_SESSION_KEY);
+        session.removeAttribute(SisSessionUtil.USER_SESSION_KEY);
         session.invalidate();
         return vfConf.getHome();
     }

@@ -13,17 +13,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import core.util.VanityFairEncUtil;
-import core.util.VanityFairSessionUtil;
-import lombok.extern.slf4j.Slf4j;
 import web.biz.vanityFair.ajax.bean.AjaxResponseBody;
 import web.biz.vanityFair.domain.user.User;
-import web.biz.vanityFair.domain.user.child.UserDetail;
+import web.biz.vanityFair.domain.user.UserDetail;
 import web.biz.vanityFair.service.user.UserService;
-import web.common.core.exception.VanityFairRException;
+import web.common.core.exception.SisRuntimeException;
+import web.common.core.util.SisEncUtil;
+import web.common.core.util.SisSessionUtil;
 
 // TODO: 차후 수정
-@Slf4j
 @RestController
 @RequestMapping("/api")
 public class AjaxController
@@ -52,12 +50,12 @@ public class AjaxController
         
         try
         {
-            userService.userProfileUpdate(UserDetail.builder().user((User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY)).userNm((String) params.get("userNm")).userPhoneNumber((String) params.get("userPhoneNumber")).userZipCd((String) params.get("userZipCd"))
+            userService.userProfileUpdate(UserDetail.builder().user((User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY)).userNm((String) params.get("userNm")).userPhoneNumber((String) params.get("userPhoneNumber")).userZipCd((String) params.get("userZipCd"))
                     .userAddr((String) params.get("userAddr")).userDtlAddr((String) params.get("userDtlAddr")).build());
         }
         catch (Exception e)
         {
-            throw new VanityFairRException("프로필 업데이트 중 오류가 발생했습니다. 사유 : " + e.getMessage());
+            throw new SisRuntimeException("프로필 업데이트 중 오류가 발생했습니다. 사유 : " + e.getMessage());
         }
         
         result.setMsg("변경 완료!");
@@ -68,7 +66,7 @@ public class AjaxController
     @PostMapping("/mailCert")
     public ResponseEntity<?> mailCert(@RequestBody Map<String, Object> params, Errors errors, HttpSession session)
     {
-        User user = (User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY);
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
         AjaxResponseBody result = new AjaxResponseBody();
         
@@ -94,7 +92,7 @@ public class AjaxController
     @PostMapping("/pwdChange")
     public ResponseEntity<?> pwdChange(@RequestBody Map<String, Object> params, Errors errors, HttpSession session)
     {
-        User user = (User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY);
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
         AjaxResponseBody result = new AjaxResponseBody();
         
@@ -108,7 +106,7 @@ public class AjaxController
         try
         {
             // 현재 비밀번호가 다르면 불가능 체크
-            if (!VanityFairEncUtil.SHA256((String) params.get("curPwd")).equals(user.getPwd()))
+            if (!SisEncUtil.SHA256((String) params.get("curPwd")).equals(user.getPwd()))
             {
                 return ResponseEntity.badRequest().body("현재 비밀번호가 다릅니다.");
             }
@@ -118,7 +116,7 @@ public class AjaxController
         }
         catch (Exception e)
         {
-            throw new VanityFairRException("비밀번호 변경 중 오류가 발생했습니다. 사유 : " + e.getMessage());
+            throw new SisRuntimeException("비밀번호 변경 중 오류가 발생했습니다. 사유 : " + e.getMessage());
         }
         
         result.setMsg("변경 완료!");

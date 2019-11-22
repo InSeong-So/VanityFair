@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import web.common.core.component.VanityFairExtends;
+import web.common.core.component.SisExtends;
 
 @Controller
 @RequestMapping("/qna")
-public class QnaController extends VanityFairExtends
+public class QnaController extends SisExtends
 {
     private String menuName = "app_qna/qna";
     

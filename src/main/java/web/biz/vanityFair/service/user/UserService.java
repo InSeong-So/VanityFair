@@ -7,20 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import core.util.VanityFairEncUtil;
 import lombok.extern.slf4j.Slf4j;
 import web.biz.vanityFair.domain.user.User;
-import web.biz.vanityFair.domain.user.child.UserDetail;
+import web.biz.vanityFair.domain.user.UserDetail;
 import web.biz.vanityFair.repository.user.UserRepository;
-import web.biz.vanityFair.service.user.child.UserDetailService;
-import web.biz.vanityFair.service.user.child.UserMailService;
-import web.biz.vanityFair.service.user.child.UserSystemService;
-import web.common.core.component.VanityFairExtends;
-import web.common.core.exception.VanityFairRException;
+import web.common.core.component.SisExtends;
+import web.common.core.exception.SisRuntimeException;
+import web.common.core.util.SisEncUtil;
 
 @Slf4j
 @Service
-public class UserService extends VanityFairExtends
+public class UserService extends SisExtends
 {
     //    User user = new User();
     //    
@@ -58,7 +55,7 @@ public class UserService extends VanityFairExtends
         
         User user = checkUser.get();
         
-        if (!user.matchPwd(VanityFairEncUtil.SHA256(pwd)))
+        if (!user.matchPwd(SisEncUtil.SHA256(pwd)))
         {
             throw new IllegalStateException("비밀번호가 옳지 않습니다.");
         }
@@ -87,7 +84,7 @@ public class UserService extends VanityFairExtends
         
         try
         {
-            User regUSer = User.builder().seqNo(userRepository.getSeqNo() + 1).userId(user.getUserId()).userCd(codeCreator()).pwd(VanityFairEncUtil.SHA256(user.getPwd())).build();
+            User regUSer = User.builder().seqNo(userRepository.getSeqNo() + 1).userId(user.getUserId()).userCd(codeCreator()).pwd(SisEncUtil.SHA256(user.getPwd())).build();
             
             userRepository.save(regUSer);
             
@@ -100,7 +97,7 @@ public class UserService extends VanityFairExtends
         catch (Exception e)
         {
             log.error("userRegsistration ERROR : " + e.getMessage());
-            throw new VanityFairRException("asdf");
+            throw new SisRuntimeException("asdf");
         }
         
     }
@@ -158,7 +155,7 @@ public class UserService extends VanityFairExtends
             }
             catch (Exception e)
             {
-                throw new VanityFairRException("유저 이메일 등록 중 오류가 발생했습니다. 사유 : " + e.getMessage());
+                throw new SisRuntimeException("유저 이메일 등록 중 오류가 발생했습니다. 사유 : " + e.getMessage());
             }
         }
         
@@ -173,7 +170,7 @@ public class UserService extends VanityFairExtends
     @Transactional
     public boolean userPwdChange(User user, Map<String, Object> params)
     {
-        String changePwd = VanityFairEncUtil.SHA256((String)params.get("chaPwd"));
+        String changePwd = SisEncUtil.SHA256((String)params.get("chaPwd"));
         
         userRepository.setModifiedPwd(changePwd, user.getUserCd());
         

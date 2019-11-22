@@ -9,25 +9,22 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import core.util.VanityFairEncUtil;
-import core.util.VanityFairStringUtil;
 import lombok.extern.slf4j.Slf4j;
 import web.biz.vanityFair.domain.article.Article;
-import web.biz.vanityFair.domain.article.child.ArticleAttribute;
-import web.biz.vanityFair.domain.article.child.ArticleComment;
-import web.biz.vanityFair.domain.article.child.ArticleDetail;
+import web.biz.vanityFair.domain.article.ArticleAttribute;
+import web.biz.vanityFair.domain.article.ArticleComment;
+import web.biz.vanityFair.domain.article.ArticleDetail;
 import web.biz.vanityFair.domain.user.User;
 import web.biz.vanityFair.repository.article.ArticleRepository;
-import web.biz.vanityFair.service.article.child.ArticleAttributeService;
-import web.biz.vanityFair.service.article.child.ArticleCommentService;
-import web.biz.vanityFair.service.article.child.ArticleDetailService;
-import web.common.core.component.VanityFairExtends;
-import web.common.core.exception.VanityFairRException;
+import web.common.core.component.SisExtends;
+import web.common.core.exception.SisRuntimeException;
+import web.common.core.util.SisEncUtil;
+import web.common.core.util.SisStringUtil;
 
 @Slf4j
 @Service
 @Transactional
-public class ArticleService extends VanityFairExtends
+public class ArticleService extends SisExtends
 {
     @Autowired
     private ArticleRepository articleRepository;
@@ -50,7 +47,7 @@ public class ArticleService extends VanityFairExtends
     public boolean articleResistration(User user, ArticleDetail articleDetail, ArticleAttribute articleAttribute)
     {
         // 세션값이 존재하지 않으면 튕겨냄
-        if (VanityFairStringUtil.isEmpty(user))
+        if (SisStringUtil.isEmpty(user))
             throw new IllegalStateException("로그인이 필요한 서비스입니다.");
         
         try
@@ -63,14 +60,14 @@ public class ArticleService extends VanityFairExtends
             
             articleDetail.setArticle(article);
             articleDetail.setUserId(user.getUserId());
-            articleDetail.setRegDateStr(VanityFairStringUtil.getYmd(new SimpleDateFormat("yyyy-MM-dd")));
+            articleDetail.setRegDateStr(SisStringUtil.getYmd(new SimpleDateFormat("yyyy-MM-dd")));
             
             ad.articleDetailInit(articleDetail);
             
             log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> arti0010 등록 완료!");
             
             articleAttribute.setArticle(article);
-            articleAttribute.setArticlePwd(VanityFairEncUtil.SHA256(articleAttribute.getArticlePwd()));
+            articleAttribute.setArticlePwd(SisEncUtil.SHA256(articleAttribute.getArticlePwd()));
             
             aa.articleAttributeInit(articleAttribute);
             
@@ -82,7 +79,7 @@ public class ArticleService extends VanityFairExtends
         catch (Exception e)
         {
             log.error("articleResistration ERROR : " + e.getMessage());
-            throw new VanityFairRException("게시글 등록에 실패하였습니다.");
+            throw new SisRuntimeException("게시글 등록에 실패하였습니다.");
         }
         
     }

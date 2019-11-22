@@ -15,11 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
-import core.util.VanityFairStringUtil;
 import web.biz.vanityFair.domain.user.User;
 import web.biz.vanityFair.domain.vo.MailVO;
 import web.biz.vanityFair.service.user.UserService;
-import web.common.core.exception.VanityFairRException;
+import web.common.core.exception.SisRuntimeException;
+import web.common.core.util.SisStringUtil;
 
 @Service
 public class MailService
@@ -54,7 +54,7 @@ public class MailService
     public void sendMail(String key, MailVO mailVO, boolean yn)
     {
         // 키 설정
-        mailVO.setKey(VanityFairStringUtil.getKey(false, 8));
+        mailVO.setKey(SisStringUtil.getKey(false, 8));
         
         userService.userMailCertSend((User) mailVO.getModel().get("user"), mailVO.getKey());
         
@@ -80,7 +80,7 @@ public class MailService
         }
         catch (Exception e)
         {
-            throw new VanityFairRException("메일 전송 중 오류가 발생했습니다. 사유 : " + e.getMessage());
+            throw new SisRuntimeException("메일 전송 중 오류가 발생했습니다. 사유 : " + e.getMessage());
         }
         
         mailSender.send(message);
@@ -94,7 +94,7 @@ public class MailService
         }
         catch (Exception e)
         {
-            throw new VanityFairRException("유저 이메일 삭제 중 에러가 발생했습니다. 사유 : " + e.getMessage());
+            throw new SisRuntimeException("유저 이메일 삭제 중 에러가 발생했습니다. 사유 : " + e.getMessage());
         }
     }
     

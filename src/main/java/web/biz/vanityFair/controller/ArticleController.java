@@ -17,21 +17,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import core.util.VanityFairSessionUtil;
-import core.util.VanityFairStringUtil;
 import lombok.extern.slf4j.Slf4j;
-import web.biz.vanityFair.domain.article.child.ArticleAttribute;
-import web.biz.vanityFair.domain.article.child.ArticleComment;
-import web.biz.vanityFair.domain.article.child.ArticleDetail;
+import web.biz.vanityFair.domain.article.ArticleAttribute;
+import web.biz.vanityFair.domain.article.ArticleComment;
+import web.biz.vanityFair.domain.article.ArticleDetail;
 import web.biz.vanityFair.domain.user.User;
 import web.biz.vanityFair.service.article.ArticleService;
-import web.common.core.component.VanityFairExtends;
-import web.common.core.exception.VanityfairCException;
+import web.common.core.component.SisExtends;
+import web.common.core.exception.SisCheckedException;
+import web.common.core.util.SisSessionUtil;
+import web.common.core.util.SisStringUtil;
 
 @Slf4j
 @Controller
 @RequestMapping("/articles")
-public class ArticleController extends VanityFairExtends
+public class ArticleController extends SisExtends
 {
     private String menuName = "app_articles/articles";
     
@@ -59,7 +59,7 @@ public class ArticleController extends VanityFairExtends
     {
         ModelAndView view = new ModelAndView();
         
-        if (VanityFairStringUtil.isEmpty(session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY)))
+        if (SisStringUtil.isEmpty(session.getAttribute(SisSessionUtil.USER_SESSION_KEY)))
         {
             view.setViewName(menuName);
             view.addObject("leftMenu", "need_login");
@@ -77,7 +77,7 @@ public class ArticleController extends VanityFairExtends
     @PostMapping("/{articlesNumber}/registration")
     public ModelAndView articleResigstration(@PathVariable("articlesNumber") String articlesNumber, ArticleDetail articleDetail, ArticleAttribute articleAttribute, MultipartFile soruceFile, HttpSession session)
     {
-        User user = (User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY);
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
         articleService.articleResistration(user, articleDetail, articleAttribute);
         
@@ -108,11 +108,11 @@ public class ArticleController extends VanityFairExtends
     }
     
     @PostMapping("/{articlesNumber}/comment")
-    public ModelAndView articleCommentResistration(@PathVariable("articlesNumber") String articlesNumber, HttpSession session, ArticleDetail articleDetail, String inputComment) throws VanityfairCException
+    public ModelAndView articleCommentResistration(@PathVariable("articlesNumber") String articlesNumber, HttpSession session, ArticleDetail articleDetail, String inputComment) throws SisCheckedException
     {
         ModelAndView view = new ModelAndView();
         
-        if (VanityFairStringUtil.isEmpty(session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY)))
+        if (SisStringUtil.isEmpty(session.getAttribute(SisSessionUtil.USER_SESSION_KEY)))
         {
             view.setViewName(menuName);
             view.addObject("leftMenu", "need_login");
@@ -122,14 +122,14 @@ public class ArticleController extends VanityFairExtends
         
         try
         {
-            articleService.articleCommentResistration(articleDetail.getSeqNo(), (User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY), inputComment);
+            articleService.articleCommentResistration(articleDetail.getSeqNo(), (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY), inputComment);
             
             view.setViewName("redirect:/articles/" + articlesNumber + "/" + articleDetail.getSeqNo());
             view.addObject("leftMenu", "detail");
         }
         catch (Exception e)
         {
-            throw new VanityfairCException("에러가 발생했습니다. 사유 : " + e.getMessage());
+            throw new SisCheckedException("에러가 발생했습니다. 사유 : " + e.getMessage());
         }
         
         return view;

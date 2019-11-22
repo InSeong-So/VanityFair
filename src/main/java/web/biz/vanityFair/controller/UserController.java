@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import core.util.VanityFairSessionUtil;
 import lombok.extern.slf4j.Slf4j;
 import web.biz.vanityFair.domain.user.User;
-import web.biz.vanityFair.domain.user.child.UserDetail;
+import web.biz.vanityFair.domain.user.UserDetail;
 import web.biz.vanityFair.service.user.UserService;
+import web.common.core.util.SisSessionUtil;
 
 @Slf4j
 @Controller
@@ -48,7 +48,7 @@ public class UserController
     @GetMapping("/myprofile/{myprofileNumbers}")
     public ModelAndView myProfile_left(@PathVariable String myprofileNumbers, HttpSession session)
     {
-        User user = (User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY);
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
         UserDetail userDetail = userService.returnUserDetailSelect(user);
         
@@ -64,7 +64,7 @@ public class UserController
     @PostMapping("/myprofile/{myprofileNumbers}/update")
     public ModelAndView doMyProfileUpdate(@PathVariable String myprofileNumbers, UserDetail userDetail, HttpSession session, String mailCd)
     {
-        userDetail.setUser((User) session.getAttribute(VanityFairSessionUtil.USER_SESSION_KEY));
+        userDetail.setUser((User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY));
         ModelAndView view = new ModelAndView();
         
         switch (myprofileNumbers)

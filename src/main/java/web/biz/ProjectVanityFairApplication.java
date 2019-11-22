@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import core.conf.VanityFairConfigure;
+import web.biz.vanityFair.config.VanityFairConfigure;
 
 @SpringBootApplication
 //@ComponentScan
