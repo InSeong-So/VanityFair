@@ -38,7 +38,7 @@ public class LoginController extends SisExtends
             User user = userService.userLogin(userId, pwd);
             session.setAttribute(SisSessionUtil.USER_SESSION_KEY, user);
             
-            view.setViewName(vfConf.getHome());
+            view.setViewName("redirect:/");
             view.addObject("login_result", "Y");
             
             return view;
@@ -58,7 +58,7 @@ public class LoginController extends SisExtends
     {
         session.removeAttribute(SisSessionUtil.USER_SESSION_KEY);
         session.invalidate();
-        return vfConf.getHome();
+        return "redirect:/";
     }
     
 }

@@ -18,9 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
-import web.biz.vanityFair.domain.article.ArticleAttribute;
+import web.biz.vanityFair.domain.article.Article;
 import web.biz.vanityFair.domain.article.ArticleComment;
-import web.biz.vanityFair.domain.article.ArticleDetail;
 import web.biz.vanityFair.domain.user.User;
 import web.biz.vanityFair.service.article.ArticleService;
 import web.common.core.component.SisExtends;
@@ -43,13 +42,12 @@ public class ArticleController extends SisExtends
     {
         ModelAndView view = new ModelAndView();
         
-        view.setViewName(menuName);
-        view.addObject("leftMenu", articlesNumber);
+        Page<Article> articleList = articleService.getArticleList(pageable);
         
-        Page<ArticleDetail> articleList = articleService.getArticleList(pageable);
         model.addAttribute("articleList", articleList);
         
-        //        log.info("총 element 수 : {}, 전체 page 수 : {}, 페이지에 표시할 element 수 : {}, 현재 페이지 index : {}, 현재 페이지의 element 수 : {}", articleList.getTotalElements(), articleList.getTotalPages(), articleList.getSize(), articleList.getNumber(), articleList.getNumberOfElements());
+        view.setViewName(menuName);
+        view.addObject("leftMenu", articlesNumber);
         
         return view;
     }
@@ -75,11 +73,13 @@ public class ArticleController extends SisExtends
     }
     
     @PostMapping("/{articlesNumber}/registration")
-    public ModelAndView articleResigstration(@PathVariable("articlesNumber") String articlesNumber, ArticleDetail articleDetail, ArticleAttribute articleAttribute, MultipartFile soruceFile, HttpSession session)
+    public ModelAndView articleResigstration(@PathVariable("articlesNumber") String articlesNumber, Article article, MultipartFile soruceFile, HttpSession session)
     {
         User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
-        articleService.articleResistration(user, articleDetail, articleAttribute);
+        log.info(article.toString());
+        
+        articleService.articleResistration(user, article);
         
         ModelAndView view = new ModelAndView();
         
@@ -90,53 +90,94 @@ public class ArticleController extends SisExtends
     }
     
     @GetMapping("/{articlesNumber}/{articleSeqNo}")
-    public ModelAndView articleDetailView(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, HttpSession session)
+    public ModelAndView articleInquiry(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, HttpSession session)
     {
         ModelAndView view = new ModelAndView();
         
-        ArticleDetail ad = articleService.getArticleDetail(Long.parseLong(articleSeqNo));
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
-        List<ArticleComment> ac = articleService.getArticleComment(ad.getArticle());
+        Article article = articleService.articleInquiry(Long.parseLong(articleSeqNo));
         
-        log.info("ArticleDetail 정보 : " + ad);
+        if (!SisStringUtil.isEmpty(user) && article.getUserId().equals(user.getUserId()))
+            view.addObject("writer_yn", "Y");
+        
+        List<ArticleComment> articleComment = articleService.getArticleComment(article);
+        
         view.setViewName(menuName);
-        view.addObject("article", ad);
-        view.addObject("commentList", ac);
+        view.addObject("article", article);
+        view.addObject("commentList", articleComment);
         view.addObject("leftMenu", "detail");
         
         return view;
     }
     
-    @PostMapping("/{articlesNumber}/comment")
-    public ModelAndView articleCommentResistration(@PathVariable("articlesNumber") String articlesNumber, HttpSession session, ArticleDetail articleDetail, String inputComment) throws SisCheckedException
+    @GetMapping("/{articlesNumber}/{articleSeqNo}/update")
+    public ModelAndView articleUpdate(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, String sendMenu, HttpSession session)
     {
         ModelAndView view = new ModelAndView();
         
-        if (SisStringUtil.isEmpty(session.getAttribute(SisSessionUtil.USER_SESSION_KEY)))
+        Article article = articleService.articleInquiry(Long.parseLong(articleSeqNo));
+        
+        view.setViewName(menuName);
+        view.addObject("article", article);
+        view.addObject("leftMenu", "update");
+        view.addObject("sendMenu", sendMenu);
+        
+        return view;
+    }
+    
+    @PostMapping("/{articlesNumber}/{articleSeqNo}/update")
+    public ModelAndView articleUpdateComplete(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, String title, String content, String sendMenu, HttpSession session)
+    {
+        ModelAndView view = new ModelAndView();
+        
+        Article article = articleService.articleInquiry(Long.parseLong(articleSeqNo));
+        
+        article.setTitle(title);
+        article.setContent(content);
+        
+        article = articleService.articleUpdate(article);
+        
+        view.setViewName("redirect:/articles/" + articlesNumber + "/" + articleSeqNo);
+        view.addObject("article", article);
+        view.addObject("leftMenu", "update");
+        view.addObject("sendMenu", sendMenu);
+        
+        return view;
+    }
+    
+    @PostMapping("/{articlesNumber}/comment")
+    public ModelAndView articleCommentResistration(@PathVariable("articlesNumber") String articlesNumber, HttpSession session, Article article, String inputComment) throws SisCheckedException
+    {
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
+        
+        ModelAndView view = new ModelAndView();
+        
+        if (SisStringUtil.isEmpty(user))
         {
             view.setViewName(menuName);
             view.addObject("leftMenu", "need_login");
             return view;
-            //            throw new VanityfairCException("로그인이 필요한 서비스입니다.");
         }
         
         try
         {
-            articleService.articleCommentResistration(articleDetail.getSeqNo(), (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY), inputComment);
+            articleService.articleCommentResistration(article, user.getUserId(), inputComment);
             
-            view.setViewName("redirect:/articles/" + articlesNumber + "/" + articleDetail.getSeqNo());
+            view.setViewName("redirect:/articles/" + articlesNumber + "/" + article.getSeqNo());
+            
             view.addObject("leftMenu", "detail");
         }
         catch (Exception e)
         {
-            throw new SisCheckedException("에러가 발생했습니다. 사유 : " + e.getMessage());
+            throw new SisCheckedException("댓글 등록 중 에러가 발생했습니다. 사유 : " + e.getMessage());
         }
         
         return view;
     }
     
     @PostMapping("/{articlesNumber}/update")
-    public ModelAndView articleDetailUpdate(@PathVariable("articlesNumber") String articlesNumber, HttpSession session, ArticleDetail articleDetail)
+    public ModelAndView articleDetailUpdate(@PathVariable("articlesNumber") String articlesNumber, HttpSession session, Article article)
     {
         
         ModelAndView view = new ModelAndView();

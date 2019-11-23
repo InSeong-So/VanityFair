@@ -29,29 +29,36 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ArticleComment
 {
+    // 채번
     @Id
-    @Column(name = "seq_no")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long seqNo;
     
+    // 게시글 코드
     @OneToOne
     @JoinColumn(name = "article_cd")
     private Article article;
     
-    @Column(name = "comment", nullable = false, columnDefinition = "varchar(4000)")
+    // 댓글 내용
+    @Column(nullable = false, columnDefinition = "varchar(4000)")
     private String comment;
     
-    @Column(name = "comment_no", nullable = false)
+    // 댓글 번호
+    @Column(nullable = false)
     private long commentNo;
     
-    @Column(name = "user_id", nullable = false, columnDefinition = "varchar(20)")
+    // 댓글 등록 유저 아이디
+    @Column(nullable = false, columnDefinition = "varchar(20)")
     private String userId;
     
-    @Column(name = "reg_ip", nullable = false, columnDefinition = "varchar(40)")
+    // 댓글 등록 IP
+    @Column(nullable = false, columnDefinition = "varchar(40)")
     @ColumnDefault("'127.0.0.1'")
     private String regIp;
     
-    @Column(name = "reg_date", nullable = false, columnDefinition = "timestamp")
+    // 댓글 등록일자
+    @Column(nullable = false, columnDefinition = "timestamp")
     @CreationTimestamp
     private LocalDateTime regDate;
 }

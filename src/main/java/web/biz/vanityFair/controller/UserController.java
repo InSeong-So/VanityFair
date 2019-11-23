@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 import web.biz.vanityFair.domain.user.User;
-import web.biz.vanityFair.domain.user.UserDetail;
 import web.biz.vanityFair.service.user.UserService;
 import web.common.core.util.SisSessionUtil;
 
@@ -50,21 +49,18 @@ public class UserController
     {
         User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
         
-        UserDetail userDetail = userService.returnUserDetailSelect(user);
-        
         ModelAndView view = new ModelAndView();
         
         view.setViewName(menuName);
-        view.addObject("userProfile", userDetail);
+        view.addObject("userProfile", user);
         view.addObject("leftMenu", myprofileNumbers);
         
         return view;
     }
     
     @PostMapping("/myprofile/{myprofileNumbers}/update")
-    public ModelAndView doMyProfileUpdate(@PathVariable String myprofileNumbers, UserDetail userDetail, HttpSession session, String mailCd)
+    public ModelAndView doMyProfileUpdate(@PathVariable String myprofileNumbers, HttpSession session, String mailCd)
     {
-        userDetail.setUser((User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY));
         ModelAndView view = new ModelAndView();
         
         switch (myprofileNumbers)

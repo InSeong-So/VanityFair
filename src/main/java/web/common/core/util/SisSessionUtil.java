@@ -3,6 +3,7 @@ package web.common.core.util;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,12 +12,14 @@ import web.biz.vanityFair.domain.user.User;
 public class SisSessionUtil
 {
     public static final String REQUEST_SESSION_KEY = "requestInfo";
+    
     public static final String USER_SESSION_KEY = "loginedUser";
+    
     public static final String DEFAULT_ENCODING = "UTF-8";
     
     public static boolean isLoginUser(NativeWebRequest webRequest)
     {
-        Object loginedUser = webRequest.getAttribute(USER_SESSION_KEY, webRequest.SCOPE_SESSION);
+        Object loginedUser = webRequest.getAttribute(USER_SESSION_KEY, RequestAttributes.SCOPE_SESSION);
         return loginedUser != null;
     }
     
@@ -49,7 +52,8 @@ public class SisSessionUtil
         return (User) session.getAttribute(USER_SESSION_KEY);
     }
     
-    public static ModelAndView returnValue(String viewName, String key, String value) {
+    public static ModelAndView returnValue(String viewName, String key, String value)
+    {
         ModelAndView view = new ModelAndView();
         
         view.setViewName(viewName);

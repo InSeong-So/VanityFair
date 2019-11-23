@@ -1,7 +1,8 @@
 package web.biz.vanityFair.service.user;
 
-import java.util.Map;
 import java.util.Optional;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,41 +10,32 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
 import web.biz.vanityFair.domain.user.User;
-import web.biz.vanityFair.domain.user.UserDetail;
+import web.biz.vanityFair.facade.UserInterface;
 import web.biz.vanityFair.repository.user.UserRepository;
 import web.common.core.component.SisExtends;
 import web.common.core.exception.SisRuntimeException;
 import web.common.core.util.SisEncUtil;
+import web.common.core.util.SisStringUtil;
 
 @Slf4j
 @Service
-public class UserService extends SisExtends
+public class UserService extends SisExtends implements UserInterface
 {
-    //    User user = new User();
-    //    
-    //    UserDetail userDetail = new UserDetail();
-    //    
-    //    UserSystem userSystem = new UserSystem();
-    
     @Autowired
     private UserRepository userRepository;
     
-    @Autowired
-    private UserSystemService us;
-    
-    @Autowired
-    private UserDetailService ud;
-    
-    @Autowired
-    private UserMailService um;
+//    @PostConstruct
+//    public void init()
+//    {
+//        userRepository.save(User.builder().adminYn("Y").pwd(SisEncUtil.SHA256("1234")).userCd(codeCreator(true)).userId("admin").userNm("관리자").build());
+//        
+//    }
     
     /**
      * 유저 로그인
      * 
-     * @param userId
-     * @param pwd
-     * @return
      */
+    @Override
     public User userLogin(String userId, String pwd)
     {
         Optional<User> checkUser = userRepository.findByUserId(userId);
@@ -63,15 +55,13 @@ public class UserService extends SisExtends
         {
             return user;
         }
-        
     }
     
     /**
      * 회원가입
      * 
-     * @param user
-     * @return
      */
+    @Override
     @Transactional
     public boolean userRegsistration(User user)
     {
@@ -84,13 +74,9 @@ public class UserService extends SisExtends
         
         try
         {
-            User regUSer = User.builder().seqNo(userRepository.getSeqNo() + 1).userId(user.getUserId()).userCd(codeCreator()).pwd(SisEncUtil.SHA256(user.getPwd())).build();
+            User regUSer = User.builder().seqNo(userRepository.getSeqNo() + 1).userId(user.getUserId()).userCd(codeCreator(true)).pwd(SisEncUtil.SHA256(user.getPwd())).userLastLogin(SisStringUtil.getYmd()).build();
             
             userRepository.save(regUSer);
-            
-            us.userSystemInit(regUSer);
-            
-            ud.userDetailInit(regUSer);
             
             return true;
         }
@@ -99,81 +85,37 @@ public class UserService extends SisExtends
             log.error("userRegsistration ERROR : " + e.getMessage());
             throw new SisRuntimeException("asdf");
         }
-        
+    }
+    
+    @Override
+    public User userProfileInquiry(String userId)
+    {
+        Optional<User> userProfile = userRepository.findByUserId(userId);
+        return userProfile.get();
     }
     
     /**
-     * 유저 상세 정보 조회
+     * 프로필 업데이트
      * 
-     * @param user
-     * @return
      */
-    public UserDetail returnUserDetailSelect(User user)
+    @Override
+    public void userProfileUpdate(User user)
     {
-        return ud.userDetailSelect(user);
-    }
-    
-    /**
-     * 기본 프로필 변경
-     * 
-     * @param user
-     */
-    public void userProfileUpdate(UserDetail user)
-    {
-        ud.userProfileUpdate(user);
-    }
-    
-    /**
-     * 이메일 인증코드 전송
-     * 
-     * @param user
-     */
-    public void userMailCertSend(User user, String certKey)
-    {
-        um.userMailCertSend(user, certKey);
-    }
-    
-    public void userMailDelete(User user)
-    {
-        um.userMailDelete(user);
-    }
-    
-    /**
-     * 이메일 인증 후처리
-     * 
-     * @param user
-     */
-    @Transactional
-    public boolean userMailCertified(User user, Map<String, Object> params)
-    {
-        if (um.userMailCertified(user, params))
-        {
-            try
-            {
-                ud.userMailUpdate((String) params.get("userMail"), user);
-                return true;
-            }
-            catch (Exception e)
-            {
-                throw new SisRuntimeException("유저 이메일 등록 중 오류가 발생했습니다. 사유 : " + e.getMessage());
-            }
-        }
-        
-        return false;
+        userRepository.userProfileUpdate(user.getUserNm(), user.getUserZipCd(), user.getUserAddr(), user.getUserDtlAddr(), user.getUserPhoneNumber(), user.getUserCd());
     }
     
     /**
      * 비밀번호 변경
      * 
-     * @param user
      */
-    @Transactional
-    public boolean userPwdChange(User user, Map<String, Object> params)
+    @Override
+    public boolean userPwdChange(User user, String chaPwd)
     {
-        String changePwd = SisEncUtil.SHA256((String)params.get("chaPwd"));
+        String changePwd = SisEncUtil.SHA256(chaPwd);
         
         userRepository.setModifiedPwd(changePwd, user.getUserCd());
         
         return true;
     }
+    
 }

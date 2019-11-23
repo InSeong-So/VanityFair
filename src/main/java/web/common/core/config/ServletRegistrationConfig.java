@@ -24,10 +24,10 @@ public class ServletRegistrationConfig implements ServletContextInitializer
     }
     
     @Bean
-    public ServletRegistrationBean getServletRegistrationBean()
+    public ServletRegistrationBean<VanityFairServletConfig> getServletRegistrationBean()
     {
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean(new VanityFairServletConfig());
-        registrationBean.addUrlMappings("/vana");
+        ServletRegistrationBean<VanityFairServletConfig> registrationBean = new ServletRegistrationBean<VanityFairServletConfig>(new VanityFairServletConfig());
+        registrationBean.addUrlMappings("/vanity");
         return registrationBean;
     }
     

@@ -23,11 +23,11 @@ public class ProjectVanityFairApplication
     
     public static void main(String[] args)
     {
-                SpringApplication.run(ProjectVanityFairApplication.class, args);
-//        try (ConfigurableApplicationContext ctx = SpringApplication.run(ProjectVanityFairApplication.class, args))
-//        {
-//        }
-//        
+        SpringApplication.run(ProjectVanityFairApplication.class, args);
+        //        try (ConfigurableApplicationContext ctx = SpringApplication.run(ProjectVanityFairApplication.class, args))
+        //        {
+        //        }
+        //        
     }
     
 }

@@ -6,12 +6,13 @@
 </head>
 <body>
   <form name="f1" id="f1"></form>
-  <div layout:fragment="content" style="overflow:auto; position: relative;">
+  <div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
     <div class="container-fluid">
       <div th:replace="layout/left :: leftArticle"></div>
       <div th:replace="${leftMenu} == '01' ? ~{app_articles/articles_content :: articles_content_01} : _"></div>
       <div th:replace="${leftMenu} == '02' ? ~{app_articles/articles_content :: articles_content_02} : _"></div>
       <div th:replace="${leftMenu} == 'write' ? ~{write :: write} : _"></div>
+      <div th:replace="${leftMenu} == 'update' ? ~{write :: update} : _"></div>
       <div th:replace="${leftMenu} == 'need_login' ? ~{app_articles/articles_content :: article_need_login} : _"></div>
       <div th:replace="${leftMenu} == 'detail' ? ~{app_articles/articles_content :: articles_detail_01} : _"></div>
     </div>
