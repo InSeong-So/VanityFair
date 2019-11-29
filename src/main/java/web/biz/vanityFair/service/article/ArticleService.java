@@ -8,12 +8,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import web.biz.vanityFair.domain.article.Article;
 import web.biz.vanityFair.domain.article.ArticleComment;
+import web.biz.vanityFair.domain.file.File;
 import web.biz.vanityFair.domain.user.User;
 import web.biz.vanityFair.facade.ArticleInterface;
 import web.biz.vanityFair.repository.article.ArticleCommentRepository;
 import web.biz.vanityFair.repository.article.ArticleRepository;
+import web.biz.vanityFair.repository.file.FileRepository;
 import web.common.core.component.SisExtends;
 import web.common.core.exception.SisRuntimeException;
 import web.common.core.util.SisEncUtil;
@@ -31,6 +34,9 @@ public class ArticleService extends SisExtends implements ArticleInterface {
 
     @Autowired
     private ArticleCommentRepository articleCommentRepository;
+
+    @Autowired
+    private FileRepository fileRepository;
 
     @Override
     public Page<Article> getArticleList(Pageable pageable) {
@@ -58,14 +64,14 @@ public class ArticleService extends SisExtends implements ArticleInterface {
     }
 
     @Override
-    public boolean articleResistration(User user, Article article) {
+    public boolean articleResistration(User user, Article article, MultipartFile uploadFile) {
         // 세션값이 존재하지 않으면 튕겨냄
         if (SisStringUtil.isEmpty(user)) {
             throw new IllegalStateException("로그인이 필요한 서비스입니다.");
         }
 
         try {
-            article.setArticleCd(SisExtends.codeCreator(true));
+            article.setArticleCd(codeCreator(true));
             article.setSeqNo(articleRepository.getSeqNo() + 1);
             article.setUser(user);
             article.setUserId(user.getUserId());
@@ -73,9 +79,29 @@ public class ArticleService extends SisExtends implements ArticleInterface {
             article.setRegDateStr(SisStringUtil.getYmd(new SimpleDateFormat("yyyy-MM-dd")));
             article.setArticlePwd(SisEncUtil.SHA256(article.getArticlePwd()));
             article.setArticleDelYn("N");
+
+            if (!SisStringUtil.isEmpty(uploadFile)) {
+                // String uploadFileName = uploadFile.getOriginalFilename();
+                // String uploadFileNameExtension = FilenameUtils.getExtension(uploadFileName).toLowerCase();
+                // String destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + uploadFileNameExtension;
+                String uploadFilePath = "/Users/soinseong/Documents/workspace/spring/Project/project-VanityFair/files/upload/images/attachments/";
+                java.io.File destinationFile = new java.io.File(uploadFilePath, uploadFile.getOriginalFilename());
+                // do {
+                //      destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + sourceFileNameExtension;
+                //      destinationFile = new File("/files/upload/images/attachments/" + destinationFileName);
+                // } while (destinationFile.exists());
+                // destinationFile.getParentFile().mkdirs();
+                uploadFile.transferTo(destinationFile);
+
+                File file = File.builder().fileCategory(article.getArticleCategory()).fileCd(codeCreator(true)).fileNm(uploadFile.getOriginalFilename()).filePath(uploadFilePath).userId(user.getUserId()).build();
+
+                article.setFileCd(fileRepository.save(file).getFileCd());
+            }
+
             articleRepository.save(article);
 
             return true;
+
         } catch (Exception e) {
             throw new SisRuntimeException("게시글 등록에 실패하였습니다.");
         }
@@ -122,4 +148,15 @@ public class ArticleService extends SisExtends implements ArticleInterface {
         articleCommentRepository.setDeleteComment(article, userId, commentNo);
     }
 
+    @Override
+    public File fileInquery(String fileCd) {
+        try {
+            Optional<File> file = fileRepository.findByFileCd(fileCd);
+
+            return file.get();
+
+        } catch (Exception e) {
+            throw new SisRuntimeException("등록된 파일 조회에 실패하였습니다. 사유 : " + e.getMessage());
+        }
+    }
 }

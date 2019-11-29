@@ -32,7 +32,7 @@ public class AjaxController {
         }
 
         try {
-            articleService.articleDelete(articleService.articleInquiry((long) params.get("seqNo")));
+            articleService.articleDelete(articleService.getArticleByArticleCd(String.valueOf(params.get("articleCd"))));
         } catch (Exception e) {
             throw new SisRuntimeException("게시글 삭제 중 오류가 발생했습니다. 사유 : " + e.getMessage());
         }

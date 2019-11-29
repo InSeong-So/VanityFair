@@ -32,3 +32,8 @@
 
 # 자바 메일
 - [자바 메일 발송 참조]](https://offbyone.tistory.com/167)
+
+# 자바 파일 다운로드
+
+# IDE 활용
+- [인텔리제이 단축키](IntelliJ.md)

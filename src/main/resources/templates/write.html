@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/layout}">
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/base :: common_header(~{::title},~{::link})">
     <meta charset="UTF-8"></meta>
     <title>Write</title>
@@ -7,107 +8,116 @@
 <body>
 <form id="f1" name="f1"></form>
 <div th:fragment="write">
-<div class="container">
-  <div class="col-sm-10 col-md-offset-10 sis-center-col">
-    <div class="row" th:switch="${sendMenu}">
-      <h3 th:case="01">글쓰기</h3>
-      <h3 th:case="02">인증하기</h3>
+    <div class="container">
+        <div class="col-sm-10 col-md-offset-10 sis-center-col">
+            <div class="row" th:switch="${sendMenu}">
+                <h3 th:case="01">글쓰기</h3>
+                <h3 th:case="02">인증하기</h3>
+            </div>
+            <form action="#" enctype="multipart/form-data"
+                  id="editor_form" method="POST"
+                  name="editor_form" role="form"
+                  th:action="@{/articles/{articlesNumber}/registration(articlesNumber=${sendMenu})}">
+                <div class="form-group row">
+                    <div class="col-xs-3">
+                        <label for="articleCategory">카테고리</label>
+                        <select class="form-control" id="articleCategory" name="articleCategory">
+                            <option>자유게시판</option>
+                            <option>인증게시판</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="title">제목</label>
+                        <input class="form-control" id="title" name="title" type="text">
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="articlePwd">비밀번호</label>
+                        <input class="form-control" id="articlePwd" name="articlePwd" type="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content">내용</label>
+                    <textarea id="content" name="content" style="display:none;"></textarea>
+                </div>
+                <div class="form-group filebox bs3-primary preview-image">
+                    <input class="form-control upload-name" disabled="disabled" id="fileNm" name="fileNm"
+                           style="width: 200px;" type="text" value="파일명">
+                </div>
+                <div class="form-group">
+                    <label for="uploadFile">업로드</label>
+                    <input class="form-control upload-hidden" id="uploadFile" name="uploadFile" type="file">
+                </div>
+                <div class="form-group">
+                    <div class="col-2">
+                        <button class="btn btn-default" id="editorSubmitBtn" type="submit">작성</button>
+                    </div>
+                </div>
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    callSmartEditor();
+                    /*]]>*/
+                </script>
+            </form>
+        </div>
     </div>
-    <form role="form" action="#" th:action="@{/articles/{articlesNumber}/registration(articlesNumber=${sendMenu})}" method="POST" id="editor_form" name="editor_form" enctype="multipart/form-data">
-      <input type="hidden" id="input_file_nm" name="input_file_nm" class="form-control upload-name" value="파일명" disabled="disabled" style="width: 200px;">
-      <div class="form-group row">
-        <div class="col-xs-3">
-          <label for="articleCategory">카테고리</label>
-          <select class="form-control" id="articleCategory" name="articleCategory">
-            <option>자유게시판</option>
-            <option>인증게시판</option>
-          </select>
-        </div>
-        <div class="col-xs-6">
-          <label for="title">제목</label>
-          <input type="text" class="form-control" id="title" name="title">
-        </div>
-        <div class="col-xs-3">
-          <label for="articlePwd">비밀번호</label>
-          <input type="password" class="form-control" id="articlePwd" name="articlePwd">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="content">내용</label>
-        <textarea style="display:none;" id="content" name="content"></textarea>
-      </div>
-      <div class="form-group filebox bs3-primary preview-image">
-        <input type="text" id="input_file_nm" name="input_file_nm" class="form-control upload-name" value="파일명" disabled="disabled" style="width: 200px;">
-      </div>
-      <div class="form-group">
-        <label for="input_file">업로드</label> 
-        <input type="file" id="input_file" name="input_file" class="form-control upload-hidden"> 
-      </div>
-      <div class="form-group">
-        <div class="col-2">
-          <button type="submit" class="btn btn-default" id="editor_submit_button">작성</button>
-        </div>
-      </div>
-      <script th:inline="javascript">
-        /*<![CDATA[*/
-        callSmartEditor();
-        /*]]>*/
-      </script>
-    </form>
-    </div>
-  </div>
 </div>
 <div th:fragment="update">
-<div class="container">
-  <div class="col-sm-10 col-md-offset-10 sis-center-col">
-    <div class="row" th:switch="${sendMenu}">
-      <h3 th:case="01">글쓰기</h3>
-      <h3 th:case="02">인증하기</h3>
-      <h3 th:case="U">글 수정</h3>
+    <div class="container">
+        <div class="col-sm-10 col-md-offset-10 sis-center-col">
+            <div class="row" th:switch="${sendMenu}">
+                <h3 th:case="01">글쓰기</h3>
+                <h3 th:case="02">인증하기</h3>
+                <h3 th:case="U">글 수정</h3>
+            </div>
+            <form action="#" enctype="multipart/form-data"
+                  id="editor_form" method="POST"
+                  name="editor_form" role="form"
+                  th:action="@{/articles/01/{seqNo}/update(seqNo=${article.seqNo}, sendMenu='U')}">
+                <input id="fileCd" name="fileCd" th:value="${article.fileCd}" type="hidden">
+                <div class="form-group row">
+                    <div class="col-xs-3">
+                        <label for="articleCategory">카테고리</label>
+                        <select class="form-control" id="articleCategory" name="articleCategory">
+                            <option>자유게시판</option>
+                            <option>인증게시판</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="title">제목</label>
+                        <input class="form-control" id="title" name="title" th:value="${article.title}" type="text">
+                    </div>
+                    <!--         <div class="col-xs-3"> -->
+                    <!--           <label for="articlePwd">비밀번호</label> -->
+                    <!--           <input type="password" class="form-control" id="articlePwd" name="articlePwd"> -->
+                    <!--         </div> -->
+                </div>
+                <div class="form-group">
+                    <label for="content">내용</label>
+                    <textarea id="content" name="content" style="display:none;" th:text="${article.content}"></textarea>
+                </div>
+                <div class="form-group filebox bs3-primary preview-image">
+                    <input class="form-control upload-name" disabled="disabled" id="fileNm" name="fileNm"
+                           style="width: 200px;" type="text" value="파일명">
+                </div>
+                <div class="form-group">
+                    <label for="uploadFile">업로드</label>
+                    <input class="form-control upload-hidden" id="uploadFile" name="uploadFile"
+                           th:value="${file.fileNm}"
+                           type="file">
+                </div>
+                <div class="form-group">
+                    <div class="col-2">
+                        <button class="btn btn-default" id="editorSubmitBtn" type="submit">수정완료</button>
+                    </div>
+                </div>
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    callSmartEditor();
+                    /*]]>*/
+                </script>
+            </form>
+        </div>
     </div>
-    <form role="form" action="#" th:action="@{/articles/01/{seqNo}/update(seqNo=${article.seqNo}, sendMenu='U')}" method="POST" id="editor_form" name="editor_form" enctype="multipart/form-data">
-      <input type="hidden" id="input_file_nm" name="input_file_nm" class="form-control upload-name" value="파일명" disabled="disabled" style="width: 200px;">
-      <div class="form-group row">
-        <div class="col-xs-3">
-          <label for="articleCategory">카테고리</label>
-          <select class="form-control" id="articleCategory" name="articleCategory">
-            <option>자유게시판</option>
-            <option>인증게시판</option>
-          </select>
-        </div>
-        <div class="col-xs-6">
-          <label for="title">제목</label>
-          <input type="text" class="form-control" id="title" name="title" th:value="${article.title}">
-        </div>
-<!--         <div class="col-xs-3"> -->
-<!--           <label for="articlePwd">비밀번호</label> -->
-<!--           <input type="password" class="form-control" id="articlePwd" name="articlePwd"> -->
-<!--         </div> -->
-      </div>
-      <div class="form-group">
-        <label for="content">내용</label>
-        <textarea style="display:none;" id="content" name="content" th:text="${article.content}"></textarea>
-      </div>
-      <div class="form-group filebox bs3-primary preview-image">
-        <input type="text" id="input_file_nm" name="input_file_nm" class="form-control upload-name" value="파일명" disabled="disabled" style="width: 200px;">
-      </div>
-      <div class="form-group">
-        <label for="input_file">업로드</label> 
-        <input type="file" id="input_file" name="input_file" class="form-control upload-hidden"> 
-      </div>
-      <div class="form-group">
-        <div class="col-2">
-          <button type="submit" class="btn btn-default" id="editor_submit_button">수정완료</button>
-        </div>
-      </div>
-      <script th:inline="javascript">
-        /*<![CDATA[*/
-        callSmartEditor();
-        /*]]>*/
-      </script>
-    </form>
-    </div>
-  </div>
 </div>
 </body>
 </html>

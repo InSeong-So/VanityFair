@@ -160,7 +160,7 @@
 
                         sendData["seqNo"] = $("#seqNo").val();
                         sendData["articleCd"] = $("#articleCd").val();
-
+                        console.log(sendData);
                         $.ajax({
                             type: "POST",
                             contentType: "application/json",
@@ -170,8 +170,8 @@
                             cache: false,
                             timeout: 600000,
                             success: function (data) {
-                                alert("프로필이 업데이트 되었습니다.");
-                                window.location = "http://localhost:8224/myprofile/01";
+                                alert("게시글 삭제가 완료 되었습니다.");
+                                window.location = "http://localhost:8224/articles/01";
                             },
                             error: function (e) {
                                 console.log("ERROR : ", e);
@@ -205,10 +205,13 @@
                 <div class="form-control" id="content" name="content" style="height:auto; min-height:100px;">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="input_file_nm">첨부파일</label>
-                <input class="form-control" disabled id="input_file_nm" name="input_file_nm" type="text"/>
-            </div>
+            <th:block th:if="${file != null}">
+                <div class="form-group">
+                    <label for="fileNm">첨부파일</label>
+                    <input class="form-control" disabled id="fileNm" name="fileNm"
+                           th:value="${file.fileNm}" type="text"/>
+                </div>
+            </th:block>
             <hr>
             <br>
             <div class="form-group">
@@ -259,7 +262,7 @@
                                             cache: false,
                                             timeout: 600000,
                                             success: function (data) {
-                                                alert("댓글이 삭제 되었습니다.");
+                                                alert("댓글 삭제가 완료 되었습니다.");
                                                 window.location.replace("http://localhost:8224/articles/01/" + seqNo);
                                             },
                                             error: function (e) {

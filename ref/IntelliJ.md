@@ -1,0 +1,96 @@
+# 기호설명 도움말
+- ⌘ : command
+- ⌃ : control
+- ⇧ : shift
+- ⌥ : option(alt)
+- ⎋ : esc
+- ⏎ : return(enter)
+- ⇥ : tab
+
+# 파일
+- ⌘O : 클래스 찾기 - 단어사이 대문자로 조회하면 더 이득
+- ⌘⇧O : 파일 찾기 - 유사 단축키로 ⇧⇧ 도 많이 사용함
+- ⌘E : 최근 사용 파일 찾기
+- ⌃⇥ : 최근 파일로 이동 - 위 ⌘E 와 유사하나 UX가 약간 다름
+
+# Layout
+- ⌘1 : Project view
+- ⌘3 : Find view
+- ⌘4 : Run view
+- ⌘8 : Hierarchy - ⌃⌥H 로 메소드 호출을 찾으면 노출됨
+- ⌘9 : Version Control - git, task 관리
+- ⇧⎋ : 활성화된(현재 선택된) Layout 닫기
+
+# Refector - 강추
+- ⌘⌥M : 메서드 분리
+- ⌘⌥C : 상수 분리 생성 (public static final ...)
+- ⌘⌥F : 필드(객체변수) 분리
+- ⌘⌥V : 지역변수 분리
+- ⇧ F6 : rename
+- ⌘ F6 : 메서드 시그니쳐(명칭, 반환타입, 파라메터타입과 명칭, 접근자 등) 변경
+
+# 에디터
+- ⌥⏎ : Quick fix - 오류 해결 솔루션 제시 강추
+- ⌘⇧↑, ⌘⇧↓ : 선택된 코드 영역 위, 아래로 이동
+- ⌘ Del : 한 줄 삭제
+- ⌘⇧] : 에디터 탭 기준 오른쪽으로 이동
+- ⌘⇧[ : 에디터 탭 기준 왼쪽으로 이동
+- ⌥↑ : 커서 기준으로 단위 영역(단어, 영역, 문장, 메서드 등) 선택 - 강추
+- ⌘ F12 : 현재 클래스 필드, 메서드 등 목록 노출 - lombok 사용할 시 편함
+- ⌘N : 각종 코드 생성 (getter, setter, override, DI 등)
+- ⌃O : 상위클래스 override
+- ⌃⌥O : Auto import
+- ⌥⇥ : 스플릿(화면분할) 상태에서 화면 간 이동
+    - Split Vertical 단축키를 지정하고 쓰면 더 좋음 - 저는 ⌃⌥V로 지정
+- ⌥ F1 then 1 or ⏎ : 현재파일 Project View 에서 활성화
+
+# 실행
+- ⌘ F9 : 컴파일
+- ⌘R : Run View에서 현재 포커싱 실행 (실행 중이면 재실행)
+- ⌘ F2 : Run View에서 현재 활성화된 실행을 Kill
+- ⌃R : 최근 실행한 것을 다시 실행
+- ⌃⌥R : 현재 커서나 포커싱 된 파일에 실행가능한 것을 노출 후 선택 실행 가능
+    - 보통 단위테스트 시 해당 커서가 메서드안에 있는 상태에서 위 단축키를 누르고 2를 누르면 바로 메소드 테스트 실행
+- ⌃D : 최근 실행한 것을 다시 실행 - 디버깅 모드
+- ⌃⌥D : 현재 커서나 포커싱 된 파일에 실행가능한 것을 노출 후 선택 실행 가능 - 디버깅 모드
+
+# 생성
+- ⌘⇧T : 테스트케이스생성
+    - 이후 ⌘N 을 이용하면 테스트메서드 생성이 편리함
+
+# 이동
+- ⌘B : 클라이언트 코드에서 해당 메소드 선언으로 이동
+- ⌘⌥B : 클라이언트 코드에서 해당 메소드 구현으로 이동 - 강추
+- ⌘U : 구상클래스에서 해당 메소드 선언으로 이동
+- ⌘⌥←, ⌘⌥→ : 이전, 다음 작업영역으로 이동
+
+# 작업(형상)관리
+- ⌘K : 커밋
+    - 커밋 확인 후 ⌃⏎를 치면 됨
+    - 만약 review 여부를 물으면 Commit 버튼을 ⇥으로 포커싱 후 Space를 입력
+- ⌥⇧N : Task 추가 - ⌘9 와 연계하면 작업관리 시 편함
+- ⌥⇧C : Recent Changes
+
+# Multiline
+- ⌘⌃G : 커서가 위치한 단어 기준 multiline 제어
+- ⌘⇧8 + ⇧↑, ⇧↓ : multiline 모드 활성화 후 라인 선택
+- ⌥⇧ MouseLeftClick : 마우스로 클릭한 위치 기준으로 multiline 제어
+
+# 검색
+- ⌘⇧F : 문자열 전체 검색
+
+# 바로가기
+- ⌘, : 환경설정
+- ⌘; : 프로젝트 환경설정
+
+# Syntax
+- iter : for-each 구문 생성
+- fori : for 구문 생성
+- psfs : public static final String
+- psfi : public static final int
+- psvm : public static void main(String[] args)
+- thr : throw new
+
+<br>
+<hr>
+# [ref](http://redutan.github.io/2016/03/23/intellij-favorite-keymap-osx)
