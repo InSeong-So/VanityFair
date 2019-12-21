@@ -9,18 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.biz.vanityFair.ajax.bean.AjaxResponseBody;
 import web.biz.vanityFair.domain.article.Article;
-import web.biz.vanityFair.service.article.ArticleService;
+import web.biz.vanityFair.domain.user.User;
+import web.biz.vanityFair.domain.vo.MailVO;
+import web.biz.vanityFair.facade.ArticleInterface;
 import web.common.core.exception.SisRuntimeException;
+import web.common.core.util.SisSessionUtil;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
 public class AjaxController {
+
     @Autowired
-    ArticleService articleService;
+    ArticleInterface articleInterface;
 
     @PostMapping("/articleDelete")
     public ResponseEntity<?> articleDelete(@RequestBody Map<String, Object> params, Errors errors, HttpSession session) {
@@ -32,7 +37,7 @@ public class AjaxController {
         }
 
         try {
-            articleService.articleDelete(articleService.getArticleByArticleCd(String.valueOf(params.get("articleCd"))));
+            articleInterface.articleDelete(articleInterface.getArticleByArticleCd(String.valueOf(params.get("articleCd"))));
         } catch (Exception e) {
             throw new SisRuntimeException("게시글 삭제 중 오류가 발생했습니다. 사유 : " + e.getMessage());
         }
@@ -52,17 +57,47 @@ public class AjaxController {
         }
 
         try {
-            Article article = articleService.getArticleByArticleCd(String.valueOf(params.get("articleCd")));
+            Article article = articleInterface.getArticleByArticleCd(String.valueOf(params.get("articleCd")));
             String userId = String.valueOf(params.get("userId"));
             long commentNo = Long.parseLong(String.valueOf(params.get("commentNo")));
 
-            articleService.articleCommentDelete(article, userId, commentNo);
+            articleInterface.articleCommentDelete(article, userId, commentNo);
 
         } catch (Exception e) {
             throw new SisRuntimeException("댓글 삭제 중 오류가 발생했습니다. 사유 : " + e.getMessage());
         }
 
         result.setMsg("변경 완료!");
+
+        return ResponseEntity.ok(result);
+    }
+
+    /**
+     * 이메일 인증
+     *
+     * @param params
+     * @param errors
+     * @param session
+     * @return
+     */
+    @PostMapping("/mailCert")
+    public ResponseEntity<?> mailCert(@RequestBody Map<String, Object> params, Errors errors, HttpSession session) {
+        AjaxResponseBody result = new AjaxResponseBody();
+
+        User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
+
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("user", user);
+
+        String userId = user.getUserId();
+        String toMailAddr = (String) params.get("userMail");
+        String subject = "[VanityFair] : " + userId + " 님의 인증메일입니다.";
+
+        MailVO mailVO = MailVO.builder().subject(subject).from("VanityFairAdmin").to(toMailAddr).userId(userId).model(model).build();
+
+//        mailService.sendMail("mail", mailVO, false);
+
+        result.setMsg("발송성공!!!!");
 
         return ResponseEntity.ok(result);
     }

@@ -1,5 +1,6 @@
 package web.biz.vanityFair.service.article;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,13 +20,16 @@ import web.biz.vanityFair.repository.article.ArticleRepository;
 import web.biz.vanityFair.repository.file.FileRepository;
 import web.common.core.component.SisExtends;
 import web.common.core.exception.SisRuntimeException;
-import web.common.core.util.SisEncUtil;
 import web.common.core.util.SisStringUtil;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @Transactional
 public class ArticleService extends SisExtends implements ArticleInterface {
@@ -46,18 +50,36 @@ public class ArticleService extends SisExtends implements ArticleInterface {
         return articleRepository.findAll(pageable);
     }
 
+    @Override
     public Article getArticleByArticleCd(String articleCd) {
         return articleRepository.getArticleByArticleCd(articleCd).get();
     }
 
     @Override
-    public Article articleInquiry(long seqNo) {
+    public Article articleInquiry(long seqNo, HttpServletRequest request, HttpServletResponse response) {
         try {
             Optional<Article> article = articleRepository.findBySeqNo(seqNo);
+            Cookie[] cookies = request.getCookies();
+            boolean getCookies = false;
+            if (cookies != null) {
+                for (Cookie c : cookies) {
+                    if (c.getName().equals(String.valueOf(seqNo))) {
+                        log.info("쿠키가 존재하므로 조회수를 증가시키지 않습니다.");
+                        getCookies = true;
+                    }
+                }
 
-            articleRepository.updateViewCnt(seqNo);
+                if (!getCookies) {
+                    log.info("쿠키가 없으므로 조회수를 증가시킵니다.");
+                    articleRepository.updateViewCnt(seqNo);
+                    Cookie c1 = new Cookie(String.valueOf(seqNo), String.valueOf(seqNo));
+                    c1.setMaxAge(1 * 24 * 60 * 60); // 하루 저장
+                    response.addCookie(c1);
+                }
+            }
 
             return article.get();
+
         } catch (Exception e) {
             throw new SisRuntimeException("조회수 업데이트에 실패하였습니다. 사유 : " + e.getMessage());
         }
@@ -77,7 +99,7 @@ public class ArticleService extends SisExtends implements ArticleInterface {
             article.setUserId(user.getUserId());
             article.setUserArtiNo(articleRepository.getUserArtiNo(user) + 1);
             article.setRegDateStr(SisStringUtil.getYmd(new SimpleDateFormat("yyyy-MM-dd")));
-            article.setArticlePwd(SisEncUtil.SHA256(article.getArticlePwd()));
+            article.setArticlePwd(vfEnc.SHA256(article.getArticlePwd()));
             article.setArticleDelYn("N");
 
             if (!SisStringUtil.isEmpty(uploadFile)) {

@@ -19,6 +19,8 @@ import web.common.core.exception.SisCheckedException;
 import web.common.core.util.SisSessionUtil;
 import web.common.core.util.SisStringUtil;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
@@ -78,12 +80,12 @@ public class ArticleController extends SisExtends {
     }
 
     @GetMapping("/{articlesNumber}/{articleSeqNo}")
-    public ModelAndView articleInquiry(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, HttpSession session) {
+    public ModelAndView articleInquiry(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         ModelAndView view = new ModelAndView();
 
         User user = (User) session.getAttribute(SisSessionUtil.USER_SESSION_KEY);
 
-        Article article = articleInterface.articleInquiry(Long.parseLong(articleSeqNo));
+        Article article = articleInterface.articleInquiry(Long.parseLong(articleSeqNo), request, response);
 
         if (!SisStringUtil.isEmpty(user) && article.getUserId().equals(user.getUserId()))
             view.addObject("writer_yn", "Y");
@@ -103,10 +105,10 @@ public class ArticleController extends SisExtends {
     }
 
     @GetMapping("/{articlesNumber}/{articleSeqNo}/update")
-    public ModelAndView articleUpdate(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, String sendMenu, HttpSession session) {
+    public ModelAndView articleUpdate(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, String sendMenu, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         ModelAndView view = new ModelAndView();
 
-        Article article = articleInterface.articleInquiry(Long.parseLong(articleSeqNo));
+        Article article = articleInterface.articleInquiry(Long.parseLong(articleSeqNo), request, response);
 
         view.setViewName(menuName);
         view.addObject("article", article);
@@ -121,10 +123,10 @@ public class ArticleController extends SisExtends {
     }
 
     @PostMapping("/{articlesNumber}/{articleSeqNo}/update")
-    public ModelAndView articleUpdateComplete(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, String title, String content, String sendMenu, MultipartFile uploadFile, HttpSession session) {
+    public ModelAndView articleUpdateComplete(@PathVariable("articlesNumber") String articlesNumber, @PathVariable("articleSeqNo") String articleSeqNo, String title, String content, String sendMenu, MultipartFile uploadFile, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         ModelAndView view = new ModelAndView();
 
-        Article article = articleInterface.articleInquiry(Long.parseLong(articleSeqNo));
+        Article article = articleInterface.articleInquiry(Long.parseLong(articleSeqNo), request, response);
 
         article.setTitle(title);
         article.setContent(content);

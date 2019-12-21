@@ -8,6 +8,8 @@ import web.biz.vanityFair.domain.article.ArticleComment;
 import web.biz.vanityFair.domain.file.File;
 import web.biz.vanityFair.domain.user.User;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public interface ArticleInterface {
@@ -15,7 +17,10 @@ public interface ArticleInterface {
     Page<Article> getArticleList(Pageable pageable);
 
     // 글 읽기
-    Article articleInquiry(long seqNo);
+    Article articleInquiry(long seqNo, HttpServletRequest request, HttpServletResponse response);
+
+    // 게시글 찾기
+    Article getArticleByArticleCd(String articleCd);
 
     // 글쓰기
     boolean articleResistration(User user, Article article, MultipartFile file);
