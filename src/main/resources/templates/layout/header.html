@@ -8,7 +8,7 @@
     <body>
         <header th:fragment="header">
             <div class="jumbotron text-center">
-              <h1 style="margin:0;">Vánity Fáir</h1>
+                <h1 style="margin:0;">Vánity Fáir</h1>
             </div>
 
             <nav class="navbar navbar-inverse">
@@ -23,49 +23,49 @@
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-<!--                             <li class="headerMenu" name="home"> -->
-<!--                                 <a href="#" th:href="@{/}">Home</a> -->
-<!--                             </li> -->
+                            <!--                             <li class="headerMenu" name="home"> -->
+                            <!--                                 <a href="#" th:href="@{/}">Home</a> -->
+                            <!--                             </li> -->
                             <li class="headerMenu" name="products">
-                                <a href="#" th:href="@{/products}" >Products</a>
+                                <a href="#" th:href="@{/products/01}">Products</a>
                             </li>
                             <li class="headerMenu" name="deals">
-                                <a href="#" th:href="@{/deals}" >Deals</a>
+                                <a href="#" th:href="@{/deals}">Deals</a>
                             </li>
                             <li class="headerMenu" name="stores">
-                                <a href="#" th:href="@{/stores}" >Stores</a>
+                                <a href="#" th:href="@{/stores}">Stores</a>
                             </li>
                             <li class="headerMenu" name="articles">
-                                <a href="#" th:href="@{/articles/01}" >Articles</a>
+                                <a href="#" th:href="@{/articles/01}">Articles</a>
                             </li>
                             <li class="headerMenu" name="contact">
-                                <a href="#" th:href="@{/contact}" >Contact</a>
+                                <a href="#" th:href="@{/contact}">Contact</a>
                             </li>
                             <li class="headerMenu" name="qna">
-                                <a href="#" th:href="@{/qna/01}" >QnA</a>
+                                <a href="#" th:href="@{/qna/01}">QnA</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="headerMenu" th:if="${session['loginedUser'] == null}" name="login">
-                                <a href="#" th:href="@{/login}" >
+                            <li class="headerMenu" name="login" th:if="${session['loginedUser'] == null}">
+                                <a href="#" th:href="@{/login}">
                                     <span class="glyphicon glyphicon-user"></span>
                                     Login
                                 </a>
                             </li>
-                            <li class="headerMenu" th:if="${session['loginedUser'] == null}" name="registration">
-                                <a href="#" th:href="@{/registration}" >
+                            <li class="headerMenu" name="registration" th:if="${session['loginedUser'] == null}">
+                                <a href="#" th:href="@{/registration}">
                                     <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
                                     Sign up
                                 </a>
                             </li>
-                            <li class="headerMenu" th:if="${session['loginedUser'] != null}" name="logout">
-                                <a href="#" th:href="@{/logout}" >
+                            <li class="headerMenu" name="logout" th:if="${session['loginedUser'] != null}">
+                                <a href="#" th:href="@{/logout}">
                                     <span class="glyphicon glyphicon-user"></span>
                                     Logout
                                 </a>
                             </li>
-                            <li class="headerMenu" th:if="${session['loginedUser'] != null}" name="myprofile">
-                                <a href="#" th:href="@{/myprofile/01}" >
+                            <li class="headerMenu" name="myprofile" th:if="${session['loginedUser'] != null}">
+                                <a href="#" th:href="@{/myprofile/01}">
                                     <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
                                     My profile
                                 </a>

@@ -6,7 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,15 +34,14 @@ public class ArticleController extends SisExtends {
     private ArticleInterface articleInterface;
 
     @GetMapping("/{articlesNumber}")
-    public ModelAndView articles_left(@PathVariable("articlesNumber") String articlesNumber, @PageableDefault Pageable pageable, Model model) {
+    public ModelAndView articles_left(@PathVariable("articlesNumber") String articlesNumber, @PageableDefault Pageable pageable) {
         ModelAndView view = new ModelAndView();
 
         Page<Article> articleList = articleInterface.getArticleList(pageable);
 
-        model.addAttribute("articleList", articleList);
-
         view.setViewName(menuName);
         view.addObject("leftMenu", articlesNumber);
+        view.addObject("articleList", articleList);
 
         return view;
     }

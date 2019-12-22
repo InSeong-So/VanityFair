@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8"></meta>
-<title>QnA Left</title>
-</head>
-<body>
-  <div th:fragment="leftArticle">
-    <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-      <div class="list-group">
-        <a href="#" class="leftMenu list-group-item" th:href="@{/articles/01}">자유게시판</a>
-        <a href="#" class="leftMenu list-group-item" th:href="@{/articles/02}">인증게시판</a>
-      </div>
-    </div>
-  </div>
-  <div th:fragment="leftQna">
-    <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-      <div class="list-group">
-        <a href="#" class="leftMenu list-group-item" th:href="@{/qna/01}">공지사항 </a>
-        <a href="#" class="leftMenu list-group-item" th:href="@{/qna/01}">자주 묻는 질문</a>
-        <a href="#" class="leftMenu list-group-item" th:href="@{/qna/01}">1:1문의</a>
-        <a href="#" class="leftMenu list-group-item" th:href="@{/qna/01}">나의 질문</a>
-        <a href="#" class="leftMenu list-group-item" th:href="@{/qna/01}">나의 주문</a>
-        <a href="#" class="leftMenu list-group-item" th:href="@{/qna/01}">회원혜택</a>
-      </div>
-    </div>
-  </div>
-  <div th:fragment="leftProfile">
-    <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-      <div class="list-group">
-        <a href="#" class="leftMenu list-group-item" th:with="value='01'">개인정보변경</a>
-        <a href="#" class="leftMenu list-group-item" th:with="value='02'">주문내역조회 </a>
-        <a href="#" class="leftMenu list-group-item" th:with="value='03'">구매후기</a>
-        <a href="#" class="leftMenu list-group-item" th:with="value='04'">상품문의</a>
-        <a href="#" class="leftMenu list-group-item" th:with="value='05'">1:1문의</a>
-        <a href="#" class="leftMenu list-group-item" th:with="value='06'">최근본상품</a>
-        <a href="#" class="leftMenu list-group-item" th:with="value='07'">좋아요</a>
-        <a href="#" class="leftMenu list-group-item" th:with="value='08'">마이사이즈</a>
-      </div>
-    </div>
-  </div>
-</body>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>QnA Left</title>
+    </head>
+    <body>
+        <div th:fragment="leftProduct">
+            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+                <div class="list-group">
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/01}">Best & Sale</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/02}">Top</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/03}">Bottom</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/04}">Outer</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/05}">Dress</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/06}">Acc</a>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="leftArticle">
+            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+                <div class="list-group">
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/articles/01}">자유게시판</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/articles/02}">인증게시판</a>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="leftQna">
+            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+                <div class="list-group">
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">공지사항</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">자주 묻는 질문</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">1:1문의</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 질문</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 주문</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">회원혜택</a>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="leftProfile">
+            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+                <div class="list-group">
+                    <a class="leftMenu list-group-item" href="#" th:with="value='01'">개인정보변경</a>
+                    <a class="leftMenu list-group-item" href="#" th:with="value='02'">주문내역조회</a>
+                    <a class="leftMenu list-group-item" href="#" th:with="value='03'">구매후기</a>
+                    <a class="leftMenu list-group-item" href="#" th:with="value='04'">상품문의</a>
+                    <a class="leftMenu list-group-item" href="#" th:with="value='05'">1:1문의</a>
+                    <a class="leftMenu list-group-item" href="#" th:with="value='06'">최근본상품</a>
+                    <a class="leftMenu list-group-item" href="#" th:with="value='07'">좋아요</a>
+                    <a class="leftMenu list-group-item" href="#" th:with="value='08'">마이사이즈</a>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

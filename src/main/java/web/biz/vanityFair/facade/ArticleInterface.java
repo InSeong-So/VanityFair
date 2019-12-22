@@ -12,6 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+
+/**
+ * 1. 게시글을 등록한다.
+ * 2. 게시글을 수정한다.
+ * 3. 게시글을 삭제한다.
+ * 4. 게시글을 조회한다.
+ * 5. 게시글에 댓글을 단다.
+ * 6. 게시글의 댓글을 수정한다.
+ * 7. 게시글의 댓글을 삭제한다.
+ */
 public interface ArticleInterface {
     // 게시글 리스트 출력
     Page<Article> getArticleList(Pageable pageable);
