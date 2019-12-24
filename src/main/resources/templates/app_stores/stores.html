@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/base :: common_header(~{::title},~{::link})">
+    <meta charset="UTF-8"></meta>
+    <title>Stores</title>
+</head>
+<body>
+<form id="f1" name="f1"></form>
+<div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
+    <div class="container-fluid">
+        <div th:replace="layout/left :: leftStores"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_stores/stores_content :: stores_content_01} : _"></div>
+    </div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        function LoadPage() {
+            var Value = [[${leftMenu}]];
+            /*************************************************************************************************************/
+            /*************************************************************************************************************/
+        }
+
+        /*]]>*/
+    </script>
+</div>
+</body>
+</html>

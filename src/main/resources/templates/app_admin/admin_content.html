@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/base :: common_header(~{::title},~{::link})">
+    <meta charset="UTF-8"></meta>
+    <title>AdminPage</title>
+</head>
+<body>
+<form id="f1" name="f1"></form>
+<div th:fragment="admin_content_01">
+    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+        <h3>분류 관리</h3>
+    </div>
+</div>
+
+</body>
+</html>

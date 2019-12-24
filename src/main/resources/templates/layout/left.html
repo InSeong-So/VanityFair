@@ -17,6 +17,13 @@
                 </div>
             </div>
         </div>
+        <div th:fragment="leftStores">
+            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+                <div class="list-group">
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/stores/01}">Store</a>
+                </div>
+            </div>
+        </div>
         <div th:fragment="leftArticle">
             <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
                 <div class="list-group">
@@ -29,6 +36,18 @@
             <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
                 <div class="list-group">
                     <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">공지사항</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">자주 묻는 질문</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">1:1문의</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 질문</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 주문</a>
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">회원혜택</a>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="leftAdmin">
+            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+                <div class="list-group">
+                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/01}">공지사항</a>
                     <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">자주 묻는 질문</a>
                     <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">1:1문의</a>
                     <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 질문</a>

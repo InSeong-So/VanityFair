@@ -28,6 +28,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/articles")
 public class ArticleController extends SisExtends {
+
     private String menuName = "app_articles/articles";
 
     @Autowired

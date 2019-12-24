@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/base :: common_header(~{::title},~{::link})">
+    <meta charset="UTF-8"></meta>
+    <title>Admin</title>
+</head>
+<body>
+<form id="f1" name="f1"></form>
+<div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
+    <div class="container-fluid">
+        <div th:replace="layout/left :: leftAdmin"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_01} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_02} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_03} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_04} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_05} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_06} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_07} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_08} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_09} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_10} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_11} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_12} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_13} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_14} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_15} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_16} : _"></div>
+        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_17} : _"></div>
+    </div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        function LoadPage() {
+            var Value = [[${leftMenu}]];
+            /*************************************************************************************************************/
+            /*************************************************************************************************************/
+        }
+
+        /*]]>*/
+    </script>
+</div>
+</body>
+</html>
