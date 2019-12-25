@@ -20,7 +20,7 @@ public class AdminController extends SisExtends {
         ModelAndView view = new ModelAndView();
 
         view.setViewName(menuName);
-        view.addObject("leftMenu", 1);
+        view.addObject("leftMenu", adminNumber);
 
         return view;
     }

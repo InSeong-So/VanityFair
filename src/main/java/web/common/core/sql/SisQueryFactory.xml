@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<SQLResource version='1'>
+
+<query name='search'><![CDATA[
+SELECT b.user_id, b.user_cd, b.seq_no, b.reg_date, b.mod_date, b.pwd
+FROM user0010 a
+INNER JOIN user0000 b on a.user_id = b.user_id
+WHERE a.user_cd = b.user_cd
+]]></query>
+
+</SQLResource>

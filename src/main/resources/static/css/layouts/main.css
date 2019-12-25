@@ -463,3 +463,36 @@
 }
 
 /*<!-- /공통 -->*/
+
+/*<!-- 공통2 -->*/
+div.list-group-root {
+    padding: 0;
+    overflow: hidden;
+}
+
+div.list-group-root .list-group {
+    margin-bottom: 0;
+}
+
+div.list-group-root .list-group-item {
+    border-radius: 0;
+    border-width: 1px 0 0 0;
+}
+
+div.list-group-root > .list-group-item:first-child {
+    border-top-width: 0;
+}
+
+div.list-group-root > .list-group > .list-group-item {
+    padding-left: 30px;
+}
+
+div.list-group-root > .list-group > .list-group > .list-group-item {
+    padding-left: 45px;
+}
+
+.list-group-item .glyphicon {
+    margin-right: 5px;
+}
+
+/*<!-- /공통2 -->*/

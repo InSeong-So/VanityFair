@@ -1,0 +1,8 @@
+vanifyfair:
+  xmlPath: /src/main/java/core/sql/query/
+  home: redirect:/
+  error: /error/
+  seed: 10
+  spare: VA
+  grade: B||S||G||P||D||V||VV
+  uploadPath: classpath:/files/upload/images/

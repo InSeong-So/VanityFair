@@ -11,28 +11,23 @@
     <div class="container-fluid">
         <div th:replace="layout/left :: leftAdmin"></div>
         <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_01} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_02} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_03} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_04} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_05} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_06} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_07} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_08} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_09} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_10} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_11} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_12} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_13} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_14} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_15} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_16} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_17} : _"></div>
+        <div th:replace="${leftMenu} == '02' ? ~{app_admin/admin_content :: admin_content_02} : _"></div>
+        <div th:replace="${leftMenu} == '03' ? ~{app_admin/admin_content :: admin_content_03} : _"></div>
+        <div th:replace="${leftMenu} == '04' ? ~{app_admin/admin_content :: admin_content_04} : _"></div>
+        <div th:replace="${leftMenu} == '05' ? ~{app_admin/admin_content :: admin_content_05} : _"></div>
+        <div th:replace="${leftMenu} == '06' ? ~{app_admin/admin_content :: admin_content_06} : _"></div>
+        <div th:replace="${leftMenu} == '07' ? ~{app_admin/admin_content :: admin_content_07} : _"></div>
     </div>
     <script th:inline="javascript">
         /*<![CDATA[*/
         function LoadPage() {
             var Value = [[${leftMenu}]];
             /*************************************************************************************************************/
+            $('.list-group-item').on('click', function () {
+                $('.glyphicon', this)
+                    .toggleClass('glyphicon-chevron-right')
+                    .toggleClass('glyphicon-chevron-down');
+            });
             /*************************************************************************************************************/
         }
 
