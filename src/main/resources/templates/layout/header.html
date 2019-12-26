@@ -12,6 +12,21 @@
             </div>
 
             <nav class="navbar navbar-inverse">
+            <th:block th:with="info=${session.loginedUser}">
+              <!-- 
+              <script th:inline="javascript">
+                /*<![CDATA[*/
+                function LoadPage()
+                {
+                  var Value = [[${info}]];
+                  //=====================================================
+                  if(Value)
+                    console.log(Value.adminYn);
+                  //=====================================================
+                }
+                /*]]>*/
+              </script>
+               -->
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
@@ -44,30 +59,30 @@
                             <li class="headerMenu" name="qna">
                                 <a href="#" th:href="@{/qna/01}">QnA</a>
                             </li>
-                            <li class="headerMenu" name="admin">
-                                <a href="#" th:href="@{/admin/01}">Admin</a>
+                            <li class="headerMenu" name="admin" th:if="${info != null and info.adminYn == 'Y'}">
+                                <a href="#" th:href="@{/admin}">Admin</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="headerMenu" name="login" th:if="${session['loginedUser'] == null}">
+                            <li class="headerMenu" name="login" th:if="${info == null}">
                                 <a href="#" th:href="@{/login}">
                                     <span class="glyphicon glyphicon-user"></span>
                                     Login
                                 </a>
                             </li>
-                            <li class="headerMenu" name="registration" th:if="${session['loginedUser'] == null}">
+                            <li class="headerMenu" name="registration" th:if="${info == null}">
                                 <a href="#" th:href="@{/registration}">
                                     <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
                                     Sign up
                                 </a>
                             </li>
-                            <li class="headerMenu" name="logout" th:if="${session['loginedUser'] != null}">
+                            <li class="headerMenu" name="logout" th:if="${info != null}">
                                 <a href="#" th:href="@{/logout}">
                                     <span class="glyphicon glyphicon-user"></span>
                                     Logout
                                 </a>
                             </li>
-                            <li class="headerMenu" name="myprofile" th:if="${session['loginedUser'] != null}">
+                            <li class="headerMenu" name="myprofile" th:if="${info != null}">
                                 <a href="#" th:href="@{/myprofile/01}">
                                     <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
                                     My profile
@@ -76,10 +91,8 @@
                         </ul>
                     </div>
                 </div>
+            </th:block>
             </nav>
-            <script type="text/javascript">
-
-            </script>
         </header>
     </body>
 </html>

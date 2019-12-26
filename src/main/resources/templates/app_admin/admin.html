@@ -10,6 +10,7 @@
 <div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
     <div class="container-fluid">
         <div th:replace="layout/left :: leftAdmin"></div>
+        <div th:replace="${leftMenu} == 'status' ? ~{app_admin/admin_content :: admin_status} : _"></div>
         <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_01} : _"></div>
         <div th:replace="${leftMenu} == '02' ? ~{app_admin/admin_content :: admin_content_02} : _"></div>
         <div th:replace="${leftMenu} == '03' ? ~{app_admin/admin_content :: admin_content_03} : _"></div>
@@ -26,7 +27,8 @@
             $('.list-group-item').on('click', function () {
                 $('.glyphicon', this)
                     .toggleClass('glyphicon-chevron-right')
-                    .toggleClass('glyphicon-chevron-down');
+                    .toggleClass('glyphicon-chevron-down')
+                    .addClass('active');
             });
             /*************************************************************************************************************/
         }

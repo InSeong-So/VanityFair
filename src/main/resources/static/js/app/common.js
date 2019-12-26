@@ -5,12 +5,18 @@ $(document).ready(function () {
 // console.log(menuVar_01);
     var temp_menuVar_01 = menuVar_01.substring(1) == "" ? "home" : menuVar_01.substring(1);
 // console.log(temp_menuVar_01);
-    if (temp_menuVar_01.indexOf("articles") !== -1)
-        temp_menuVar_01 = "articles";
+    if (temp_menuVar_01.indexOf("products/01") !== -1)
+      temp_menuVar_01 = "products";
+    else if (temp_menuVar_01.indexOf("stores/01") !== -1)
+      temp_menuVar_01 = "stores";
+    else if (temp_menuVar_01.indexOf("articles/01") !== -1)
+      temp_menuVar_01 = "articles";
     else if (temp_menuVar_01.indexOf("qna/01") !== -1)
-        temp_menuVar_01 = "qna";
+      temp_menuVar_01 = "qna";
+    else if (temp_menuVar_01.indexOf("admin/01") !== -1)
+      temp_menuVar_01 = "admin";
     else if (temp_menuVar_01.indexOf("myprofile/01") !== -1)
-        temp_menuVar_01 = "myprofile";
+      temp_menuVar_01 = "myprofile";
 
     $(".headerMenu").each(function (index) {
         var e = $(this);

@@ -484,9 +484,13 @@ div.list-group-root > .list-group-item:first-child {
 }
 
 div.list-group-root > .list-group > .list-group-item {
-    padding-left: 30px;
+    padding-left: 45px; /*트리 3단계로 구성할 시 30px*/
+    font-size: 13px;
+    font-weight: bold;
+    color: grey;
 }
 
+/*<!-- Accordian Tree 3단계, 현재는 사용하지 않음 -->*/
 div.list-group-root > .list-group > .list-group > .list-group-item {
     padding-left: 45px;
 }
