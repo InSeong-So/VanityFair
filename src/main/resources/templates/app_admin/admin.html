@@ -11,13 +11,26 @@
     <div class="container-fluid">
         <div th:replace="layout/left :: leftAdmin"></div>
         <div th:replace="${leftMenu} == 'status' ? ~{app_admin/admin_content :: admin_status} : _"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_admin/admin_content :: admin_content_01} : _"></div>
-        <div th:replace="${leftMenu} == '02' ? ~{app_admin/admin_content :: admin_content_02} : _"></div>
-        <div th:replace="${leftMenu} == '03' ? ~{app_admin/admin_content :: admin_content_03} : _"></div>
-        <div th:replace="${leftMenu} == '04' ? ~{app_admin/admin_content :: admin_content_04} : _"></div>
-        <div th:replace="${leftMenu} == '05' ? ~{app_admin/admin_content :: admin_content_05} : _"></div>
-        <div th:replace="${leftMenu} == '06' ? ~{app_admin/admin_content :: admin_content_06} : _"></div>
-        <div th:replace="${leftMenu} == '07' ? ~{app_admin/admin_content :: admin_content_07} : _"></div>
+        <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_01_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_01_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_02_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_02_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_03_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_03_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_03_sub03} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_03_sub04} : _"></div>
+        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_04_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_04_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_04_sub03} : _"></div>
+        <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_05_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_05_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_06_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_06_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_06_sub03} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_06_sub04} : _"></div>
+        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_07_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_07_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_07_sub03} : _"></div>
     </div>
     <script th:inline="javascript">
         /*<![CDATA[*/
@@ -30,6 +43,9 @@
                     .toggleClass('glyphicon-chevron-down')
                     .addClass('active');
             });
+
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
             /*************************************************************************************************************/
         }
 
