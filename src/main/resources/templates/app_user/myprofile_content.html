@@ -1,446 +1,434 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/layout}">
+
 <head th:replace="common/base :: common_header(~{::title},~{::link})">
-<meta charset="UTF-8"></meta>
-<title>Profile</title>
+    <meta charset="UTF-8"></meta>
+    <title>Profile</title>
 </head>
+
 <body>
-<form id="f1" name="f1"></form>
-<div th:fragment="myprofile_content_01">
-  <div class="container">
-    <ul class="nav nav-tabs" style="height: 51px">
-      <li class="active"><a data-toggle="tab" href="#home">개인정보 변경</a></li>
-      <li><a data-toggle="tab" href="#menu1">이메일 인증</a></li>
-      <li><a data-toggle="tab" href="#menu2">비밀번호 변경</a></li>
-    </ul>
-  
-    <div class="tab-content">
-      <div id="home" class="tab-pane fade in active">
-        <h3>개인정보 변경</h3>
-        <div class="sis-center-col">
-          <form action="#">
-            <div class="form-group">
-              <label for="userNm">성명</label>
-              <input type="text" th:value="${userProfile.userNm}" class="form-control" id="userNm" name="userNm" placeholder="이름을 입력해 주세요">
-            </div>
-            <div class="form-group">
-                <label for="userPhoneNumber">연락처</label>
-                <input type="tel" th:value="${userProfile.userPhoneNumber}" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="연락처를 입력해 주세요">
-            </div>
-            <div class="form-group">
-              <label for="userZipCd">우편번호</label>
-              <input type="text" th:value="${userProfile.userZipCd}" class="form-control" id="userZipCd" name="userZipCd" placeholder="000-000">
-            </div>
-            <div class="form-group">
-              <label for="userAddr">주소</label>
-              <input type="text" th:value="${userProfile.userAddr}" class="form-control" id="userAddr" name="userAddr" placeholder="****시 **구 **로 ***-***">
-            </div>
-            <div class="form-group">
-              <label for="userDtlAddr">상세주소</label>
-              <input type="text" th:value="${userProfile.userDtlAddr}" class="form-control" id="userDtlAddr" name="userDtlAddr" placeholder="아파트, 사무실, 층/호">
-            </div>
-<!--             <div class="form-group"> -->
-<!--               <span class="button-checkbox"> -->
-<!--                   <button type="button" class="btn" data-color="primary">약관 동의</button> -->
-<!--                   <input type="checkbox" class="hidden" checked /> -->
-<!--               </span> -->
-<!--             </div> -->
-            <div class="form-group text-center">
-              <input type="button" class="btn btn-primary" id="profileUpdate" value="변경 완료">
-            </div>
-            <script th:inline="javascript">
-            /*<![CDATA[*/
-            $("#profileUpdate").click(function(){
-              var sendData = {};
-              
-              sendData["userNm"] = $("#userNm").val();
-              sendData["userPhoneNumber"] = $("#userPhoneNumber").val();
-              sendData["userZipCd"] = $("#userZipCd").val();
-              sendData["userAddr"] = $("#userAddr").val();
-              sendData["userDtlAddr"] = $("#userDtlAddr").val();
-              
-              $.ajax({
-                type : "POST",
-                contentType : "application/json",
-                url : "/api/profileUpdate",
-                data : JSON.stringify(sendData),
-                dataType : 'text',
-                cache : false,
-                timeout : 600000,
-                success : function(data)
-                {
-                  alert("프로필이 업데이트 되었습니다.");
-                  window.location = "http://localhost:8224/myprofile/01";
-                },
-                error : function(e)
-                {
-                  console.log("ERROR : ", e);
-                }
-              });
-            });
-            /*]]>*/
-            </script>
-          </form>
-        </div>
-      </div>
-      
-      <div id="menu1" class="tab-pane fade">
-        <h3>이메일 설정</h3>
-        <div class="sis-center-col">
-          <form action="#">
-            <label for="userMail">이메일</label>
-            <div class="form-group">
-              <input type="email" th:value="${userProfile.userMail}" class="form-control" id="userMail" name="userMail" placeholder="userid@example.com">
-            </div>
-            <div id="ap" class="form-group">
-              <input type="button" class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-sm" id="mailCert" value="인증번호 전송">
-<!--               <div class="countdown"></div> -->
-              <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Modal</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <form id="f1" name="f1"></form>
+    <div th:fragment="myprofile_content_01">
+        <div class="container">
+            <ul class="nav nav-tabs" style="height: 51px">
+                <li class="active"><a data-toggle="tab" href="#home">개인정보 변경</a></li>
+                <li><a data-toggle="tab" href="#menu1">이메일 인증</a></li>
+                <li><a data-toggle="tab" href="#menu2">비밀번호 변경</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    <h3>개인정보 변경</h3>
+                    <div class="sis-center-col">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="userNm">성명</label>
+                                <input type="text" th:value="${userProfile.userNm}" class="form-control" id="userNm" name="userNm" placeholder="이름을 입력해 주세요">
+                            </div>
+                            <div class="form-group">
+                                <label for="userPhoneNumber">연락처</label>
+                                <input type="tel" th:value="${userProfile.userPhoneNumber}" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder="연락처를 입력해 주세요">
+                            </div>
+                            <div class="form-group">
+                                <label for="userZipCd">우편번호</label>
+                                <input type="text" th:value="${userProfile.userZipCd}" class="form-control" id="userZipCd" name="userZipCd" placeholder="000-000">
+                            </div>
+                            <div class="form-group">
+                                <label for="userAddr">주소</label>
+                                <input type="text" th:value="${userProfile.userAddr}" class="form-control" id="userAddr" name="userAddr" placeholder="****시 **구 **로 ***-***">
+                            </div>
+                            <div class="form-group">
+                                <label for="userDtlAddr">상세주소</label>
+                                <input type="text" th:value="${userProfile.userDtlAddr}" class="form-control" id="userDtlAddr" name="userDtlAddr" placeholder="아파트, 사무실, 층/호">
+                            </div>
+                            <!--             <div class="form-group"> -->
+                            <!--               <span class="button-checkbox"> -->
+                            <!--                   <button type="button" class="btn" data-color="primary">약관 동의</button> -->
+                            <!--                   <input type="checkbox" class="hidden" checked /> -->
+                            <!--               </span> -->
+                            <!--             </div> -->
+                            <div class="form-group text-center">
+                                <input type="button" class="btn btn-primary" id="profileUpdate" value="변경 완료">
+                            </div>
+                            <script th:inline="javascript">
+                                /*<![CDATA[*/
+                                $("#profileUpdate").click(function() {
+                                    var sendData = {};
+
+                                    sendData["userNm"] = $("#userNm").val();
+                                    sendData["userPhoneNumber"] = $("#userPhoneNumber").val();
+                                    sendData["userZipCd"] = $("#userZipCd").val();
+                                    sendData["userAddr"] = $("#userAddr").val();
+                                    sendData["userDtlAddr"] = $("#userDtlAddr").val();
+
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: "application/json",
+                                        url: "/api/profileUpdate",
+                                        data: JSON.stringify(sendData),
+                                        dataType: 'text',
+                                        cache: false,
+                                        timeout: 600000,
+                                        success: function(data) {
+                                            alert("프로필이 업데이트 되었습니다.");
+                                            window.location = "http://localhost:8224/myprofile/01";
+                                        },
+                                        error: function(e) {
+                                            console.log("ERROR : ", e);
+                                        }
+                                    });
+                                });
+                                /*]]>*/
+                            </script>
+                        </form>
                     </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <script th:inline="javascript">
-            /*<![CDATA[*/
-            $("#mailCert").click(function(){
-              var userMail = {};
-              
-              if($("#userMail").val() == null || $("#userMail").val() == "")
-              {
-                alert("이메일을 입력해주세요.");
-                return false;
-              }
-              
-              userMail["userMail"] = $("#userMail").val();
-              
-              $.ajax({
-                type : "POST",
-                contentType : "application/json",
-                url : "/mail/mailCert",
-                data : JSON.stringify(userMail),
-                dataType : 'json',
-                cache : false,
-                timeout : 600000,
-                success : function(data)
-                {
-//                   console.log("SUCCESS : ", data);
-                  var html = "<div class='countdown'></div>";
-                  
-                  $('.modal-body').text("인증코드가 전송되었습니다. 이메일을 확인해주세요.");
-                  $('#myModal').modal('show');
-                  
-                  var timer2 = "1:01";
-                  var fg = false;
-                  var interval = setInterval(function()
-                  {
-                    var timer = timer2.split(':');
-                    var minutes = parseInt(timer[0], 10);
-                    var seconds = parseInt(timer[1], 10);
-                    --seconds;
-                    minutes = (seconds < 0) ? --minutes : minutes;
-//                     if (minutes == 0) clearInterval(interval);
-                    if (timer2 == '0:01')
-                    {
-                      clearInterval(interval);
-                      fg = true;
-                    }
-                    seconds = (seconds < 0) ? 59 : seconds;
-                    seconds = (seconds < 10) ? '0' + seconds : seconds;
-                    // minutes = (minutes < 10) ? minutes : minutes;
-                    $('.countdown').html(minutes + ':' + seconds);
-                    timer2 = minutes + ':' + seconds;
-                    
-                    if(fg)
-                    {
-                      $(".countdown").remove();
-                      
-                      var sendData = {};
-                      
-                      sendData["certFail"] = "Y";
-                      
-                      $.ajax({
-                        type : "POST",
-                        contentType : "application/json",
-                        url : "/mail/mailDelete",
-                        data : JSON.stringify(sendData),
-                        dataType : 'json',
-                        cache : false,
-                        timeout : 600000,
-                        success : function(data)
-                        {
-                          console.log("SUCCESS : ", data);
-                        },
-                        error : function(e)
-                        {
-                          console.log("ERROR : ", e);
-                        }
-                      });
-                      
-                      alert("제한시간이 초과되었으므로 인증메일을 다시 발송해주세요.");
-                      
-                    }
-                  }, 1000);
-                  
-                    $("#ap").append(html);
-                },
-                error : function(e)
-                {
-//                   console.log("ERROR : ", e);
-                  alert("이메일 전송에 실패하였습니다. 사유 : " + e);
-                }
-              });
-            });
-            /*]]>*/
-            </script>
-            <div class="form-group">
-              <label for="mailCd">인증코드 입력</label>
-              <input type="password" class="form-control" id="mailCd" name="mailCd" placeholder="이메일 인증 코드를 입력해주세요">
-            </div>
-            <input type="button" class="btn btn-primary" id="mailCertSuccess" value="인증코드 확인">
-            <script th:inline="javascript">
-            /*<![CDATA[*/
-            $("#mailCertSuccess").click(function(){
-              var sendData = {};
-              
-              sendData["mailCd"] = $("#mailCd").val();
-              sendData["userMail"] = $("#userMail").val();
-              
-              $.ajax({
-                type : "POST",
-                contentType : "application/json",
-                url : "/api/mailCert",
-                data : JSON.stringify(sendData),
-                dataType : 'json',
-                cache : false,
-                timeout : 600000,
-                success : function(data)
-                {
-//                   console.log("SUCCESS : ", data);
-                  alert("이메일 인증이 완료되었습니다.");
-                  window.location = "http://localhost:8224/myprofile/01";
-                },
-                error : function(e)
-                {
-//                   console.log("ERROR : ", e);
-                  alert("이메일 인증에 실패하였습니다. 사유 : " + e);
-                }
-              });
-            });
-            /*]]>*/
-            </script>
-          </form>
-        </div>
-      </div>
-      
-      <div id="menu2" class="tab-pane fade">
-        <h3>비밀번호 변경</h3>
-        <div class="sis-center-col">
-<!--           <div th:if="${pwd_check} == 'N'" class="alert alert-danger" role="alert">비밀번호가 틀립니다. 변경할 비밀번호를 확인해주세요.</div> -->
-          <form role="form" action="#">
-            <div class="form-group">
-              <label for="curPwd">현재 비밀번호</label>
-                <input type="password" class="form-control" id="curPwd" name="curPwd" placeholder="현재 비밀번호를 입력하세요" required="required">
-            </div>
-            <div class="form-group">
-              <label for="chaPwd">변경할 비밀번호</label>
-                <input type="password" class="form-control" id="chaPwd" name="chaPwd" placeholder="변경할 비밀번호를 입력하세요" required="required">
-            </div>
-            <div class="form-group">
-              <label for="chaPwdCheck">변경할 비밀번호 확인</label>
-                <input type="password" class="form-control" id="chaPwdCheck" name="chaPwdCheck" placeholder="변경할 비밀번호를 재입력하세요" required="required">
-            </div>
-            <div class="form-group">
-              <input type="button" class="btn btn-primary mb-2" id="pwdChange" value="변경 완료">
-            </div>
-            <script th:inline="javascript">
-            /*<![CDATA[*/
-            $("#chaPwdCheck").focus(function()
-            {
-              if($("#chaPwd").val() == "" || $("#chaPwd").val() == null)
-              {
-                alert("변경할 비밀번호를 먼저 입력해주세요.");
-                $("#chaPwdCheck").val("");
-                $("#chaPwd").focus();
-              } 
-            });
-              
-            $("#pwdChange").click(function(){
-              var curPwd = $("#curPwd").val();
-              var chaPwd = $("#chaPwd").val();
-              var chaPwdCheck = $("#chaPwdCheck").val();
-              
-              if(curPwd == "" || curPwd == null){
-                alert("현재 비밀번호를 입력해주세요.");
-                return;
-              }
-              if(chaPwd == "" || chaPwd == null){
-                alert("변경할 비밀번호를 입력해주세요.");
-                return;
-              }
-              if(chaPwdCheck == "" || chaPwdCheck == null){
-                alert("변경할 비밀번호 확인란을 입력해주세요.");
-                return;
-              }
-              
-              if(chaPwd != chaPwdCheck)
-              {
-                alert("변경할 비밀번호가 일치하지 않습니다. 변경할 비밀번호를 확인해주세요.");
-                return;
-              }
-              
-              var sendData = {};
-              
-              sendData["curPwd"] = curPwd;
-              sendData["chaPwd"] = chaPwd;
-              
-              $.ajax({
-                type : "POST",
-                contentType : "application/json",
-                url : "/api/pwdChange",
-                data : JSON.stringify(sendData),
-                dataType : 'text',
-                cache : false,
-                timeout : 600000,
-                success : function(data)
-                {
-                  alert("비밀번호 변경이 완료되었습니다.");
-                  window.location = "http://localhost:8224/myprofile/01";
-                },
-                error : function(e)
-                {
-                  console.log("ERROR : ", e);
-                }
-              });
-            });
-            /*]]>*/
-            </script>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div th:fragment="myprofile_content_02">
-    <div class="container">
-      <div class="col-sm-6 col-md-offset-3 sis-center-col">
-        <form role="form" action="#" th:action="@{/myprofile/{myprofileNumbers}/update(myprofileNumbers='03')}" method="POST">
-          <div class="form-group"><label for="userId">아이디</label> <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를 입력해주세요"></div>
-          <div class="form-group"><label for="pwd">비밀번호</label> <input type="password" class="form-control" id="pwd" name="pwd" placeholder="비밀번호를 입력해주세요"></div>
-          <div class="form-group"><label for="userNm">성명</label> <input type="text" class="form-control" id="userNm" name="userNm" placeholder="이름을 입력해 주세요"></div>
-                  <div class="form-group">
-                    <label for="pwd2">비밀번호 확인</label> <input type="pwd" class="form-control" id="pwd2" name="pwd2" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요"> 
-                  </div>
-                  <div class="form-group">
-                    <label for="inputMobile">휴대폰 번호</label> <input type="tel" class="form-control" id="inputMobile" placeholder="휴대폰번호를 입력해 주세요">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputtelNO">사무실 번호</label> <input type="tel" class="form-control" id="inputtelNO" placeholder="사무실번호를 입력해 주세요">
-                  </div>
-<!--                   <div class="form-group"> -->
-<!--                     <label>약관 동의</label> -->
-<!--                     <div data-toggle="buttons"> -->
-<!--                       <label class="btn btn-primary active"> <span -->
-<!--                         class="fa fa-check"></span> <input id="agree" type="checkbox" autocomplete="off" checked> -->
-<!--                       </label> <a href="#">이용약관</a>에 동의합니다. -->
-<!--                     </div> -->
-<!--                   </div> -->
-          <div class="form-group text-center">
-            <button type="submit" id="join-submit" class="btn btn-primary">회원가입<i class="fa fa-check spaceLeft"></i></button>
-            <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
-          </div>
-        </form>
-    </div>
-  </div>
-</div>
+                <div id="menu1" class="tab-pane fade">
+                    <h3>이메일 설정</h3>
+                    <div class="sis-center-col">
+                        <form action="#">
+                            <label for="userMail">이메일</label>
+                            <div class="form-group">
+                                <input type="email" th:value="${userProfile.userMail}" class="form-control" id="userMail" name="userMail" placeholder="userid@example.com">
+                            </div>
+                            <div id="ap" class="form-group">
+                                <input type="button" class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-sm" id="mailCert" value="인증번호 전송">
+                                <!--               <div class="countdown"></div> -->
+                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Modal</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script th:inline="javascript">
+                                /*<![CDATA[*/
+                                $("#mailCert").click(function() {
+                                    var userMail = {};
 
-<div th:fragment="myprofile_content_03">
-    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>조회수</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="article: ${articleList}">
-                <td th:text="${article.seqNo}">0</td>
-                <td th:text="${article.title}">타이틀</td>
-                <td th:text="${article.content}">콘텐츠</td>
-                <td th:text="${article.userArtiNo}">작성자</td>
-                <td th:text="${article.regDate}">지금</td>
-                <td th:text="${article.viewCnt}">0</td>
-            </tr>
-            </tbody>
-        </table>
-        <hr>
-<!--         <a href="#" class="btn btn-default" th:onclick="|javascript:movePage('/articles/01/write');|">글쓰기</a> -->
-        <a href="#" class="btn btn-default" th:href="@{/articles/01/write(sendMenu='01')}">글쓰기</a>
-        <div class="text-center">
-            <ul class="pagination" th:with="start=${T(Math).floor(articleList.number/5)*5 + 1},
+                                    if ($("#userMail").val() == null || $("#userMail").val() == "") {
+                                        alert("이메일을 입력해주세요.");
+                                        return false;
+                                    }
+
+                                    userMail["userMail"] = $("#userMail").val();
+
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: "application/json",
+                                        url: "/mail/mailCert",
+                                        data: JSON.stringify(userMail),
+                                        dataType: 'json',
+                                        cache: false,
+                                        timeout: 600000,
+                                        success: function(data) {
+                                            //                   console.log("SUCCESS : ", data);
+                                            var html = "<div class='countdown'></div>";
+
+                                            $('.modal-body').text("인증코드가 전송되었습니다. 이메일을 확인해주세요.");
+                                            $('#myModal').modal('show');
+
+                                            var timer2 = "1:01";
+                                            var fg = false;
+                                            var interval = setInterval(function() {
+                                                var timer = timer2.split(':');
+                                                var minutes = parseInt(timer[0], 10);
+                                                var seconds = parseInt(timer[1], 10);
+                                                --seconds;
+                                                minutes = (seconds < 0) ? --minutes : minutes;
+                                                //                     if (minutes == 0) clearInterval(interval);
+                                                if (timer2 == '0:01') {
+                                                    clearInterval(interval);
+                                                    fg = true;
+                                                }
+                                                seconds = (seconds < 0) ? 59 : seconds;
+                                                seconds = (seconds < 10) ? '0' + seconds : seconds;
+                                                // minutes = (minutes < 10) ? minutes : minutes;
+                                                $('.countdown').html(minutes + ':' + seconds);
+                                                timer2 = minutes + ':' + seconds;
+
+                                                if (fg) {
+                                                    $(".countdown").remove();
+
+                                                    var sendData = {};
+
+                                                    sendData["certFail"] = "Y";
+
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        contentType: "application/json",
+                                                        url: "/mail/mailDelete",
+                                                        data: JSON.stringify(sendData),
+                                                        dataType: 'json',
+                                                        cache: false,
+                                                        timeout: 600000,
+                                                        success: function(data) {
+                                                            console.log("SUCCESS : ", data);
+                                                        },
+                                                        error: function(e) {
+                                                            console.log("ERROR : ", e);
+                                                        }
+                                                    });
+
+                                                    alert("제한시간이 초과되었으므로 인증메일을 다시 발송해주세요.");
+
+                                                }
+                                            }, 1000);
+
+                                            $("#ap").append(html);
+                                        },
+                                        error: function(e) {
+                                            //                   console.log("ERROR : ", e);
+                                            alert("이메일 전송에 실패하였습니다. 사유 : " + e);
+                                        }
+                                    });
+                                });
+                                /*]]>*/
+                            </script>
+                            <div class="form-group">
+                                <label for="mailCd">인증코드 입력</label>
+                                <input type="password" class="form-control" id="mailCd" name="mailCd" placeholder="이메일 인증 코드를 입력해주세요">
+                            </div>
+                            <input type="button" class="btn btn-primary" id="mailCertSuccess" value="인증코드 확인">
+                            <script th:inline="javascript">
+                                /*<![CDATA[*/
+                                $("#mailCertSuccess").click(function() {
+                                    var sendData = {};
+
+                                    sendData["mailCd"] = $("#mailCd").val();
+                                    sendData["userMail"] = $("#userMail").val();
+
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: "application/json",
+                                        url: "/api/mailCert",
+                                        data: JSON.stringify(sendData),
+                                        dataType: 'json',
+                                        cache: false,
+                                        timeout: 600000,
+                                        success: function(data) {
+                                            //                   console.log("SUCCESS : ", data);
+                                            alert("이메일 인증이 완료되었습니다.");
+                                            window.location = "http://localhost:8224/myprofile/01";
+                                        },
+                                        error: function(e) {
+                                            //                   console.log("ERROR : ", e);
+                                            alert("이메일 인증에 실패하였습니다. 사유 : " + e);
+                                        }
+                                    });
+                                });
+                                /*]]>*/
+                            </script>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="menu2" class="tab-pane fade">
+                    <h3>비밀번호 변경</h3>
+                    <div class="sis-center-col">
+                        <!--           <div th:if="${pwd_check} == 'N'" class="alert alert-danger" role="alert">비밀번호가 틀립니다. 변경할 비밀번호를 확인해주세요.</div> -->
+                        <form role="form" action="#">
+                            <div class="form-group">
+                                <label for="curPwd">현재 비밀번호</label>
+                                <input type="password" class="form-control" id="curPwd" name="curPwd" placeholder="현재 비밀번호를 입력하세요" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="chaPwd">변경할 비밀번호</label>
+                                <input type="password" class="form-control" id="chaPwd" name="chaPwd" placeholder="변경할 비밀번호를 입력하세요" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="chaPwdCheck">변경할 비밀번호 확인</label>
+                                <input type="password" class="form-control" id="chaPwdCheck" name="chaPwdCheck" placeholder="변경할 비밀번호를 재입력하세요" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="button" class="btn btn-primary mb-2" id="pwdChange" value="변경 완료">
+                            </div>
+                            <script th:inline="javascript">
+                                /*<![CDATA[*/
+                                $("#chaPwdCheck").focus(function() {
+                                    if ($("#chaPwd").val() == "" || $("#chaPwd").val() == null) {
+                                        alert("변경할 비밀번호를 먼저 입력해주세요.");
+                                        $("#chaPwdCheck").val("");
+                                        $("#chaPwd").focus();
+                                    }
+                                });
+
+                                $("#pwdChange").click(function() {
+                                    var curPwd = $("#curPwd").val();
+                                    var chaPwd = $("#chaPwd").val();
+                                    var chaPwdCheck = $("#chaPwdCheck").val();
+
+                                    if (curPwd == "" || curPwd == null) {
+                                        alert("현재 비밀번호를 입력해주세요.");
+                                        return;
+                                    }
+                                    if (chaPwd == "" || chaPwd == null) {
+                                        alert("변경할 비밀번호를 입력해주세요.");
+                                        return;
+                                    }
+                                    if (chaPwdCheck == "" || chaPwdCheck == null) {
+                                        alert("변경할 비밀번호 확인란을 입력해주세요.");
+                                        return;
+                                    }
+
+                                    if (chaPwd != chaPwdCheck) {
+                                        alert("변경할 비밀번호가 일치하지 않습니다. 변경할 비밀번호를 확인해주세요.");
+                                        return;
+                                    }
+
+                                    var sendData = {};
+
+                                    sendData["curPwd"] = curPwd;
+                                    sendData["chaPwd"] = chaPwd;
+
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: "application/json",
+                                        url: "/api/pwdChange",
+                                        data: JSON.stringify(sendData),
+                                        dataType: 'text',
+                                        cache: false,
+                                        timeout: 600000,
+                                        success: function(data) {
+                                            alert("비밀번호 변경이 완료되었습니다.");
+                                            window.location = "http://localhost:8224/myprofile/01";
+                                        },
+                                        error: function(e) {
+                                            console.log("ERROR : ", e);
+                                        }
+                                    });
+                                });
+                                /*]]>*/
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="myprofile_content_02">
+        <div class="container">
+            <div class="col-sm-6 col-md-offset-3 sis-center-col">
+                <form role="form" action="#" th:action="@{/myprofile/{myprofileNumbers}/update(myprofileNumbers='03')}" method="POST">
+                    <div class="form-group"><label for="userId">아이디</label> <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를 입력해주세요"></div>
+                    <div class="form-group"><label for="pwd">비밀번호</label> <input type="password" class="form-control" id="pwd" name="pwd" placeholder="비밀번호를 입력해주세요"></div>
+                    <div class="form-group"><label for="userNm">성명</label> <input type="text" class="form-control" id="userNm" name="userNm" placeholder="이름을 입력해 주세요"></div>
+                    <div class="form-group">
+                        <label for="pwd2">비밀번호 확인</label> <input type="pwd" class="form-control" id="pwd2" name="pwd2" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMobile">휴대폰 번호</label> <input type="tel" class="form-control" id="inputMobile" placeholder="휴대폰번호를 입력해 주세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtelNO">사무실 번호</label> <input type="tel" class="form-control" id="inputtelNO" placeholder="사무실번호를 입력해 주세요">
+                    </div>
+                    <!--                   <div class="form-group"> -->
+                    <!--                     <label>약관 동의</label> -->
+                    <!--                     <div data-toggle="buttons"> -->
+                    <!--                       <label class="btn btn-primary active"> <span -->
+                    <!--                         class="fa fa-check"></span> <input id="agree" type="checkbox" autocomplete="off" checked> -->
+                    <!--                       </label> <a href="#">이용약관</a>에 동의합니다. -->
+                    <!--                     </div> -->
+                    <!--                   </div> -->
+                    <div class="form-group text-center">
+                        <button type="submit" id="join-submit" class="btn btn-primary">회원가입<i class="fa fa-check spaceLeft"></i></button>
+                        <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="myprofile_content_03">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="article: ${articleList}">
+                        <td th:text="${article.seqNo}">0</td>
+                        <td th:text="${article.title}">타이틀</td>
+                        <td th:text="${article.content}">콘텐츠</td>
+                        <td th:text="${article.userArtiNo}">작성자</td>
+                        <td th:text="${article.regDate}">지금</td>
+                        <td th:text="${article.viewCnt}">0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <!--         <a href="#" class="btn btn-default" th:onclick="|javascript:movePage('/articles/01/write');|">글쓰기</a> -->
+            <a href="#" class="btn btn-default" th:href="@{/articles/01/write(sendMenu='01')}">글쓰기</a>
+            <div class="text-center">
+                <ul class="pagination" th:with="start=${T(Math).floor(articleList.number/5)*5 + 1},
                     last=(${start + 4 < articleList.totalPages ? start + 4 : articleList.totalPages})">
-                <li><a th:href="@{/articles/01(page=1)}" aria-label="First"><span aria-hidden="true">First</span></a></li>
-                <li th:class="${articleList.first} ? 'disabled'"><a th:href="${articleList.first} ? '#' :@{/articles/01(page=${articleList.number})}" aria-label="Previous"><span aria-hidden="true">&lt;</span></a></li>
-                <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == articleList.number + 1} ? 'active'"><a th:text="${page}" th:href="@{/articles/01(page=${page})}"></a></li>
-                <li th:class="${articleList.last} ? 'disabled'"><a th:href="${articleList.last} ? '#' : @{/articles/01(page=${articleList.number + 2})}" aria-label="Next"><span aria-hidden="true">&gt;</span></a></li>
-                <li><a th:href="@{/articles/01(page=${articleList.totalPages})}" aria-label="Last"><span aria-hidden="true">Last</span></a></li>
-            </ul>
+                    <li><a th:href="@{/articles/01(page=1)}" aria-label="First"><span aria-hidden="true">First</span></a></li>
+                    <li th:class="${articleList.first} ? 'disabled'"><a th:href="${articleList.first} ? '#' :@{/articles/01(page=${articleList.number})}" aria-label="Previous"><span aria-hidden="true">&lt;</span></a></li>
+                    <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == articleList.number + 1} ? 'active'">
+                        <a th:text="${page}" th:href="@{/articles/01(page=${page})}"></a>
+                    </li>
+                    <li th:class="${articleList.last} ? 'disabled'"><a th:href="${articleList.last} ? '#' : @{/articles/01(page=${articleList.number + 2})}" aria-label="Next"><span aria-hidden="true">&gt;</span></a></li>
+                    <li><a th:href="@{/articles/01(page=${articleList.totalPages})}" aria-label="Last"><span aria-hidden="true">Last</span></a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-<div th:fragment="myprofile_content_02">
-    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>조회수</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>0</td>
-                <td>타이틀</td>
-                <td>콘텐츠</td>
-                <td>작성자</td>
-                <td>지금</td>
-                <td>0</td>
-            </tr>
-            </tbody>
-        </table>
-        <hr>
-        <a href="#" class="btn btn-default" th:href="@{/articles/02/write(sendMenu='02')}">인증하기</a>
-        <div class="text-center">
-            <ul class="pagination">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-            </ul>
+    <div th:fragment="myprofile_content_02">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>타이틀</td>
+                        <td>콘텐츠</td>
+                        <td>작성자</td>
+                        <td>지금</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <a href="#" class="btn btn-default" th:href="@{/articles/02/write(sendMenu='02')}">인증하기</a>
+            <div class="text-center">
+                <ul class="pagination">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>

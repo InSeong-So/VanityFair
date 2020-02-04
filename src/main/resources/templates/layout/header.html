@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"></meta>
-        <title>Vánity Fáir</title>
-    </head>
 
-    <body>
-        <header th:fragment="header">
-            <div class="jumbotron text-center">
-                <h1 style="margin:0;">Vánity Fáir</h1>
-            </div>
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Vánity Fáir</title>
+</head>
 
-            <nav class="navbar navbar-inverse">
+<body>
+    <header th:fragment="header">
+        <div class="jumbotron text-center">
+            <h1 style="margin:0;">Vánity Fáir</h1>
+        </div>
+
+        <nav class="navbar navbar-inverse">
             <th:block th:with="info=${session.loginedUser}">
-              <!-- 
+                <!-- 
               <script th:inline="javascript">
                 /*<![CDATA[*/
                 function LoadPage()
@@ -66,33 +67,30 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="headerMenu" name="login" th:if="${info == null}">
                                 <a href="#" th:href="@{/login}">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                    Login
+                                    <span class="glyphicon glyphicon-user"></span> Login
                                 </a>
                             </li>
                             <li class="headerMenu" name="registration" th:if="${info == null}">
                                 <a href="#" th:href="@{/registration}">
-                                    <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
-                                    Sign up
+                                    <span class="glyphicon glyphicon glyphicon-registration-mark"></span> Sign up
                                 </a>
                             </li>
                             <li class="headerMenu" name="logout" th:if="${info != null}">
                                 <a href="#" th:href="@{/logout}">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                    Logout
+                                    <span class="glyphicon glyphicon-user"></span> Logout
                                 </a>
                             </li>
                             <li class="headerMenu" name="myprofile" th:if="${info != null}">
                                 <a href="#" th:href="@{/myprofile/01}">
-                                    <span class="glyphicon glyphicon glyphicon-registration-mark"></span>
-                                    My profile
+                                    <span class="glyphicon glyphicon glyphicon-registration-mark"></span> My profile
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </th:block>
-            </nav>
-        </header>
-    </body>
+        </nav>
+    </header>
+</body>
+
 </html>

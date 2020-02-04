@@ -1,52 +1,98 @@
 <!DOCTYPE html>
-<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="common/base :: common_header(~{::title},~{::link})">
     <meta charset="UTF-8"></meta>
     <title>Products</title>
 </head>
+
 <body>
-<form id="f1" name="f1"></form>
-<div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
-    <div class="container-fluid">
-        <div th:replace="layout/left :: leftProduct"></div>
-        <div th:replace="${leftMenu} == '01' ? ~{app_products/products_content :: products_content_01} : _"></div>
-        <div th:replace="${leftMenu} == '02' ? ~{app_products/products_content :: products_content_02} : _"></div>
-        <div th:replace="${leftMenu} == 'write' ? ~{write :: write} : _"></div>
-        <div th:replace="${leftMenu} == 'update' ? ~{write :: update} : _"></div>
-        <div th:replace="${leftMenu} == 'need_login' ? ~{app_products/products_content :: product_need_login} : _"></div>
-        <div th:replace="${leftMenu} == 'detail' ? ~{app_products/products_content :: product_detail_01} : _"></div>
-    </div>
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        function LoadPage() {
-            var Value = [[${leftMenu}]];
-            /*************************************************************************************************************/
-            $('#myCarousel').carousel({
-                interval: 4000
-            });
+    <form id="f1" name="f1"></form>
+    <div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
+        <div class="container-fluid">
+            <div th:replace="layout/left :: leftProduct"></div>
+            <div th:replace="${leftMenu} == '01' ? ~{app_products/products_content :: products_content_01} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub01' ? ~{app_products/products_content :: products_content_02_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub02' ? ~{app_products/products_content :: products_content_02_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub03' ? ~{app_products/products_content :: products_content_02_sub03} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub04' ? ~{app_products/products_content :: products_content_02_sub04} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub05' ? ~{app_products/products_content :: products_content_02_sub05} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub06' ? ~{app_products/products_content :: products_content_02_sub06} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub07' ? ~{app_products/products_content :: products_content_02_sub07} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub08' ? ~{app_products/products_content :: products_content_02_sub08} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub09' ? ~{app_products/products_content :: products_content_02_sub09} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub10' ? ~{app_products/products_content :: products_content_02_sub10} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub01' ? ~{app_products/products_content :: products_content_03_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub02' ? ~{app_products/products_content :: products_content_03_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub03' ? ~{app_products/products_content :: products_content_03_sub03} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub04' ? ~{app_products/products_content :: products_content_03_sub04} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub05' ? ~{app_products/products_content :: products_content_03_sub05} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub06' ? ~{app_products/products_content :: products_content_03_sub06} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub07' ? ~{app_products/products_content :: products_content_03_sub07} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub08' ? ~{app_products/products_content :: products_content_03_sub08} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub09' ? ~{app_products/products_content :: products_content_03_sub09} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub10' ? ~{app_products/products_content :: products_content_03_sub10} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub01' ? ~{app_products/products_content :: products_content_04_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub02' ? ~{app_products/products_content :: products_content_04_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub03' ? ~{app_products/products_content :: products_content_04_sub03} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub04' ? ~{app_products/products_content :: products_content_04_sub04} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub05' ? ~{app_products/products_content :: products_content_04_sub05} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub06' ? ~{app_products/products_content :: products_content_04_sub06} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub07' ? ~{app_products/products_content :: products_content_04_sub07} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub08' ? ~{app_products/products_content :: products_content_04_sub08} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub09' ? ~{app_products/products_content :: products_content_04_sub09} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub10' ? ~{app_products/products_content :: products_content_04_sub10} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub11' ? ~{app_products/products_content :: products_content_04_sub11} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub12' ? ~{app_products/products_content :: products_content_04_sub12} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub13' ? ~{app_products/products_content :: products_content_04_sub13} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub14' ? ~{app_products/products_content :: products_content_04_sub14} : _"></div>
+            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub01' ? ~{app_products/products_content :: products_content_05_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub02' ? ~{app_products/products_content :: products_content_05_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub03' ? ~{app_products/products_content :: products_content_05_sub03} : _"></div>
+            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub04' ? ~{app_products/products_content :: products_content_05_sub04} : _"></div>
+            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub01' ? ~{app_products/products_content :: products_content_06_sub01} : _"></div>
+        </div>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            function LoadPage() {
+                var Value = [[${leftMenu}]];
+                /*************************************************************************************************************/
+                $('.list-group-item').on('click', function() {
+                    $('.glyphicon', this)
+                        .toggleClass('glyphicon')
+                        .toggleClass('glyphicon glyphicon-pushpin')
+                        .addClass('active');
+                });
 
-            $('.carousel .item').each(function () {
-                var next = $(this).next();
-                if (!next.length) {
-                    next = $(this).siblings(':first');
-                }
-                next.children(':first-child').clone().appendTo($(this));
+                $("#sortable").sortable();
+                $("#sortable").disableSelection();
+                
+                $('#myCarousel').carousel({
+                    interval: 4000
+                });
 
-                for (var i = 0; i < 2; i++) {
-                    next = next.next();
+                $('.carousel .item').each(function() {
+                    var next = $(this).next();
                     if (!next.length) {
                         next = $(this).siblings(':first');
                     }
-
                     next.children(':first-child').clone().appendTo($(this));
-                }
-            });
-            /*************************************************************************************************************/
-        }
 
-        /*]]>*/
-    </script>
-</div>
+                    for (var i = 0; i < 2; i++) {
+                        next = next.next();
+                        if (!next.length) {
+                            next = $(this).siblings(':first');
+                        }
+
+                        next.children(':first-child').clone().appendTo($(this));
+                    }
+                });
+                /*************************************************************************************************************/
+            }
+
+            /*]]>*/
+        </script>
+    </div>
 </body>
+
 </html>

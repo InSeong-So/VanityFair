@@ -1,56 +1,58 @@
 <!DOCTYPE html>
-<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="common/base :: common_header(~{::title},~{::link})">
     <meta charset="UTF-8"></meta>
     <title>Admin</title>
 </head>
+
 <body>
-<form id="f1" name="f1"></form>
-<div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
-    <div class="container-fluid">
-        <div th:replace="layout/left :: leftAdmin"></div>
-        <div th:replace="${leftMenu} == 'status' ? ~{app_admin/admin_content :: admin_status} : _"></div>
-        <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_01_sub01} : _"></div>
-        <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_01_sub02} : _"></div>
-        <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_02_sub01} : _"></div>
-        <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_02_sub02} : _"></div>
-        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_03_sub01} : _"></div>
-        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_03_sub02} : _"></div>
-        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_03_sub03} : _"></div>
-        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_03_sub04} : _"></div>
-        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_04_sub01} : _"></div>
-        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_04_sub02} : _"></div>
-        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_04_sub03} : _"></div>
-        <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_05_sub01} : _"></div>
-        <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_05_sub02} : _"></div>
-        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_06_sub01} : _"></div>
-        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_06_sub02} : _"></div>
-        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_06_sub03} : _"></div>
-        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_06_sub04} : _"></div>
-        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_07_sub01} : _"></div>
-        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_07_sub02} : _"></div>
-        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_07_sub03} : _"></div>
+    <form id="f1" name="f1"></form>
+    <div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
+        <div class="container-fluid">
+            <div th:replace="layout/left :: leftAdmin"></div>
+            <div th:replace="${leftMenu} == 'status' ? ~{app_admin/admin_content :: admin_status} : _"></div>
+            <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_01_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_01_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_02_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_02_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_03_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_03_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_03_sub03} : _"></div>
+            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_03_sub04} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_04_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_04_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_04_sub03} : _"></div>
+            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_05_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_05_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_06_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_06_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_06_sub03} : _"></div>
+            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_06_sub04} : _"></div>
+            <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_07_sub01} : _"></div>
+            <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_07_sub02} : _"></div>
+            <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_07_sub03} : _"></div>
+        </div>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            function LoadPage() {
+                var Value = [[${leftMenu}]];
+                /*************************************************************************************************************/
+                $('.list-group-item').on('click', function() {
+                    $('.glyphicon', this)
+                        .toggleClass('glyphicon-chevron-right')
+                        .toggleClass('glyphicon-chevron-down')
+                        .addClass('active');
+                });
+
+                $("#sortable").sortable();
+                $("#sortable").disableSelection();
+                /*************************************************************************************************************/
+            }
+
+            /*]]>*/
+        </script>
     </div>
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        function LoadPage() {
-            var Value = [[${leftMenu}]];
-            /*************************************************************************************************************/
-            $('.list-group-item').on('click', function () {
-                $('.glyphicon', this)
-                    .toggleClass('glyphicon-chevron-right')
-                    .toggleClass('glyphicon-chevron-down')
-                    .addClass('active');
-            });
-
-            $("#sortable").sortable();
-            $("#sortable").disableSelection();
-            /*************************************************************************************************************/
-        }
-
-        /*]]>*/
-    </script>
-</div>
 </body>
+
 </html>

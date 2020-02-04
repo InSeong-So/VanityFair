@@ -1,131 +1,126 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" >
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>VanityFair Email Cert</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>VanityFair Email Cert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
 <body style="margin: 0; padding: 0;">
-  <table border="0" cellpadding="0" cellspacing="0" width="100%"> 
-    <tr>
-      <td style="padding: 10px 0 30px 0;">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
-          <tr>
-            <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/h1.gif" alt="Creating Email Magic" width="300" height="230" style="display: block;" />
-            </td>
-          </tr>
-          <tr>
-            <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
-              <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr>
-                  <td style="color: #153643; font-family: Arial, sans-serif;">
-                    <h3 th:text="${mail.subject}"></h3>
-                    <hr>
-                    <br>
-                    <h4>인증코드</h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #153643; font-family: Arial, sans-serif;text-align:center;">
-<!--                     <a href="#" th:href="@{http://localhost:8224/user/joinConfirm?uid=">asdfasdfasdf</a> -->
-                    <h2 th:text="${mail.key}"></h2>
-                    <hr>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                    <h4>VanityFair는 진정한 가치의 Brand Share 서비스입니다.</h4>
-                    <br>
-                                    글로벌 시대에 걸맞는 간편한 결제와 편리한 쇼핑을 제공합니다.
-                    <br>
-                                    전문가의 인증을 받은 정품만을 취급하며 확실한 AS, 당일 출고 시스템,
-                    <br>
-                                    고객 맞춤 큐레이션 서비스로 신뢰성을 구축한 유일무이한 쇼핑몰입니다.
-                    <br>
-                                    명품의 저렴한 구매와 유료형 명품 공유를 고객님께 소개해드립니다.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                      <tr>
-                        <td width="260" valign="top">
-                          <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tr>
-                              <td>
-                                <img src="https://drive.google.com/thumbnail?id=1K5VnIR5IZwNHsH8AcriG4-hJalr4zbWl" alt="" width="100%" height="140" style="display: block;" />
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                VanityFair는 전문가의 인증을 받은
-                                <br>
-                                                        정품만 취급합니다. 당신을 빛나게
-                                <br>
-                                                        하는 명품을 지금 만나보세요.
-                              </td>
-                            </tr>
-                        </table>
-                      </td>
-                      <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
-                      <td width="260" valign="top">
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                          <tr>
-                            <td>
-                              <img src="https://drive.google.com/thumbnail?id=1uIgcAYQ-VVFR9VlC435O93-vH8gVxX29" alt="" width="100%" height="140" style="display: block;" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                                    원하시는 명품이 지나치게 고가라
-                              <br>
-                                                    구매를 망설이시고 계시다면, 여기
-                              <br>
-                                                      당신을 위한 기회가 존재합니다.
-                              <br>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
-          <td bgcolor="#70bbd9" style="padding: 30px 30px 30px 30px;">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tr>
-                <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" width="75%">&reg; VanityFair, 2019<br/>
-                  <!-- <a href="#" style="color: #ffffff;"><font color="#ffffff">Unsubscribe</font></a> to this newsletter instantly -->
-                </td>
-                <td align="right" width="25%">
-                  <table border="0" cellpadding="0" cellspacing="0">
+            <td style="padding: 10px 0 30px 0;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
                     <tr>
-                      <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                        <a href="http://www.twitter.com/" style="color: #ffffff;">
-                          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
-                        </a>
-                      </td>
-                      <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
-                      <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                        <a href="https://facebook.com/" style="color: #ffffff;">
-                          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
-                        </a>
-                      </td>
+                        <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/h1.gif" alt="Creating Email Magic" width="300" height="230" style="display: block;" />
+                        </td>
                     </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
+                    <tr>
+                        <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="color: #153643; font-family: Arial, sans-serif;">
+                                        <h3 th:text="${mail.subject}"></h3>
+                                        <hr>
+                                        <br>
+                                        <h4>인증코드</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color: #153643; font-family: Arial, sans-serif;text-align:center;">
+                                        <!--                     <a href="#" th:href="@{http://localhost:8224/user/joinConfirm?uid=">asdfasdfasdf</a> -->
+                                        <h2 th:text="${mail.key}"></h2>
+                                        <hr>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <h4>VanityFair는 진정한 가치의 Brand Share 서비스입니다.</h4>
+                                        <br> 글로벌 시대에 걸맞는 간편한 결제와 편리한 쇼핑을 제공합니다.
+                                        <br> 전문가의 인증을 받은 정품만을 취급하며 확실한 AS, 당일 출고 시스템,
+                                        <br> 고객 맞춤 큐레이션 서비스로 신뢰성을 구축한 유일무이한 쇼핑몰입니다.
+                                        <br> 명품의 저렴한 구매와 유료형 명품 공유를 고객님께 소개해드립니다.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td width="260" valign="top">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <img src="https://drive.google.com/thumbnail?id=1K5VnIR5IZwNHsH8AcriG4-hJalr4zbWl" alt="" width="100%" height="140" style="display: block;" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                                                VanityFair는 전문가의 인증을 받은
+                                                                <br> 정품만 취급합니다. 당신을 빛나게
+                                                                <br> 하는 명품을 지금 만나보세요.
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+                                                <td width="260" valign="top">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <img src="https://drive.google.com/thumbnail?id=1uIgcAYQ-VVFR9VlC435O93-vH8gVxX29" alt="" width="100%" height="140" style="display: block;" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                                                원하시는 명품이 지나치게 고가라
+                                                                <br> 구매를 망설이시고 계시다면, 여기
+                                                                <br> 당신을 위한 기회가 존재합니다.
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#70bbd9" style="padding: 30px 30px 30px 30px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" width="75%">&reg; VanityFair, 2019<br/>
+                                        <!-- <a href="#" style="color: #ffffff;"><font color="#ffffff">Unsubscribe</font></a> to this newsletter instantly -->
+                                    </td>
+                                    <td align="right" width="25%">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
+                                                    <a href="http://www.twitter.com/" style="color: #ffffff;">
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
+                                                    </a>
+                                                </td>
+                                                <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+                                                <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
+                                                    <a href="https://facebook.com/" style="color: #ffffff;">
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
         </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+    </table>
 </body>
+
 </html>

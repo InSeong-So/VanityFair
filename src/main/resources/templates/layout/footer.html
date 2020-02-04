@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8"></meta>
-<title>footer</title>
+    <meta charset="UTF-8"></meta>
+    <title>footer</title>
 </head>
+
 <body>
-  <footer class="text-center" th:fragment="footer" style="background-color: #2d2d30; color: #f5f5f5; padding: 32px;">
-    <a class="up-arrow" href="#vanityFairTop" data-toggle="tooltip" title="TO TOP">
-      <span class="glyphicon glyphicon-chevron-up"></span>
-    </a>
-    <br>
-    <br>
-    <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p> 
-    <script th:inline="javascript">
-      /*<![CDATA[*/
-      $(".navbar a, footer a[href='#vanityFairTop']").on('click', function(event) {
-        if (this.hash !== "") {
-          event.preventDefault();
-          var hash = this.hash;
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top
-          }, 900, function(){
-            window.location.hash = hash;
-          });
-        } // End if
-      });
-      /*]]>*/
-    </script>
-  </footer>
+    <footer class="text-center" th:fragment="footer" style="background-color: #2d2d30; color: #f5f5f5; padding: 32px;">
+        <a class="up-arrow" href="#vanityFairTop" data-toggle="tooltip" title="TO TOP">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <br>
+        <br>
+        <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            $(".navbar a, footer a[href='#vanityFairTop']").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function() {
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+            /*]]>*/
+        </script>
+    </footer>
 </body>
+
 </html>

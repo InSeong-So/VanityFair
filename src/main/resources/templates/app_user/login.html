@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/layout}">
+
 <head th:replace="common/base :: common_header(~{::title},~{::link})">
-<meta charset="UTF-8"></meta>
-<title>Bootstrap Sign in Form with Facebook and Twitter Buttons</title>
+    <meta charset="UTF-8"></meta>
+    <title>Bootstrap Sign in Form with Facebook and Twitter Buttons</title>
 </head>
+
 <body>
-  <form name="f1" id="f1"></form>
-  <div layout:fragment="content">
-    <div class="container-fluid">
-      <div class="col-sm-6 col-md-offset-3 sis-center-col" style="overflow:auto; min-height:580px;">
-        <div class="login-form">
-          <div th:if="${login_result} == 'N'" class="alert alert-danger" role="alert">아이디 또는 비밀번호가 틀립니다. 다시 로그인 해주세요.</div>
-          <form action="#" th:action="@{/login}" method="post">
-            <h2 class="text-center">Login</h2>
-            <div class="form-group">
-              <div class="input-group"><span class="input-group-addon"><i class="fa fa-user"></i></span> <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디" required="required"></div>
+    <form name="f1" id="f1"></form>
+    <div layout:fragment="content">
+        <div class="container-fluid">
+            <div class="col-sm-6 col-md-offset-3 sis-center-col" style="overflow:auto; min-height:580px;">
+                <div class="login-form">
+                    <div th:if="${login_result} == 'N'" class="alert alert-danger" role="alert">아이디 또는 비밀번호가 틀립니다. 다시 로그인 해주세요.</div>
+                    <form action="#" th:action="@{/login}" method="post">
+                        <h2 class="text-center">Login</h2>
+                        <div class="form-group">
+                            <div class="input-group"><span class="input-group-addon"><i class="fa fa-user"></i></span> <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디" required="required"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group"><span class="input-group-addon"><i class="fa fa-lock"></i></span> <input type="password" class="form-control" id="pwd" name="pwd" placeholder="비밀번호" required="required"></div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary login-btn btn-block">Login</button>
+                        </div>
+                        <div class="clearfix"><label class="pull-left checkbox-inline"><input type="checkbox">자동 로그인</label> <a href="#" th:href="@{/registration}" class="pull-right" style="font-weight:bold;">비밀번호를 잊어버리셨나요?</a></div>
+                        <div class="text-center social-btn"><a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a> <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a> <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a></div>
+                    </form>
+                    <p class="text-center text-muted small" th:href="@{/registration}">계정이 없으신가요? <a href="#" style="font-weight: bold;">간편하게 가입하세요!</a></p>
+                </div>
             </div>
-            <div class="form-group">
-              <div class="input-group"><span class="input-group-addon"><i class="fa fa-lock"></i></span> <input type="password" class="form-control" id="pwd" name="pwd" placeholder="비밀번호" required="required"></div>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary login-btn btn-block">Login</button>
-            </div>
-            <div class="clearfix"><label class="pull-left checkbox-inline"><input type="checkbox">자동 로그인</label> <a href="#" th:href="@{/registration}" class="pull-right" style="font-weight:bold;">비밀번호를 잊어버리셨나요?</a></div>
-            <div class="text-center social-btn"><a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a> <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>&nbsp; Twitter</a> <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a></div>
-          </form>
-          <p class="text-center text-muted small"  th:href="@{/registration}">계정이 없으신가요? <a href="#" style="font-weight: bold;">간편하게 가입하세요!</a></p>
         </div>
-      </div>
     </div>
-  </div>
 </body>
+
 </html>

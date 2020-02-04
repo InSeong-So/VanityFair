@@ -1,135 +1,393 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"></meta>
-        <title>QnA Left</title>
-    </head>
-    <body>
-        <div th:fragment="leftProduct">
-            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-                <div class="list-group">
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/01}">Best & Sale</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/02}">Top</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/03}">Bottom</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/04}">Outer</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/05}">Dress</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/product/06}">Acc</a>
+
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>QnA Left</title>
+</head>
+
+
+<body>
+    <div th:fragment="leftProduct">
+        <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+            <div class="list-group-root well">
+                <a class="leftMenu list-group-item" data-toggle="collapse" href="#" th:href="@{/admin/01/sub01}">
+                    <i class="glyphicon"></i>Best & Sale
+                </a>
+                <a class="list-group-item" data-toggle="collapse" href="#item-2">
+                    <i class="glyphicon"></i>Top
+                </a>
+                <div class="list-group collapse" id="item-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub01}">
+                                <i class="glyphicon glyphicon-bookmark"></i>반팔티셔츠
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub06}">
+                                <i class="glyphicon glyphicon-bookmark"></i>맨투맨/스웨트셔츠
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub02}">
+                                <i class="glyphicon glyphicon-bookmark"></i>긴팔티셔츠
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub07}">
+                                <i class="glyphicon glyphicon-bookmark"></i>후드스웨트셔츠/후드집업
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub03}">
+                                <i class="glyphicon glyphicon-bookmark"></i>민소매티셔츠
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub08}">
+                                <i class="glyphicon glyphicon-bookmark"></i>니트/스웨트/카디건
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub04}">
+                                <i class="glyphicon glyphicon-bookmark"></i>셔츠/블라우스
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub09}">
+                                <i class="glyphicon glyphicon-bookmark"></i>베스트
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub05}">
+                                <i class="glyphicon glyphicon-bookmark"></i>피케/카라티셔츠
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/products/02/sub10}">
+                                <i class="glyphicon glyphicon-bookmark"></i>기타
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a class="list-group-item" data-toggle="collapse" href="#item-3">
+                    <i class="glyphicon"></i>Bottom
+                </a>
+                <div class="list-group collapse" id="item-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub01}">
+                                <i class="glyphicon glyphicon-bookmark"></i>데님팬츠
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub04}">
+                                <i class="glyphicon glyphicon-bookmark"></i>트레이닝/조거팬츠
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub02}">
+                                <i class="glyphicon glyphicon-bookmark"></i>코튼팬츠
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub05}">
+                                <i class="glyphicon glyphicon-bookmark"></i>숏팬츠
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub03}">
+                                <i class="glyphicon glyphicon-bookmark"></i>수트팬츠/슬랙스
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub09}">
+                                <i class="glyphicon glyphicon-bookmark"></i>롱스커트
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub08}">
+                                <i class="glyphicon glyphicon-bookmark"></i>미디스커트
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub07}">
+                                <i class="glyphicon glyphicon-bookmark"></i>미니스커트
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub06}">
+                                <i class="glyphicon glyphicon-bookmark"></i>레깅스
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub10}">
+                                <i class="glyphicon glyphicon-bookmark"></i>기타
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a class="list-group-item" data-toggle="collapse" href="#item-4">
+                    <i class="glyphicon"></i>Outer
+                </a>
+                <div class="list-group collapse" id="item-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub01}">
+                                <i class="glyphicon glyphicon-bookmark"></i>블루종/MA-1
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub02}">
+                                <i class="glyphicon glyphicon-bookmark"></i>레더/라이더스재킷
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub03}">
+                                <i class="glyphicon glyphicon-bookmark"></i>트러커재킷
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub04}">
+                                <i class="glyphicon glyphicon-bookmark"></i>수트/블레이저재킷
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub05}">
+                                <i class="glyphicon glyphicon-bookmark"></i>나일론/코치/아노락재킷
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub06}">
+                                <i class="glyphicon glyphicon-bookmark"></i>스타디움재킷
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub07}">
+                                <i class="glyphicon glyphicon-bookmark"></i>환절기코트
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub08}">
+                                <i class="glyphicon glyphicon-bookmark"></i>겨울싱글코트
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub09}">
+                                <i class="glyphicon glyphicon-bookmark"></i>겨울기타고트
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub10}">
+                                <i class="glyphicon glyphicon-bookmark"></i>롱패딩/롱헤비아우터
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub11}">
+                                <i class="glyphicon glyphicon-bookmark"></i>숏패딩/숏헤비아우터
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub12}">
+                                <i class="glyphicon glyphicon-bookmark"></i>패딩베스트
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub13}">
+                                <i class="glyphicon glyphicon-bookmark"></i>사파리/헌팅재킷
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub14}">
+                                <i class="glyphicon glyphicon-bookmark"></i>기타
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a class="list-group-item" data-toggle="collapse" href="#item-5">
+                    <i class="glyphicon"></i>Dress
+                </a>
+                <div class="list-group collapse" id="item-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/05/sub01}">
+                                <i class="glyphicon glyphicon-bookmark"></i>미니원피스
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/05/sub02}">
+                                <i class="glyphicon glyphicon-bookmark"></i>맥시원피스
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/05/sub01}">
+                                <i class="glyphicon glyphicon-bookmark"></i>미디원피스
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="list-group-item" href="#" th:href="@{/admin/05/sub02}">
+                                <i class="glyphicon glyphicon-bookmark"></i>점프수트
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a class="list-group-item" data-toggle="collapse" href="#item-6">
+                    <i class="glyphicon"></i>Acc
+                </a>
+                <div class="list-group collapse" id="item-6">
+                    <a class="list-group-item" href="#" th:href="@{/admin/06/sub01}">제조사 관리</a>
+                    <a class="list-group-item" href="#" th:href="@{/admin/06/sub02}">공급사 관리</a>
+                    <a class="list-group-item" href="#" th:href="@{/admin/06/sub03}">브랜드 관리</a>
+                    <a class="list-group-item" href="#" th:href="@{/admin/06/sub04}">트렌드 관리</a>
                 </div>
             </div>
         </div>
-        <div th:fragment="leftStores">
-            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-                <div class="list-group">
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/stores/01}">Store</a>
-                </div>
+    </div>
+    <div th:fragment="leftStores">
+        <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+            <div class="list-group">
+                <a class="leftMenu list-group-item" href="#" th:href="@{/stores/01}">Store</a>
             </div>
         </div>
-        <div th:fragment="leftArticle">
-            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-                <div class="list-group">
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/articles/01}">자유게시판</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/articles/02}">인증게시판</a>
-                </div>
+    </div>
+    <div th:fragment="leftArticle">
+        <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+            <div class="list-group">
+                <a class="leftMenu list-group-item" href="#" th:href="@{/articles/01}">자유게시판</a>
+                <a class="leftMenu list-group-item" href="#" th:href="@{/articles/02}">인증게시판</a>
             </div>
         </div>
-        <div th:fragment="leftQna">
-            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-                <div class="list-group">
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">공지사항</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">자주 묻는 질문</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">1:1문의</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 질문</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 주문</a>
-                    <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">회원혜택</a>
-                </div>
+    </div>
+    <div th:fragment="leftQna">
+        <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+            <div class="list-group">
+                <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">공지사항</a>
+                <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">자주 묻는 질문</a>
+                <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">1:1문의</a>
+                <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 질문</a>
+                <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">나의 주문</a>
+                <a class="leftMenu list-group-item" href="#" th:href="@{/qna/01}">회원혜택</a>
             </div>
         </div>
-        <div th:fragment="leftAdmin">
-            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-                <div class="list-group">
-                    <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/01}">상품분류관리</a>-->
-                    <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/02}">상품옵션관리</a>-->
-                    <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/03}">상품등록</a>-->
-                    <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/04}">상품관리</a>-->
-                    <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/05}">상품표시관리</a>-->
-                    <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/06}">판매분류관리</a>-->
-                    <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/07}">재고관리</a>-->
-                    <!-- 1차적으로 상품관리탭만 구현하고, 구현이 완료되면 리팩토링 후 주문관리 등 시스템 환경을 변경할 수 있게 탭을 추가할 것-->
-                    <div class="list-group-root well">
-                        <a class="leftMenu list-group-item" data-toggle="collapse" href="#item-1">
-                            <i class="glyphicon glyphicon-chevron-right"></i>상품분류관리
-                        </a>
-                        <div class="list-group collapse" id="item-1">
-                            <a class="list-group-item" href="#" th:href="@{/admin/01/sub01}">분류관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/01/sub02}">분류 환경설정</a>
-                        </div>
-                        <a class="list-group-item" data-toggle="collapse" href="#item-2">
-                            <i class="glyphicon glyphicon-chevron-right"></i>상품옵션관리
-                        </a>
-                        <div class="list-group collapse" id="item-2">
-                            <a class="list-group-item" href="#" th:href="@{/admin/02/sub01}">옵션 관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/02/sub02}">옵션세트 관리</a>
-                        </div>
-                        <a class="list-group-item" data-toggle="collapse" href="#item-3">
-                            <i class="glyphicon glyphicon-chevron-right"></i>상품등록
-                        </a>
-                        <div class="list-group collapse" id="item-3">
-                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub01}">간단 등록</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub02}">상품 등록</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub03}">엑셀 등록</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/03/sub04}">세트상품 등록</a>
-                        </div>
-                        <a class="list-group-item" data-toggle="collapse" href="#item-4">
-                            <i class="glyphicon glyphicon-chevron-right"></i>상품관리
-                        </a>
-                        <div class="list-group collapse" id="item-4">
-                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub01}">상품목록</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub02}">상품정보 일괄변경</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/04/sub03}">삭제상품 목록</a>
-                        </div>
-                        <a class="list-group-item" data-toggle="collapse" href="#item-5">
-                            <i class="glyphicon glyphicon-chevron-right"></i>상품표시관리
-                        </a>
-                        <div class="list-group collapse" id="item-5">
-                            <a class="list-group-item" href="#" th:href="@{/admin/05/sub01}">상품 진열관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/05/sub02}">상품 정보표시 설정</a>
-                        </div>
-                        <a class="list-group-item" data-toggle="collapse" href="#item-6">
-                            <i class="glyphicon glyphicon-chevron-right"></i>판매분류관리
-                        </a>
-                        <div class="list-group collapse" id="item-6">
-                            <a class="list-group-item" href="#" th:href="@{/admin/06/sub01}">제조사 관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/06/sub02}">공급사 관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/06/sub03}">브랜드 관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/06/sub04}">트렌드 관리</a>
-                        </div>
-                        <a class="list-group-item" data-toggle="collapse" href="#item-7">
-                            <i class="glyphicon glyphicon-chevron-right"></i>재고관리
-                        </a>
-                        <div class="list-group collapse" id="item-7">
-                            <a class="list-group-item" href="#" th:href="@{/admin/07/sub01}">상품재고 관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/07/sub02}">품절상품 관리</a>
-                            <a class="list-group-item" href="#" th:href="@{/admin/07/sub03}">안전재고 관리</a>
-                        </div>
+    </div>
+    <div th:fragment="leftAdmin">
+        <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+            <div class="list-group">
+                <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/01}">상품분류관리</a>-->
+                <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/02}">상품옵션관리</a>-->
+                <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/03}">상품등록</a>-->
+                <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/04}">상품관리</a>-->
+                <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/05}">상품표시관리</a>-->
+                <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/06}">판매분류관리</a>-->
+                <!--                    <a class="leftMenu list-group-item" href="#" th:href="@{/admin/07}">재고관리</a>-->
+                <!-- 1차적으로 상품관리탭만 구현하고, 구현이 완료되면 리팩토링 후 주문관리 등 시스템 환경을 변경할 수 있게 탭을 추가할 것-->
+                <div class="list-group-root well">
+                    <a class="leftMenu list-group-item" data-toggle="collapse" href="#item-1">
+                        <i class="glyphicon glyphicon-chevron-right"></i>상품분류관리
+                    </a>
+                    <div class="list-group collapse" id="item-1">
+                        <a class="list-group-item" href="#" th:href="@{/admin/01/sub01}">분류관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/01/sub02}">분류 환경설정</a>
+                    </div>
+                    <a class="list-group-item" data-toggle="collapse" href="#item-2">
+                        <i class="glyphicon glyphicon-chevron-right"></i>상품옵션관리
+                    </a>
+                    <div class="list-group collapse" id="item-2">
+                        <a class="list-group-item" href="#" th:href="@{/admin/02/sub01}">옵션 관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/02/sub02}">옵션세트 관리</a>
+                    </div>
+                    <a class="list-group-item" data-toggle="collapse" href="#item-3">
+                        <i class="glyphicon glyphicon-chevron-right"></i>상품등록
+                    </a>
+                    <div class="list-group collapse" id="item-3">
+                        <a class="list-group-item" href="#" th:href="@{/admin/03/sub01}">간단 등록</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/03/sub02}">상품 등록</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/03/sub03}">엑셀 등록</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/03/sub04}">세트상품 등록</a>
+                    </div>
+                    <a class="list-group-item" data-toggle="collapse" href="#item-4">
+                        <i class="glyphicon glyphicon-chevron-right"></i>상품관리
+                    </a>
+                    <div class="list-group collapse" id="item-4">
+                        <a class="list-group-item" href="#" th:href="@{/admin/04/sub01}">상품목록</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/04/sub02}">상품정보 일괄변경</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/04/sub03}">삭제상품 목록</a>
+                    </div>
+                    <a class="list-group-item" data-toggle="collapse" href="#item-5">
+                        <i class="glyphicon glyphicon-chevron-right"></i>상품표시관리
+                    </a>
+                    <div class="list-group collapse" id="item-5">
+                        <a class="list-group-item" href="#" th:href="@{/admin/05/sub01}">상품 진열관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/05/sub02}">상품 정보표시 설정</a>
+                    </div>
+                    <a class="list-group-item" data-toggle="collapse" href="#item-6">
+                        <i class="glyphicon glyphicon-chevron-right"></i>판매분류관리
+                    </a>
+                    <div class="list-group collapse" id="item-6">
+                        <a class="list-group-item" href="#" th:href="@{/admin/06/sub01}">제조사 관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/06/sub02}">공급사 관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/06/sub03}">브랜드 관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/06/sub04}">트렌드 관리</a>
+                    </div>
+                    <a class="list-group-item" data-toggle="collapse" href="#item-7">
+                        <i class="glyphicon glyphicon-chevron-right"></i>재고관리
+                    </a>
+                    <div class="list-group collapse" id="item-7">
+                        <a class="list-group-item" href="#" th:href="@{/admin/07/sub01}">상품재고 관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/07/sub02}">품절상품 관리</a>
+                        <a class="list-group-item" href="#" th:href="@{/admin/07/sub03}">안전재고 관리</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div th:fragment="leftProfile">
-            <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
-                <div class="list-group">
-                    <a class="leftMenu list-group-item" href="#" th:with="value='01'">개인정보변경</a>
-                    <a class="leftMenu list-group-item" href="#" th:with="value='02'">주문내역조회</a>
-                    <a class="leftMenu list-group-item" href="#" th:with="value='03'">구매후기</a>
-                    <a class="leftMenu list-group-item" href="#" th:with="value='04'">상품문의</a>
-                    <a class="leftMenu list-group-item" href="#" th:with="value='05'">1:1문의</a>
-                    <a class="leftMenu list-group-item" href="#" th:with="value='06'">최근본상품</a>
-                    <a class="leftMenu list-group-item" href="#" th:with="value='07'">좋아요</a>
-                    <a class="leftMenu list-group-item" href="#" th:with="value='08'">마이사이즈</a>
-                </div>
+    </div>
+    <div th:fragment="leftProfile">
+        <div class="col-sm-2 col-lg-2 col-md-2 col-xs-2">
+            <div class="list-group">
+                <a class="leftMenu list-group-item" href="#" th:with="value='01'">개인정보변경</a>
+                <a class="leftMenu list-group-item" href="#" th:with="value='02'">주문내역조회</a>
+                <a class="leftMenu list-group-item" href="#" th:with="value='03'">구매후기</a>
+                <a class="leftMenu list-group-item" href="#" th:with="value='04'">상품문의</a>
+                <a class="leftMenu list-group-item" href="#" th:with="value='05'">1:1문의</a>
+                <a class="leftMenu list-group-item" href="#" th:with="value='06'">최근본상품</a>
+                <a class="leftMenu list-group-item" href="#" th:with="value='07'">좋아요</a>
+                <a class="leftMenu list-group-item" href="#" th:with="value='08'">마이사이즈</a>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
 
 <!-- 백업 -->

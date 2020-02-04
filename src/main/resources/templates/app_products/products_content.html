@@ -1,602 +1,502 @@
 <!DOCTYPE html>
-<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="common/base :: common_header(~{::title},~{::link})">
     <meta charset="UTF-8"></meta>
     <title>Products</title>
 </head>
+
 <body>
-<form id="f1" name="f1"></form>
-<div th:fragment="products_content_01">
-    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
-        <h3>Best</h3>
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid2">
-                    <div class="product-image2">
-                        <a href="#">
-                            <img class="pic-1"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-1.jpeg">
-                            <img class="pic-2"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-2.jpeg">
-                        </a>
-                        <ul class="social">
-                            <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
-                            <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                        <a class="add-to-cart" href="">Add to cart</a>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Designer Top</a></h3>
-                        <span class="price">$599.99</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid2">
-                    <div class="product-image2">
-                        <a href="#">
-                            <img class="pic-1"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-3.jpeg">
-                            <img class="pic-2"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-4.jpeg">
-                        </a>
-                        <ul class="social">
-                            <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
-                            <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                        <a class="add-to-cart" href="">Add to cart</a>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Yellow Top</a></h3>
-                        <span class="price">$699.99</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid2">
-                    <div class="product-image2">
-                        <a href="#">
-                            <img class="pic-1"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-5.jpeg">
-                            <img class="pic-2"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-6.jpeg">
-                        </a>
-                        <ul class="social">
-                            <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
-                            <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                        <a class="add-to-cart" href="">Add to cart</a>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Designer Top</a></h3>
-                        <span class="price">$599.99</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid2">
-                    <div class="product-image2">
-                        <a href="#">
-                            <img class="pic-1"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-7.jpeg">
-                            <img class="pic-2"
-                                 src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-8.jpeg">
-                        </a>
-                        <ul class="social">
-                            <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
-                            <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                        <a class="add-to-cart" href="">Add to cart</a>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Women's Designer Top</a></h3>
-                        <span class="price">$599.99</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <h3>Sale</h3>
-        <div>
+    <form id="f1" name="f1"></form>
+    <div th:fragment="products_content_01">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>Best</h3>
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
+                    <div class="product-grid2">
+                        <div class="product-image2">
                             <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-1.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-2.jpg">
+                                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-1.jpeg">
+                                <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-2.jpeg">
                             </a>
                             <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-basket"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
+                                <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            <a class="add-to-cart" href="">Add to cart</a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
+                            <h3 class="title"><a href="#">Women's Designer Top</a></h3>
+                            <span class="price">$599.99</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
+                    <div class="product-grid2">
+                        <div class="product-image2">
                             <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-3.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-4.jpg">
+                                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-3.jpeg">
+                                <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-4.jpeg">
                             </a>
                             <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
+                                <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            <a class="add-to-cart" href="">Add to cart</a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a href="#">Women's Shirt</a></h3>
-                            <div class="price">$10.00 - $12.00</div>
+                            <h3 class="title"><a href="#">Women's Yellow Top</a></h3>
+                            <span class="price">$699.99</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
+                    <div class="product-grid2">
+                        <div class="product-image2">
                             <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-5.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-6.jpg">
+                                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-5.jpeg">
+                                <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-6.jpeg">
                             </a>
                             <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
+                                <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            <a class="add-to-cart" href="">Add to cart</a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
+                            <h3 class="title"><a href="#">Women's Designer Top</a></h3>
+                            <span class="price">$599.99</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
+                    <div class="product-grid2">
+                        <div class="product-image2">
                             <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-7.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-8.jpg">
+                                <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-7.jpeg">
+                                <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo3/images/img-8.jpeg">
                             </a>
                             <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a data-tip="Quick View" href="#"><i class="fa fa-eye"></i></a></li>
+                                <li><a data-tip="Add to Wishlist" href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a data-tip="Add to Cart" href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            <a class="add-to-cart" href="">Add to cart</a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
+                            <h3 class="title"><a href="#">Women's Designer Top</a></h3>
+                            <span class="price">$599.99</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-1.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-2.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-3.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-4.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Women's Shirt</a></h3>
-                            <div class="price">$10.00 - $12.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-5.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-6.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-7.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-8.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-1.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-2.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-3.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-4.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Women's Shirt</a></h3>
-                            <div class="price">$10.00 - $12.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-5.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-6.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="product-grid5">
-                        <div class="product-image5">
-                            <a href="#">
-                                <img class="pic-1"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-7.jpg">
-                                <img class="pic-2"
-                                     src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-8.jpg">
-                            </a>
-                            <ul class="social">
-                                <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
-                                <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
-                                <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                            <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
-                            <div class="price">$11.00 - $15.00</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-    </div>
-</div>
-
-<div th:fragment="products_content_02">
-    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
-        <h3>인증게시판</h3>
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>조회수</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>0</td>
-                <td>타이틀</td>
-                <td>콘텐츠</td>
-                <td>작성자</td>
-                <td>지금</td>
-                <td>0</td>
-            </tr>
-            </tbody>
-        </table>
-        <hr>
-        <a class="btn btn-default" href="#" th:href="@{/products/02/write(sendMenu='02')}">인증하기</a>
-        <div class="text-center">
-            <ul class="pagination">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div th:fragment="product_detail_01">
-    <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6 sis-center-col">
-        <h3>자유게시판</h3>
-        <form action="#" method="POST" role="form" th:action="@{/products/01/comment}">
-            <input id="seqNo" name="seqNo" th:value="${product.seqNo}" type="hidden"/>
-            <input id="articleCd" name="articleCd" th:value="${product.articleCd}" type="hidden"/>
-            <input id="articlePwd" name="articlePwd" th:value="${product.articlePwd}" type="hidden"/>
-            <div class="form-group" id="articleActDiv" th:if="${writer_yn} == 'Y'">
-                <a class="btn btn-info" href="#" id="articleUpdateBtn"
-                   th:href="@{/products/01/{seqNo}/update(seqNo=${product.seqNo}, sendMenu='U')}">수정</a>
-                <a class="btn btn-danger" href="#" id="articleDeleteBtn">삭제</a>
-                <!--         <a href="#" id="articleDeleteBtn" class="btn btn-danger" th:href="@{/products/01/{seqNo}/delete(seqNo=${product.seqNo}, sendMenu='D')}">삭제</a> -->
-                <script th:inline="javascript">
-                    /*<![CDATA[*/
-                    $("#articleDeleteBtn").click(function () {
-                        var sendData = {};
-
-                        sendData["seqNo"] = $("#seqNo").val();
-                        sendData["articleCd"] = $("#articleCd").val();
-                        console.log(sendData);
-                        $.ajax({
-                            type: "POST",
-                            contentType: "application/json",
-                            url: "/api/articleDelete",
-                            data: JSON.stringify(sendData),
-                            dataType: 'text',
-                            cache: false,
-                            timeout: 600000,
-                            success: function (data) {
-                                alert("게시글 삭제가 완료 되었습니다.");
-                                window.location = "http://localhost:8224/products/01";
-                            },
-                            error: function (e) {
-                                console.log("ERROR : ", e);
-                            }
-                        });
-                    });
-                    /*]]>*/
-                </script>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-6">
-                    <label for="title">제목</label>
-                    <!--           <div class="form-control" id="title" th:text="${product.title}"></div> -->
-                    <input class="form-control" id="title" name="title" th:value="${product.title}" type="text"/>
-                </div>
-                <div class="col-xs-3">
-                    <label for="title">작성자</label>
-                    <!--           <div class="form-control" id="userId" th:text="${product.userId}"></div> -->
-                    <input class="form-control" id="userId" name="userId" th:value="${product.userId}" type="text"/>
-                </div>
-                <div class="col-xs-3">
-                    <label for="title">작성일</label>
-                    <!--           <div class="form-control" id="regDate" th:text="${product.regDate}"></div> -->
-                    <input class="form-control" id="regDateStr" name="regDateStr" th:value="${product.regDateStr}"
-                           type="text"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="content">내용</label>
-                <!--         <div class="form-control pre-scrollable" id="content" style="height:300px;"> -->
-                <div class="form-control" id="content" name="content" style="height:auto; min-height:100px;">
-                </div>
-            </div>
-            <th:block th:if="${file != null}">
-                <div class="form-group">
-                    <label for="fileNm">첨부파일</label>
-                    <input class="form-control" disabled id="fileNm" name="fileNm"
-                           th:value="${file.fileNm}" type="text"/>
-                </div>
-            </th:block>
-            <hr>
-            <br>
-            <div class="form-group">
-                <div class="comments-list">
-                    <div class="media" th:each="comment: ${commentList}">
-                        <input id="commentNo" name="commentNo" th:value="${comment.commentNo}" type="hidden"/>
-                        <script th:inline="javascript">
-                            /*<![CDATA[*/
-                            $(function () {
-                                var classVar = [[${comment.seqNo}]];
-
-                                $('.' + classVar).each(function (index) {
-                                    var date = returnElapsedTime([[${comment.regDate}]]);
-                                    $(this).text(date);
-                                });
-                            });
-                            /*]]>*/
-                        </script>
-                        <p class="pull-right"><small th:classappend="${comment.seqNo}"></small></p>
-                        <a class="media-left media-top" href="#">
-                            <img class="media-object" height="40px" src="../../img/icon/img_avatar1.jpg" width="40px">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading user_name" th:text="${comment.userId}"></h4>
-                            <th:block th:text="${comment.comment}"></th:block>
-                            <p><small><a href="#">Like</a> - <a href="#">Share</a></small></p>
-                            <th:block
-                                    th:if="${session.loginedUser != null} and ${session.loginedUser.userId} == ${comment.userId}">
-                                <!--                 <button type="button" class="btn btn-info btn-xs media-bottom" th:if="${session.loginedUser.userId} == ${comment.userId}">수정</button> -->
-                                <button class="btn btn-danger btn-xs media-bottom commentDeleteBtn"
-                                        th:id="${comment.commentNo}"
-                                        type="button">삭제
-                                </button>
-                                <script th:inline="javascript">
-                                    /*<![CDATA[*/
-                                    $(".commentDeleteBtn").click(function () {
-                                        var sendData = {};
-                                        var seqNo = $("#seqNo").val();
-                                        sendData["articleCd"] = $("#articleCd").val();
-                                        sendData["userId"] = [[${comment.userId}]];
-                                        sendData["commentNo"] = $(this).attr('id');
-                                        $.ajax({
-                                            type: "POST",
-                                            contentType: "application/json",
-                                            url: "/api/commentDelete",
-                                            data: JSON.stringify(sendData),
-                                            dataType: 'text',
-                                            cache: false,
-                                            timeout: 600000,
-                                            success: function (data) {
-                                                alert("댓글 삭제가 완료 되었습니다.");
-                                                window.location.replace("http://localhost:8224/products/01/" + seqNo);
-                                            },
-                                            error: function (e) {
-                                                console.log("ERROR : ", e);
-                                            }
-                                        });
-                                    });
-                                    /*]]>*/
-                                </script>
-                                <br>
-                                <br>
-                            </th:block>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-10">
-                    <!--           <textarea class="form-control" rows="2" id="comment" style="resize:none;"></textarea> -->
-                    <input class="form-control" id="inputComment" name="inputComment" placeholder="댓글 달기..."
-                           type="text">
-                </div>
-                <div class="col-xs-2">
-                    <button class="btn btn-default btn-lg btn-block" type="submit">등록</button>
-                    <!--           <input type="submit" class="form-control btn btn-info" value="등록"/> -->
                 </div>
             </div>
             <hr>
-            <div class="form-group row" style="text-align:center;">
-                <div class="col-xs-4">
-                    <div class="sis-center-col" style="display:block;">
-                        <button class="btn btn-warning" type="button">이전글</button>
+            <h3>Sale</h3>
+            <div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-1.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-2.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-basket"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-3.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-4.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Women's Shirt</a></h3>
+                                <div class="price">$10.00 - $12.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-5.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-6.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-7.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-8.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xs-4">
-                    <div class="sis-center-col" style="display:block;">
-                        <input class="btn btn-warning" th:onclick="|javascript:movePage('/products/01')|" type="button"
-                               value="목록으로"/>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-1.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-2.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-3.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-4.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Women's Shirt</a></h3>
+                                <div class="price">$10.00 - $12.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-5.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-6.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-7.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-8.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xs-4">
-                    <div class="sis-center-col" style="display:block;">
-                        <input class="btn btn-warning" type="button" value="다음글"/>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-1.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-2.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-3.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-4.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Women's Shirt</a></h3>
+                                <div class="price">$10.00 - $12.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-5.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-6.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-grid5">
+                            <div class="product-image5">
+                                <a href="#">
+                                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-7.jpg">
+                                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-8.jpg">
+                                </a>
+                                <ul class="social">
+                                    <li><a data-tip="Quick View" href=""><i class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Add to Wishlist" href=""><i class="fa fa-shopping-bag"></i></a></li>
+                                    <li><a data-tip="Add to Cart" href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <a class="select-options" href="#"><i class="fa fa-arrow-right"></i> Select Options</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Men's Sweat Shirt</a></h3>
+                                <div class="price">$11.00 - $15.00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <script th:inline="javascript">
-                /*<![CDATA[*/
-                $(function () {
-                    var Value = [[${product.content}]];
-                    $('#content').append(Value);
-                });
-                /*]]>*/
-            </script>
-        </form>
-        <br>
+            <hr>
+        </div>
     </div>
-</div>
+
+    <div th:fragment="products_content_02_sub01">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>반팔티셔츠</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub02">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>긴팔티셔츠</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub03">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>민소매티셔츠</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub04">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>셔츠/블라우스</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub05">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>피케/카라티셔츠</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub06">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>맨투맨/스웨트셔츠</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub07">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>후드스웨트셔츠/후드집업</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub08">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>니트/스웨터/카디건</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub09">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>베스트</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div th:fragment="products_content_02_sub10">
+        <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+            <h3>기타</h3>
+            <div class="row">
+                <ul id="sortable">
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 </html>
