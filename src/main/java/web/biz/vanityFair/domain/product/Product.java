@@ -208,7 +208,7 @@ public class Product {
     @Column(columnDefinition = "varchar(100)")
     private String excludeMemberDiscount;
 
-    //제조일자
+    // 제조일자
     @Column(columnDefinition = "varchar(8)")
     private String manufactureDate;
 
