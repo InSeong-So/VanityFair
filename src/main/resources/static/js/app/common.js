@@ -146,12 +146,12 @@ function fileUpload() {
 }
 
 // 스마트 에디터 폼
-function callSmartEditor() {
+function callSmartEditor(idVal) {
     var editor_object = [];
     // 스마트 에디터 생성 함수
     nhn.husky.EZCreator.createInIFrame({
         oAppRef: editor_object,
-        elPlaceHolder: "content", // content 는 스마트에디터가 추가될 텍스트 에어리어
+        elPlaceHolder: idVal, // content 는 스마트에디터가 추가될 텍스트 에어리어
         sSkinURI: "/editor/SmartEditor2Skin.html",
         htParams: {
             bUseToolbar: true, // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
@@ -168,7 +168,7 @@ function callSmartEditor() {
 
     $("#editorSubmitBtn").click(function () {
         // newContents 테스트 에어리어의 value로 내용 담아주는 함수
-        editor_object.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+        editor_object.getById[idVal].exec("UPDATE_CONTENTS_FIELD", []);
         $("#editor_form").submit();
     });
 }

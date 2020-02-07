@@ -35,23 +35,60 @@
         </div>
         <script th:inline="javascript">
             /*<![CDATA[*/
-            function LoadPage() {
+            function LoadPage()
+            {
                 var Value = [[${leftMenu}]];
                 /*************************************************************************************************************/
-                $('.list-group-item').on('click', function() {
-                    $('.glyphicon', this)
-                        .toggleClass('glyphicon-chevron-right')
-                        .toggleClass('glyphicon-chevron-down')
-                        .addClass('active');
+                $('.list-group-item').on('click', function()
+                {
+                  $largeCategory = $(this).attr("id");
+                  
+                  switch($largeCategory)
+                  {
+                    case "largeCategory_1":
+                    {
+                      $(".middleCategory").css("display", "none");
+                      $("#ifTop").show();
+                    }
+                    break;
+                    case "largeCategory_2":
+                    {
+                      $(".middleCategory").css("display", "none");
+                      $("#ifBottom").show();
+                    }
+                    break;
+                    case "largeCategory_3":
+                    {
+                      $(".middleCategory").css("display", "none");
+                      $("#ifOuter").show();
+                    }
+                    break;
+                    case "largeCategory_4":
+                    {
+                      $(".middleCategory").css("display", "none");
+                      $("#ifDress").show();
+                    }
+                    break;
+                    case "largeCategory_5":
+                    {
+                      $(".middleCategory").css("display", "none");
+                      $("#ifACC").show();
+                    }
+                    break;
+                    default:
+                    {
+                      $('.glyphicon', this).toggleClass('glyphicon-chevron-right').toggleClass('glyphicon-chevron-down').addClass('active');
+                    }
+                    break;
+                  }
                 });
 
                 $("#sortable").sortable();
                 $("#sortable").disableSelection();
 
-                callSmartEditor();
+                callSmartEditor('longDesc');
                 /*************************************************************************************************************/
             }
-
             /*]]>*/
         </script>
     </div>
