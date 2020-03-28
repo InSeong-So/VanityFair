@@ -457,4 +457,20 @@ public class SisStringUtil
         SisStringUtil.size = size;
         return init();
     }
+    
+    /**
+     * 파일 확장자를 구하는 메소드
+     * 
+     * @param fileName
+     * @return
+     */
+    public static String getExtString(String fileName)
+    {
+        String fileExtension = "";
+        if (fileName.indexOf(".") > -1)
+        {
+            fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1);
+        }
+        return fileExtension.toLowerCase();
+    }
 }

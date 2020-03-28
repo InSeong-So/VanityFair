@@ -41,36 +41,41 @@
                 /*************************************************************************************************************/
                 $('.list-group-item').on('click', function()
                 {
-                  $largeCategory = $(this).attr("id");
+                  var $largeCategory = $(this).attr("id");
                   
                   switch($largeCategory)
                   {
                     case "largeCategory_1":
                     {
+                      $("#largeCategory").val("largeCategory_1");
                       $(".middleCategory").css("display", "none");
                       $("#ifTop").show();
                     }
                     break;
                     case "largeCategory_2":
                     {
+                      $("#largeCategory").val("largeCategory_2");
                       $(".middleCategory").css("display", "none");
                       $("#ifBottom").show();
                     }
                     break;
                     case "largeCategory_3":
                     {
+                      $("#largeCategory").val("largeCategory_3");
                       $(".middleCategory").css("display", "none");
                       $("#ifOuter").show();
                     }
                     break;
                     case "largeCategory_4":
                     {
+                      $("#largeCategory").val("largeCategory_4");
                       $(".middleCategory").css("display", "none");
                       $("#ifDress").show();
                     }
                     break;
                     case "largeCategory_5":
                     {
+                      $("#largeCategory").val("largeCategory_5");
                       $(".middleCategory").css("display", "none");
                       $("#ifACC").show();
                     }
@@ -81,6 +86,12 @@
                     }
                     break;
                   }
+                  
+                  if($largeCategory.indexOf("middleCategory") != -1)
+                  {
+                    $("#middleCategory").val($largeCategory);
+                  }
+                  
                 });
 
                 $("#sortable").sortable();

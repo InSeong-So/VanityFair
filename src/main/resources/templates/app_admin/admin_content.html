@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <form id="f1" name="f1"></form>
     <div th:fragment="admin_status">
         <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
             <h2>쇼핑몰 관리 - 상품</h2>
@@ -183,6 +182,7 @@
     </div>
 
     <div th:fragment="admin_content_03_sub02">
+      <form name="f1" id="f1" onsubmit="return false;">
         <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
             <h3>상품 등록</h3>
             <div id="signupbox" style="margin-top:50px; margin-bottom:100px;">
@@ -276,6 +276,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
+                                                  <input type="hidden" id="largeCategory" name="largeCategory">
                                                   <a class="list-group-item largeCategory" id="largeCategory_1">
                                                       <i class="glyphicon"></i>Top
                                                   </a>
@@ -294,193 +295,154 @@
                                                 </td>
                                                 <td>
                                                   <div class="middleCategory" id="ifTop" style="display:none;">
-                                                    <a class="list-group-item">
+                                                    <input type="hidden" id="middleCategory" name="middleCategory">
+                                                    <a class="list-group-item" id="middleCategory_1">
                                                         <i class="glyphicon"></i>반팔티셔츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_2">
                                                         <i class="glyphicon"></i>긴팔티셔츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_3">
                                                         <i class="glyphicon"></i>민소매티셔츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_4">
                                                         <i class="glyphicon"></i>셔츠/블라우스
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_5">
                                                         <i class="glyphicon"></i>피케/카라티셔츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_6">
                                                         <i class="glyphicon"></i>맨투맨/스웨트셔츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_7">
                                                         <i class="glyphicon"></i>후드스웨트셔츠/집업
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_8">
                                                         <i class="glyphicon"></i>니트/스웨트/카디건
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_9">
                                                         <i class="glyphicon"></i>베스트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_10">
                                                         <i class="glyphicon"></i>기타
                                                     </a>
                                                   </div>
                                                   <div class="middleCategory" id="ifBottom" style="display:none;">
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_11">
                                                         <i class="glyphicon"></i>데님팬츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_12">
                                                         <i class="glyphicon"></i>코튼팬츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_13">
                                                         <i class="glyphicon"></i>수트팬츠/슬랙스
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_14">
                                                         <i class="glyphicon"></i>미디스커트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_15">
                                                         <i class="glyphicon"></i>레깅스
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_16">
                                                         <i class="glyphicon"></i>트레이닝/조거팬츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_17">
                                                         <i class="glyphicon"></i>숏팬츠
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_18">
                                                         <i class="glyphicon"></i>롱스커트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_19">
                                                         <i class="glyphicon"></i>미니스커트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_20">
                                                         <i class="glyphicon"></i>기타
                                                     </a>
                                                   </div>
                                                   <div class="middleCategory" id="ifOuter" style="display:none;">
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_21">
                                                         <i class="glyphicon"></i>블루종/MA-1
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_22">
                                                         <i class="glyphicon"></i>트러커재킷
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_23">
                                                         <i class="glyphicon"></i>나일론/코치/아노락재킷
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_24">
                                                         <i class="glyphicon"></i>환절기코트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_25">
                                                         <i class="glyphicon"></i>겨울기타고트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_26">
                                                         <i class="glyphicon"></i>숏패딩/숏헤비아우터
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_27">
                                                         <i class="glyphicon"></i>사파리/헌팅재킷
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_28">
                                                         <i class="glyphicon"></i>레더/라이더스재킷
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_29">
                                                         <i class="glyphicon"></i>수트/블레이저재킷
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_30">
                                                         <i class="glyphicon"></i>스타디움재킷
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_31">
                                                         <i class="glyphicon"></i>겨울싱글코트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_32">
                                                         <i class="glyphicon"></i>롱패딩/롱헤비아우터
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_33">
                                                         <i class="glyphicon"></i>패딩베스트
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_34">
                                                         <i class="glyphicon"></i>기타
                                                     </a>
                                                   </div>
                                                   <div class="middleCategory" id="ifDress" style="display:none;">
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_35">
                                                         <i class="glyphicon"></i>미니원피스
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_36">
                                                         <i class="glyphicon"></i>미디원피스
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_37">
                                                         <i class="glyphicon"></i>맥시원피스
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_38">
                                                         <i class="glyphicon"></i>점프수트
                                                     </a>
                                                   </div>
                                                   <div class="middleCategory" id="ifACC" style="display:none;">
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_39">
                                                         <i class="glyphicon"></i>가방
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_40">
                                                         <i class="glyphicon"></i>신발
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_41">
                                                         <i class="glyphicon"></i>시계
                                                     </a>
-                                                    <a class="list-group-item">
+                                                    <a class="list-group-item" id="middleCategory_42">
                                                         <i class="glyphicon"></i>액세서리
                                                     </a>
                                                   </div>
                                                 </td>
                                                 <td>
-                                                  <div class="smallCategory" id="" name="" style="display:block;">
-                                                    <select class="list-group-item form-control" id="company">
-                                                      <option value="" selected disabled hidden>브랜드선택</option>
-                                                      <option>small</option>
-                                                      <option>medium</option>
-                                                      <option>large</option>
-                                                    </select>
-                                                    <select class="list-group-item form-control" id="company">
-                                                      <option value="" selected disabled hidden>계절상품선택</option>
-                                                      <option>small</option>
-                                                      <option>medium</option>
-                                                      <option>large</option>
-                                                    </select>
+                                                  <div class="smallCategory" style="display:block;">
+                                                    <select class="form-control" id="ifBrand"></select>
+                                                    <select class="form-control" id="ifSeason"></select>
                                                   </div>
                                                 </td>
                                                 <td>
-                                                  <div class="detailCategory" id="" name="" style="display:block;">
-                                                    <select class="list-group-item form-control" id="company">
-                                                      <option value="" selected disabled hidden>사이즈선택</option>
-                                                      <option>FREE</option>
-                                                      <option>S</option>
-                                                      <option>M</option>
-                                                      <option>L</option>
-                                                      <option>XL</option>
-                                                      <option>XXL</option>
-                                                    </select>
-                                                    <select class="list-group-item form-control" id="company">
-                                                      <option value="" selected disabled hidden>재질선택</option>
-                                                      <option>면</option>
-                                                      <option>울</option>
-                                                      <option>폴리</option>
-                                                      <option>나일론</option>
-                                                      <option>기모</option>
-                                                      <option>린넨</option>
-                                                      <option>니트</option>
-                                                      <option>데님</option>
-                                                      <option>가죽</option>
-                                                    </select>
-                                                    <select class="list-group-item form-control" id="company">
-                                                      <option value="" selected disabled hidden>색상선택</option>
-                                                      <option data-selectr-color="rgb(0, 163, 0)" value="bacon">Bacon</option>
-                                                      <option data-selectr-color="rgb(255, 0, 151)" value="eggs">Eggs</option>
-                                                      <option data-selectr-color="rgb(159, 0, 167)" value="toast">Toast</option>
-                                                      <option data-selectr-color="rgb(185, 29, 71)" value="oatmeal">Oatmeal</option>
-                                                      <option data-selectr-color="rgb(227, 162, 26)" value="steak">Steak</option>
-                                                      <option data-selectr-color="rgb(218, 83, 44)" value="sausage">Sausage</option>
-                                                      <option data-selectr-color="rgb(45, 137, 239)" value="fruit">Fresh Fruit</option>
-                                                      <option data-selectr-color="rgb(96, 60, 186)" value="coffee">Coffee</option>
-                                                      <option data-selectr-color="rgb(0, 171, 169)" value="milk">Milk</option>
-                                                    </select>
+                                                  <div class="detailCategory" style="display:block;">
+                                                    <select class="form-control" id="ifSize"></select>
+                                                    <select class="form-control" id="ifMaterial"></select>
+                                                    <select class="form-control" id="ifColor"></select>
                                                   </div>
                                                 </td>
                                             </tr>
@@ -513,26 +475,64 @@
                             </div>
                             <script th:inline="javascript">
                                 /*<![CDATA[*/
-                                $("#productRegist").click(function() {
-                                    var sendData = {};
+                                var allSelOpt = new Array();
+                                
+                                allSelOpt[0] = new Array('내셔널지오그래픽','칼하트','아디다스','퓨마','나이키','발렌시아가');
+                                allSelOpt[1] = new Array('봄','여름','가을','겨울','사계절');
+                                allSelOpt[2] = new Array('FREE','S','M','L','XL','XXL');
+                                allSelOpt[3] = new Array('면','울','폴리','나일론','기모','린넨','니트','데님','가죽');
+                                allSelOpt[4] = new Array('검은색','흰색','파란색','남색','초록색','빨간색');
+                                
+                                init("f1");
+                                
+                                function init(formName)
+                                {
+                                  var formName = document.getElementById(formName);
+                                  console.log(formName);
+                                  var ifBrand = formName.ifBrand;
+                                  var ifSeason = formName.ifSeason;
+                                  var ifSize = formName.ifSize;
+                                  var ifMaterial = formName.ifMaterial;
+                                  var ifColor = formName.ifColor;
+                                  
+                                  ifBrand.options[0] = new Option("선택", "");
+                                  ifSeason.options[0] = new Option("선택", "");
+                                  ifSize.options[0] = new Option("선택", "");
+                                  ifMaterial.options[0] = new Option("선택", "");
+                                  ifColor.options[0] = new Option("선택", "");
+                                  
+                                  for(var i = 0; i < allSelOpt.length; i++)
+                                  {
+                                    for(var r = 0; r < allSelOpt[i].length; r++)
+                                    {
+                                      ifBrand.options[i+1] = new Option(allSelOpt[i][r], allSelOpt[i][r]);
+                                    }
+                                  }
+                                }
 
-                                    sendData["userNm"] = $("#userNm").val();
+                                  $("#productRegist").click(function()
+                                {
+                                    var sendData = {};
+                                    
+                                    sendData["productNM"] = $("#userNm").val();
                                     sendData["userPhoneNumber"] = $("#userPhoneNumber").val();
                                     sendData["userZipCd"] = $("#userZipCd").val();
                                     sendData["userAddr"] = $("#userAddr").val();
                                     sendData["userDtlAddr"] = $("#userDtlAddr").val();
+                                    sendData["largeCategory"] = $("#largeCategory").val();
+                                    sendData["middleCategory"] = $("#middleCategory").val();
 
                                     $.ajax({
                                         type: "POST",
                                         contentType: "application/json",
-                                        url: "/api/profileUpdate",
+                                        url: "/api/productRegist",
                                         data: JSON.stringify(sendData),
                                         dataType: 'text',
                                         cache: false,
                                         timeout: 600000,
                                         success: function(data) {
-                                            alert("프로필이 업데이트 되었습니다.");
-                                            window.location = "http://localhost:8224/myprofile/01";
+//                                             alert("프로필이 업데이트 되었습니다.");
+//                                             window.location = "http://localhost:8224/myprofile/01";
                                         },
                                         error: function(e) {
                                             console.log("ERROR : ", e);
@@ -546,7 +546,7 @@
                 </div>
             </div>
         </div>
-    </div>
+      </form>
     </div>
 
     <div th:fragment="admin_content_03_sub03">

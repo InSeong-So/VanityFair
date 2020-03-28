@@ -38,6 +38,8 @@ public class AdminController extends SisExtends {
                 break;
             case "03":
                 log.info("상품등록 메뉴");
+                log.info("params[0]" + adminNumber);
+                log.info("params[1]" + adminSubNumber);
                 break;
             case "04":
                 log.info("상품관리 메뉴");

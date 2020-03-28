@@ -152,7 +152,7 @@ function callSmartEditor(idVal) {
     nhn.husky.EZCreator.createInIFrame({
         oAppRef: editor_object,
         elPlaceHolder: idVal, // content 는 스마트에디터가 추가될 텍스트 에어리어
-        sSkinURI: "/editor/SmartEditor2Skin.html",
+        sSkinURI: "/navereditor/SmartEditor2Skin.html",
         htParams: {
             bUseToolbar: true, // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
             bUseVerticalResizer: true, // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
