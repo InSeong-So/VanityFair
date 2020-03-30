@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<html layout:decorate="~{common/layout}" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="common/base :: common_header(~{::title},~{::link})">
     <meta charset="UTF-8"></meta>
@@ -7,102 +8,114 @@
 </head>
 
 <body>
-    <form id="f1" name="f1"></form>
-    <div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
-        <div class="container-fluid">
-            <div th:replace="layout/left :: leftAdmin"></div>
-            <div th:replace="${leftMenu} == 'status' ? ~{app_admin/admin_content :: admin_status} : _"></div>
-            <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_01_sub01} : _"></div>
-            <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_01_sub02} : _"></div>
-            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_02_sub01} : _"></div>
-            <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_02_sub02} : _"></div>
-            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_03_sub01} : _"></div>
-            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_03_sub02} : _"></div>
-            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_03_sub03} : _"></div>
-            <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_03_sub04} : _"></div>
-            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_04_sub01} : _"></div>
-            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_04_sub02} : _"></div>
-            <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_04_sub03} : _"></div>
-            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_05_sub01} : _"></div>
-            <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_05_sub02} : _"></div>
-            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_06_sub01} : _"></div>
-            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_06_sub02} : _"></div>
-            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_06_sub03} : _"></div>
-            <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_06_sub04} : _"></div>
-            <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_07_sub01} : _"></div>
-            <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_07_sub02} : _"></div>
-            <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_07_sub03} : _"></div>
-        </div>
-        <script th:inline="javascript">
-            /*<![CDATA[*/
-            function LoadPage()
-            {
-                var Value = [[${leftMenu}]];
-                /*************************************************************************************************************/
-                $('.list-group-item').on('click', function()
-                {
-                  var $largeCategory = $(this).attr("id");
-                  
-                  switch($largeCategory)
-                  {
-                    case "largeCategory_1":
-                    {
-                      $("#largeCategory").val("largeCategory_1");
-                      $(".middleCategory").css("display", "none");
-                      $("#ifTop").show();
-                    }
-                    break;
-                    case "largeCategory_2":
-                    {
-                      $("#largeCategory").val("largeCategory_2");
-                      $(".middleCategory").css("display", "none");
-                      $("#ifBottom").show();
-                    }
-                    break;
-                    case "largeCategory_3":
-                    {
-                      $("#largeCategory").val("largeCategory_3");
-                      $(".middleCategory").css("display", "none");
-                      $("#ifOuter").show();
-                    }
-                    break;
-                    case "largeCategory_4":
-                    {
-                      $("#largeCategory").val("largeCategory_4");
-                      $(".middleCategory").css("display", "none");
-                      $("#ifDress").show();
-                    }
-                    break;
-                    case "largeCategory_5":
-                    {
-                      $("#largeCategory").val("largeCategory_5");
-                      $(".middleCategory").css("display", "none");
-                      $("#ifACC").show();
-                    }
-                    break;
-                    default:
-                    {
-                      $('.glyphicon', this).toggleClass('glyphicon-chevron-right').toggleClass('glyphicon-chevron-down').addClass('active');
-                    }
-                    break;
-                  }
-                  
-                  if($largeCategory.indexOf("middleCategory") != -1)
-                  {
-                    $("#middleCategory").val($largeCategory);
-                  }
-                  
-                });
-
-                $("#sortable").sortable();
-                $("#sortable").disableSelection();
-
-                callSmartEditor('longDesc');
-                /*************************************************************************************************************/
-            }
-            /*]]>*/
-        </script>
+<form id="f1" name="f1"></form>
+<div layout:fragment="content" style="overflow:auto; position: relative; min-height:580px;">
+    <div class="container-fluid">
+        <div th:replace="layout/left :: leftAdmin"></div>
+        <div th:replace="${leftMenu} == 'status' ? ~{app_admin/admin_content :: admin_status} : _"></div>
+        <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_01_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '01' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_01_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_02_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '02' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_02_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_03_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_03_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_03_sub03} : _"></div>
+        <div th:replace="${leftMenu} == '03' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_03_sub04} : _"></div>
+        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_04_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_04_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '04' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_04_sub03} : _"></div>
+        <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_05_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '05' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_05_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_06_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_06_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_06_sub03} : _"></div>
+        <div th:replace="${leftMenu} == '06' and ${subMenu} == 'sub04' ? ~{app_admin/admin_content :: admin_content_06_sub04} : _"></div>
+        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub01' ? ~{app_admin/admin_content :: admin_content_07_sub01} : _"></div>
+        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub02' ? ~{app_admin/admin_content :: admin_content_07_sub02} : _"></div>
+        <div th:replace="${leftMenu} == '07' and ${subMenu} == 'sub03' ? ~{app_admin/admin_content :: admin_content_07_sub03} : _"></div>
     </div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        $(document).ready(function () {
+            var para = document.location.href.split("?");
+
+            console.log(para);
+
+            // $.ajax({
+            //     type: "POST",
+            //     contentType: "application/json",
+            //     url: "/api/pageInit",
+            //     data: JSON.stringify(sendData),
+            //     dataType: 'text',
+            //     cache: false,
+            //     timeout: 600000,
+            //     success: function (data) {
+            //     },
+            //     error: function (e) {
+            //         console.log("ERROR : ", e);
+            //     }
+            // });
+        });
+
+        function LoadPage() {
+            var Value = [[${leftMenu}]];
+            /*************************************************************************************************************/
+            $('.list-group-item').on('click', function () {
+                var $largeCategory = $(this).attr("id");
+
+                switch ($largeCategory) {
+                    case "largeCategory_1": {
+                        $("#largeCategory").val("largeCategory_1");
+                        $(".middleCategory").css("display", "none");
+                        $("#ifTop").show();
+                    }
+                        break;
+                    case "largeCategory_2": {
+                        $("#largeCategory").val("largeCategory_2");
+                        $(".middleCategory").css("display", "none");
+                        $("#ifBottom").show();
+                    }
+                        break;
+                    case "largeCategory_3": {
+                        $("#largeCategory").val("largeCategory_3");
+                        $(".middleCategory").css("display", "none");
+                        $("#ifOuter").show();
+                    }
+                        break;
+                    case "largeCategory_4": {
+                        $("#largeCategory").val("largeCategory_4");
+                        $(".middleCategory").css("display", "none");
+                        $("#ifDress").show();
+                    }
+                        break;
+                    case "largeCategory_5": {
+                        $("#largeCategory").val("largeCategory_5");
+                        $(".middleCategory").css("display", "none");
+                        $("#ifACC").show();
+                    }
+                        break;
+                    default: {
+                        $('.glyphicon', this).toggleClass('glyphicon-chevron-right').toggleClass('glyphicon-chevron-down').addClass('active');
+                    }
+                        break;
+                }
+
+                if ($largeCategory.indexOf("middleCategory") != -1) {
+                    $("#middleCategory").val($largeCategory);
+                }
+
+            });
+
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+
+            callSmartEditor('longDesc');
+            /*************************************************************************************************************/
+        }
+
+        /*]]>*/
+    </script>
+</div>
 </body>
 
 </html>
